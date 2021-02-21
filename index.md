@@ -8,7 +8,7 @@
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 2 Title](/pdf/Hudanyun_Sheng_master_thesis.pdf)
+[Master thesis: ](/pdf/HudanyunSheng_master_thesis.pdf)
 
 ---
 [Project 3 Title](http://example.com/)
