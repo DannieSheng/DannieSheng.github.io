@@ -17,4 +17,4 @@ footer:
   - label: "mail"
   - icon: "/images/email.png"
   - url: "mailto:hudanyun.sheng@gmail.com"
-theme: minimal-mistakes-jekyll
+theme: jekyll-theme-minimal
