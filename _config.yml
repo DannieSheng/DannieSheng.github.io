@@ -6,7 +6,9 @@ description: >
   <br><br>
   Email: <a href="mailto:hudanyun.sheng@gmail.com">hudanyun.sheng@gmail.com</a>
   <br><br>
-  <"/images/email.png">: <a href="mailto:hudanyun.sheng@gmail.com">hudanyun.sheng@gmail.com</a>
+  - label: "mail"
+  - icon: "/images/email.png"
+  - url: "mailto:hudanyun.sheng@gmail.com"
   <br><br>
   Phone: 352-281-3829
   <br><br>
