@@ -16,10 +16,10 @@ Use aluminum foil instead of paper
 Preheat to 392F (200C)
 
 ### Steps
-1. Mix dry ingridents
+1. Mix dry ingredients
 2. Mix with coconut oil (use hand)
 3. Add liquid
 4. Add dried cranberries and/or chocolate chips
-5. Make about 1.5cm thich scones
+5. Make about 1.5 cm thick scones
 6. (optional) Brush smashed egg on every scone
-7. Bake for 15 minues
+7. Bake for 15 minutes
