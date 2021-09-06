@@ -53,3 +53,9 @@ Skilled. Synonyms include handy, clever, able, deft, expert, dexterous, proficie
 Latin adeptus, an alchemist who has learned how to do the impossible - change base metals into gold. The noun an adept
 means a highly skilled person, an expert. The adjective adept means skilled, dexterous, proficient: "He was adept at 
 managing his investments, and they always turned a handsome profit."
+
+## saturated
+Soaked, thoroughly wet, full of moisture. Synonyms include drenched, steeped, permeated, impregnated, imbued, and 
+sodden. Sodden may mean heavy with moisture, soggy, or dull, stupefied, expressionless, as from drinking too much 
+liquor. To saturate means to soak or wet thoroughly, either literally, as in "My french fries are saturated with oil," 
+or figuratively:"The company saturated the media with ads for its new project." Saturation is the corresponding noun. 
