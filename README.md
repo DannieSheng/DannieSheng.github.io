@@ -1,4 +1,5 @@
 ## Hi, I'm Hudanyun Sheng (Dannie) 👋👩‍💻
+I am a Data Scientist. 
 
 
 ### Find me around the web:
