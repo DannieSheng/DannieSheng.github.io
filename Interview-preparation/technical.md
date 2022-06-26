@@ -1,4 +1,9 @@
 # Data Science
+* [Basic Data Science](#basic-data-science)
+* [Statistics](#statistics)
+* [Data Analysis](#data-analysis)
+* [Machine Learning](#machine-learning)
+* [Deep Learning]()
 
 ## Basic Data Science
 ### What is Selection Bias?
@@ -132,3 +137,5 @@ Ensemble Learning is basically combining a diverse set of learners (Individual m
     By not making assumptions, they are free to learn any functional form from the training data.
     Nonparametric does not mean that they have no parameters. 
     On the contrary, nonparametric models (can) become more and more complex with an increasing amount of data.
+    
+## Deep Learning
