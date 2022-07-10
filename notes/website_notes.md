@@ -5,3 +5,5 @@
 ### [Change theme color](https://www.youtube.com/watch?v=-ob7qknokTM)
 ### [Website templates & ideas](https://blog.prototypr.io/25-best-free-personal-website-templates-and-resources-8c4101761ba)
 ### [50 Personal Website Design](https://www.mockplus.com/blog/post/personal-website-design-examples/?r=trista)
+### [John Doe — Free Responsive HTML5 One Page Template.](https://themewagon.com/themes/johndoe-free-one-page-portfolio-website-template/)
+[Example](http://mrd-global.net/)
