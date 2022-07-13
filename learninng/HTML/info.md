@@ -8,9 +8,9 @@
 ### HTML (HyperText Markup Language)  
 1. Elements and Structure
   - [Cheatsheet](./HTMLCheatsheet_%20Elements%20and%20Structure.pdf)
-  - [Project: Fashion Blog](https://www.codecademy.com/courses/learn-html/projects/html-fashion-blog)
+  - [ ] [Project: Fashion Blog](https://www.codecademy.com/courses/learn-html/projects/html-fashion-blog)
 2. Tables
   - [Cheatsheet](./HTMLCheatsheet_%20Tables%20.pdf)
-  - [Project: Wine Festival Schedule](https://www.codecademy.com/courses/learn-html/projects/html-wine-festival-schedule)
+  - [x] [Project: Wine Festival Schedule](https://www.codecademy.com/courses/learn-html/projects/html-wine-festival-schedule)
 3. 
 #### CSS (Cascading Style Sheets)
