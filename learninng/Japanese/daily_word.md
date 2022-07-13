@@ -3,3 +3,4 @@
 3. ボタン button
 4. ファースト　フード　fast food
 5. 授業「じゅぎょう」 class (n.)
+6. 
