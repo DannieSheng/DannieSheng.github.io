@@ -12,5 +12,8 @@
 2. Tables
   - [Cheatsheet](./HTMLCheatsheet_%20Tables%20.pdf)
   - [x] [Project: Wine Festival Schedule](https://www.codecademy.com/courses/learn-html/projects/html-wine-festival-schedule)
-3. 
+3. Forms
+  - [Cheatsheet](./HTMLCheatsheet_%20Forms.pdf)
+  - [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+4. 
 #### CSS (Cascading Style Sheets)
