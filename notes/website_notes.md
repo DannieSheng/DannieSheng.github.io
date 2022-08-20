@@ -7,3 +7,8 @@
 ### [50 Personal Website Design](https://www.mockplus.com/blog/post/personal-website-design-examples/?r=trista)
 ### [John Doe — Free Responsive HTML5 One Page Template.](https://themewagon.com/themes/johndoe-free-one-page-portfolio-website-template/)
 [Example](http://mrd-global.net/)
+
+- [x] personal background image: ../img/header-bg.jpg in style.css  
+- [ ] logo showing:   
+  here in index.html "link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon"  
+

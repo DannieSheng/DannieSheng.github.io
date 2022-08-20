@@ -87,6 +87,7 @@ audio:not([controls]) {
 [hidden] {
 	display: none;
 }
+
 /* ==========================================================================Base========================================================================== */
 html {
 	font-size:100%;
@@ -476,14 +477,19 @@ table {
 	margin:0;
 	padding:0;
 	opacity:0.5;
-	color: #E04343;
-	letter-spacing: 18px;
+	/*color: #E04343;*/
+	color:#f7f3f3;
+	letter-spacing: 5px;
 	line-height: 50px;
+	font-weight: 700;
 	text-transform: uppercase;
 }
 .hero p {
 	letter-spacing:1px;
-	color:#fff;
+	/*color:#fff; white
+	color:#FFE800; yellow;*/
+	color: #E04343; /*red*/
+	font-weight: 700;
 	font-size: 15px;
 }
 /* Boucing Arrow Animation */
@@ -539,6 +545,7 @@ table {
 	padding: 150px 0px 0px 0px;
 	display:block;
 	color:#FFF;
+	/*color: #E04343;*/
 	text-decoration:none;
 	width:200px;
 	margin:0 auto;
@@ -553,6 +560,7 @@ table {
 	/* Firefox */-webkit-animation:arrowbounce 1s alternate infinite;
 	/* Safari and Chrome */-o-animation: arrowbounce 1s alternate infinite;
 	/* Opera */
+	filter: opacity(0.4) drop-shadow(0 0 0 #E04343);
 }
 /* ==========================================================================Intro========================================================================== */
 .intro p {
