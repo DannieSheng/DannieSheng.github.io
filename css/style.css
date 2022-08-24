@@ -586,6 +586,14 @@ h1.arrow span {
 	-o-background-size:cover;
 	background-size:cover;
 }
+#p2-image {
+	height:400px;
+	-webkit-background-size:auto; /*cover;*/
+	-moz-background-size:auto; /*cover;*/
+	-o-background-size:auto; /*cover;*/
+	background-size:contain; /*cover;*/
+	background-repeat: no-repeat;
+}
 .color-bg {
 	background: #E04343;
 }
