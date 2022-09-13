@@ -454,7 +454,7 @@ table {
 }
 /* ==========================================================================Hero========================================================================== */
 .hero {
-	background: url('../img/header-bg.jpg') right bottom no-repeat;
+	background: url('/img/header-bg.jpg') right bottom no-repeat;
 	background-size: contain;
 	padding:110px 0 100px 0;
 	height:auto;
@@ -1261,3 +1261,52 @@ ul.slides li {
 	    padding-bottom: 40px;
 	}
 }
+
+/* ==========================================================================Photograph========================================================================== */
+#greatSmokyMountain {
+  background: url('/img/photograph/IMG_2324.jpg') left top no-repeat;
+  background-origin: content-box, padding-box;
+  background-size: contain;
+  height: 500px;
+  padding:110px 50px 100px 50px;
+}
+
+p.caption {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 14px;
+  margin-right: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 100px;
+  right: 200px;
+  width: 10%;
+  background-color: white;
+  color: black;
+}
+
+
+
+
+	/*
+	.photo_list {
+  background: url('img/photograph/IMG_2324.jpg');
+  background-size: cover;
+    background-position: center;
+  background-position: center;
+
+}
+	.hero {
+	background: url('/img/header-bg.jpg') right bottom no-repeat;
+	background-size: contain;
+	padding:110px 0 100px 0;
+	height:auto;
+	background-color: #FBFBFB;
+}
+	background: url('/img/header-bg.jpg') right bottom no-repeat;
+	background-size: contain;
+	padding:110px 0 100px 0;
+	height:auto;
+	background-color: #FBFBFB;*/
