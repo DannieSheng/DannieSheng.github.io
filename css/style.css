@@ -1287,6 +1287,13 @@ p.caption {
   color: black;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    width: 100%;
+}
+
+
 
 
 
