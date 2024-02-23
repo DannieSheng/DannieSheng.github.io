@@ -1,67 +1,52 @@
-# Configurations
-title:            Jekyll Gitbook
-longtitle:        Jekyll Gitbook
-author:           HE Tao
-email:            sighingnow@gmail.com
-description: >
-  Build Jekyll site with the GitBook style.
+title: An Exhibition of A Hunger Artist #Your awesome title
+email: annabellee123456@outlook.com
+description: > # this means to ignore newlines until "baseurl"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 
-version:          1.0
-gitbook_version:  3.2.3
+baseurl:  # the subpath of the site
+url: https://github.com/EinHungerkuenstler/EinHungerkuenstler.github.io # the base hostname & protocol for your site
 
-url:              'https://sighingnow.github.io'
-baseurl:          '/jekyll-gitbook'
-rss:              RSS
+permalink: /:year-:month/:title
+timezone: GMT+1
 
-# bootstrap: use the remote theme for the site itself
-remote_theme: sighingnow/jekyll-gitbook
+favicon: /assets/img/favicon.ico
 
-toc:
-  enabled: true
-  h_min: 1
-  h_max: 3
+google_analytics: #UA—XXXXXXXX-X
+disqus_shortname: #disqus shortname
+cusdis:
+    app_id: #your cusdis app_id
 
-# customize the link favicon in header, will be {{site.baseurl}}/{{site.favicon_path}}
-favicon_path:     /assets/gitbook/images/favicon.ico
-
-# markdown render engine.
-markdown:         kramdown
-kramdown:
-  auto_ids:               true
-  input:                  GFM
-  math_engine:            mathjax
-  smart_quotes:           lsquo,rsquo,ldquo,rdquo
-  toc_levels:             1..6
-  syntax_highlighter:     rouge
-  syntax_highlighter_opts:
-    guess_lang:           true
-
-syntax_highlighter_style: colorful
-
-markdown_ext:             markdown,mkdown,mkdn,mkd,md
-
-# Permalinks
-permalink:                /:categories/:year-:month-:day-:title:output_ext
-
-# Disqus comments
-# disqushandler:            sighingnow
+user:
+  name: WHY
+  pic: /assets/img/profile.jpg
+  picAlt: "An Exhibition of A Hunger Artist"
+  job: Muss es sein? Es muss sein!
+  # aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
-  - _drafts
+  - README.md
+  - LICENSE
+  - github
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      comment: true   
 
 collections:
-  pages:
+  additional_pages:
     output: true
-    permalink: /:collection/:path/
 
-page_width: 800px
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+markdown: kramdown 
 
-destination:      ./_site
-incremental:      false
-regenerate:       true
-
-plugins:
-  - jekyll-feed
-  - jekyll-readme-index
-  - jemoji
-  
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      false
+unpublished: false

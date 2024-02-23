@@ -1,72 +1,35 @@
-<meta charset="UTF-8">
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-{%- if page.title -%}
-    <title>{{ page.title | escape }} · {{ site.title | escape }}</title>
-{%- else -%}
-    <title>{{ site.title | escape }}</title>
-{%- endif -%}
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="description" content="{{site.description}}">
-
-{%- if site.gitbook_version -%}
-    <meta name="generator" content="Jekyll (using style of GitBook {{ site.gitbook_version | escape }})">
-{%- else -%}
-    <meta name="generator" content="Jekyll (using style of GitBook)">
-{%- endif -%}
-
-{%- if site.author -%}
-    <meta name="author" content="{{ site.author | escape }}">
-{%- endif -%}
-
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/style.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-back-to-top-button/plugin.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-expandable-chapters-small2/expandable-chapters-small.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-fontsettings/website.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-search-pro/search.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/gitbook-plugin-splitter/splitter.css">
-
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/rouge/{{ site.syntax_highlighter_style | default: 'colorful' }}.css">
-
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/custom.css">
-<link rel="stylesheet" href="{{site.baseurl}}/assets/gitbook/custom-local.css">
-
-<meta name="HandheldFriendly" content="true"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{site.baseurl}}/assets/gitbook/images/apple-touch-icon-precomposed-152.png">
-<link rel="shortcut icon" href="{{site.baseurl}}/{{site.favicon_path}}" type="image/x-icon">
-
-{% if site.extra_css %}
-    {%- for extra_css in site.extra_css -%}
-        {%- assign starts_with = extra_css | slice: 0,4 -%}
-        {% if starts_with == "http" %}
-<link rel="stylesheet" href="{{ extra_css }}">
-        {%- else -%}
-<link rel="stylesheet" href="{{site.baseurl}}/{{ extra_css }}">
-        {%- endif -%}
-    {%- endfor -%}
+{% if page.title %}
+{% capture title %}{{ page.title }} | {{ site.title }}{% endcapture %}
+{% else %}
+{% capture title %}{{ site.title }}{% endcapture %}
 {% endif %}
 
-{% if site.extra_header_js %}
-    {%- for extra_js in site.extra_header_js -%}
-        {%- assign starts_with = extra_js | slice: 0,4  -%}
-        {% if starts_with == "http" %}
-<script src="{{ extra_js }}"></script>
-        {%- else -%}
-<script src="{{site.baseurl}}/{{ extra_js }}"></script>
-        {%- endif -%}
-    {%- endfor -%}
-{% endif %}
+<head>
+  <title>{{ title }}</title>
+  {% include google_analytics.html %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="{{ site.user.name }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{%- if site.tracker -%}
-    <!-- trackers -->
+  <link rel="stylesheet" href="{{ 'assets/css/main.css' | relative_url }}" media="all">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}"
+    href="{{ '/feed.xml' | relative_url }}" />
 
-    {%- if site.tracker.application_insights -%}
-        <!-- application insights -->
-        {%- include application-insights.html -%}
-    {%- endif -%}
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/x-icon" />
+  <link rel="icon" href="{{ site.favicon | relative_url }}" type="image/x-icon" />
 
-{%- endif -%}
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i" rel="stylesheet">
+<!-- Katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+</head>
