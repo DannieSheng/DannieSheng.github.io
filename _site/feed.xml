@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-14T08:01:03+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-14T00:00:00+08:00</published><updated>2024-03-14T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/gradient-descent</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/"><![CDATA[<p>gradient descent, stochastic gradient descent, batch gradient descent</p>
+
+<h1 id="improvements-for-gradient-descent">Improvements for gradient descent</h1>
+<p>Momentum (惯性保持)
+——
+\(v_t = \gamma v_{t-1}+ \eta g_t\)
+\(\theta_{t+1} = \theta_{t}-v_t\)</p>
+
+<ul>
+  <li>学习速率$\eta$乘当前梯度$g_t$.</li>
+  <li>带衰减的前一次的步伐$v_{t-1}$.</li>
+</ul>
+
+<h2 id="adagrad-环境感知">AdaGrad (环境感知)</h2>
+<p>采用“历史梯度平方和”来衡量不同参数的梯度和稀疏性（取值越小越稀疏）</p>
+
+<h2 id="adam-惯性保持环境感知">Adam (惯性保持+环境感知)</h2>
+<ul>
+  <li>梯度的一阶矩 (first moment)：过往梯度与当前梯度的平均 -&gt; 惯性保持</li>
+  <li>梯度的二阶矩 (second moment)：过往梯度平方与当前梯度平方的平均 -&gt; 环境感知，为不同参数产生自适应的学习速率</li>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
+
+<h1 id="sigmoid-family">Sigmoid Family</h1>
+<p>\(sigmoid(x) = \frac{1}{1+e^{-x}}\)</p>
+
+<h2 id="hard-sigmoid">Hard Sigmoid</h2>
+<p>\(\)</p>
+
+<h2 id="swish">Swish</h2>
+<p>\(swish(x) = x\cdot sigmoid(x) = \frac{x}{1+e^{-x}}\)</p>
+
+<h2 id="maxout">Maxout</h2>
+
+<h1 id="relu-family-rectified-linear-unit">ReLU Family (Rectified Linear Unit)</h1>
+<p>\(ReLU(x) = max(0,x)\)</p>
+<ul>
+  <li>Dying neuron</li>
+  <li>Handles the vanishing gradient issue</li>
+  <li>Cannot avoid exploding gradient issue</li>
+</ul>
+
+<h2 id="elu">ELU</h2>
+<p>\(ELU(x) = \left\{
+\begin{aligned}
+x,\ if\ x\ \geq 0 \\
+\alpha(e^x-1),\ x&lt;0
+\end{aligned}
+\right.\)</p>
+
+<ul>
+  <li>Avoids dying neuron issue</li>
+  <li>Cannot avoid exploding gradient</li>
+  <li>Computational expensive (because of exponantial calculation)</li>
+  <li>$\alpha$ is an hyper-parameter (normally, $\alpha$ between 0.1 and 0.3)</li>
+</ul>
+
+<h2 id="leaky-relu">Leaky ReLU</h2>
+<p>\(LeakyReLU(x) = \left\{
+\begin{aligned}
+x,\ if\ x\ \geq 0 \\
+\alpha x,\ x&lt;0
+\end{aligned}
+\right.\)</p>
+
+<ul>
+  <li>Avoids dying neuron issue</li>
+  <li>Not computational expensive</li>
+  <li>$\alpha$ is an hyper-parameter (normally, $\alpha$ between 0.1 and 0.3)</li>
+</ul>
+
+<h2 id="selu-scaled-exponential-linear-units">SELU (Scaled Exponential Linear Units)</h2>
+<p>\(SELU(x) = \left\{
+\begin{aligned}
+\lambda x,\ if\ x\ \geq 0 \\
+\lambda \alpha (e^x-1),\ x&lt;0
+\end{aligned}
+\right.\)
+$\alpha \approx 1.6733$, $\lambda \approx 1.0507$.</p>
+
+<h2 id="gelu-gaussian-error-linear-unit">GELU (Gaussian Error Linear Unit)</h2>
+<p>\(GELU(x) = xP(X\leq x) = x\Phi(x) = x\cdot\frac{1}{2}[1+erf(\frac{x}{\sqrt(2)})]\)
+if $X \sim \mathcal{N}(0,1)$.</p>
+
+<ul>
+  <li>GELUs are used in GPT-3, BERT, and most other Transformers.</li>
+</ul>
+
+<h1 id="tanh-family">Tanh Family</h1>
+<p>\(Tanh(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}\)</p>
+<ul>
+  <li>Vanishing gradient problem</li>
+  <li>Symmetric about the origin</li>
+</ul>
+
+<h2 id="hardtanh">HardTanh</h2>
+<p>\(HardTanh(x) = \left\{
+\begin{aligned}
+-1,\ if\ x &lt; -1\\
+x,\ if\ -1\leq x\leq 0\\
+1,\ if x&gt;1
+\end{aligned}
+\right.\)</p>
+
+<ul>
+  <li>It is a cheaper and more computationally efficient version of the tanh activation.</li>
+</ul>
+
+<h2 id="tanhshrink">TanhShrink</h2>
+
+<h1 id="softmax">Softmax</h1>
+
+<h2 id="logsoftmax">LogSoftMax</h2>
+
+<h2 id="softmin">Softmin</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。]]></summary></entry><entry><title type="html">Loss Functions</title><link href="http://localhost:4000/posts/2024/03/loss-functions/" rel="alternate" type="text/html" title="Loss Functions" /><published>2024-03-12T00:00:00+08:00</published><updated>2024-03-12T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/loss-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/loss-functions/"><![CDATA[<h1 id="regression-loss-functions">Regression Loss Functions</h1>
+
+<h2 id="l1-loss-mean-absolute-error-mse">L1 Loss (Mean Absolute Error, MSE)</h2>
+<p>\(MSE = \frac{\sum_{i=1}^{N}|f(x_{i})-y_i|}{N}\)</p>
+
+<h2 id="l2-loss-mean-square-error-mse">L2 Loss (Mean Square Error, MSE)</h2>
+<p>\(MSE = \frac{\sum_{i=1}^{N}(f(x_{i})-y_i)^2}{N}\)</p>
+
+<h2 id="smooth-l1-loss">Smooth L1 Loss</h2>
+<p>\(SmoothL1 = \left\{
+\begin{aligned}
+0.5x^2,\ if\ |x|\ &lt;\ 1 \\
+|x-0.5|,\ otherwise
+\end{aligned}
+\right.\)</p>
+
+<h2 id="huber-loss">Huber Loss</h2>
+<p>Combines MSE and MAE.</p>
+
+<h1 id="classification-loss-functions">Classification Loss Functions</h1>
+<p>Cross Entropy Loss
+——</p>
+
+<p>Binary case:
+\(CE(p, y) = \left\{
+  \begin{aligned}
+  -log(p),\ if\ y\ =\ 1, \\
+  -log(1-p),\ otherwise
+  \end{aligned}
+  \right.\)</p>
+
+<p>\(p_t = \left\{
+  \begin{aligned}
+  p,\ if\ y=1,\\
+  1-p,\ otherwise 
+  \end{aligned}
+\right.\)
+Simplified to
+\(CE(p,y) = CE(pt) = -log(pt)\)</p>
+
+<p>Multi-class case:
+\(CE(p_i, y_i) = -y_{i,c}log(p_{ic})\)</p>
+
+\[L = \frac{1}{N}\sum_{i}L_i = -\frac{1}{N}\sum_{i}\sum_{c=1}^{M}y_{ic}log(p_{ic})\]
+
+<h2 id="balanced-cross-entropy-loss">Balanced Cross Entropy Loss</h2>
+<p>\(CE(p_t) = -\alpha_tlog(p_t)\)</p>
+
+<p>Balanced cross entropy loss solves the problem of imbalanced classes, but did not put different focus on hard vs. easy samples.</p>
+
+<h2 id="focal-loss">Focal Loss</h2>
+<p>\(FL(p_t) = -\alpha_t(1-p_t)^{\gamma}log(p_t)\)
+$p_t$ is the model’s estimated probability for each class being the correct classification.
+$\alpha_T$ is a weighting factor for the class (to further address class imbalance).
+$\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy examples are down-weighted. When $\gamma=0$, focal loss is equivalent to cross-entropy loss. As $\gamma=0$ increases, the effect of the modulating factor increases, and the loss contribution from easy examples is reduced.</p>
+
+<p>The key idea behind focal loss is to focus model training on hard, misclassified examples and reduce the relative loss for easy examples, preventing the overwhelming number of easy negatives from dominating the training of the model.</p>
+
+<ul>
+  <li>For well-classified examples (where $p_t$ is high), $(1-p_t)^{\gamma}$ approaches 0, which significantly reduces their contribution to the loss. As a result, the loss for these easy examples becomes negligible, and they have little impact on the model updates during training.</li>
+  <li>For misclassified or hard examples (where $p_t$ is low), $(1-p_t)^{\gamma}$ is closer to 1, meaning these examples contribute more significantly to the total loss. This ensures that the model’s updates focus more on correcting these harder examples.</li>
+</ul>
+
+<h2 id="poly-loss">Poly Loss</h2>
+
+<h2 id="hinge-loss">Hinge Loss</h2>
+<p>Used in SVM. 
+\(L(y) = max(0, 1-t \cdot y)\)</p>
+
+<h2 id="triplet-loss">Triplet Loss</h2>
+
+<h2 id="contrastive-loss">Contrastive Loss</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Regression Loss Functions]]></summary></entry><entry><title type="html">Classification Algorithms</title><link href="http://localhost:4000/posts/2034/08/classification-algorithms/" rel="alternate" type="text/html" title="Classification Algorithms" /><published>2024-03-11T00:00:00+08:00</published><updated>2024-03-11T00:00:00+08:00</updated><id>http://localhost:4000/posts/2034/08/classification-algorithms</id><content type="html" xml:base="http://localhost:4000/posts/2034/08/classification-algorithms/"><![CDATA[<p>Classification Algorithms</p>
+
+<h1 id="logistic-regression">Logistic Regression</h1>
+
+<h2 id="description">Description</h2>
+<p>\(z = w_0+w_1x_1+w_2x_2+...++w_nx_n\)
+Then, the sigmoid function is used to convert z to probability $p$:
+\(p = \frac{1}{1+e^{-z}}\)
+$p$ can later be converted to binary classification.</p>
+
+<h2 id="pros">Pros</h2>
+<ol>
+  <li>Easy to implement</li>
+  <li>Suitable for linear separable cases</li>
+  <li>Result explanable</li>
+</ol>
+
+<h2 id="cons">Cons</h2>
+<ol>
+  <li>Hard to solve non-linear problems</li>
+  <li>Performance impaired when dealing highly correlated data</li>
+  <li>Sensitive to noisy data</li>
+  <li>Not suitable for classification of more than 2 classes</li>
+</ol>
+
+<h1 id="decision-tree">Decision Tree</h1>
+
+<h2 id="description-1">Description</h2>
+<ol>
+  <li>Feature selection</li>
+  <li>Tree construction: recursively</li>
+</ol>
+
+<h2 id="pros-1">Pros</h2>
+<ol>
+  <li>Easy and explanation</li>
+  <li>Capable of handling both numerical and categorical data</li>
+  <li>No need to prepare data, e.g. normalization</li>
+</ol>
+
+<h2 id="cons-1">Cons</h2>
+<ol>
+  <li>Easy to overfit, especially on data with high dimensionality</li>
+  <li>Sensitive to outliers</li>
+  <li>Unstable, small changes of data could result in large changes of the tree structure</li>
+  <li>Not suitable of handling complicated relationship</li>
+</ol>
+
+<h2 id="suitable-for">Suitable for</h2>
+<ol>
+  <li>Cases where explanability is of essence, e.g. medical diagnosis</li>
+  <li>Small to medium data size</li>
+  <li>Data easy to be splited</li>
+  <li>Feature selection</li>
+</ol>
+
+<h1 id="random-forest">Random Forest</h1>
+
+<h1 id="naive-bayes">Naive Bayes</h1>
+
+<h2 id="description-2">Description</h2>
+
+<h3 id="assumption">Assumption:</h3>
+<p>All features are independent on each other.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$$P(C_k</td>
+      <td>x) = \frac{P(x</td>
+      <td>C_k)P(C_k)}{P(x)}$$</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>$$P(x</td>
+      <td>C_k) = P(x_1</td>
+      <td>C_k)P(x_2</td>
+      <td>C_k)…P(x_n</td>
+      <td>C_k)$$</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</h1>
+<ul>
+  <li>Classification: majority vote</li>
+  <li>Regression: weighted average</li>
+</ul>
+
+<h2 id="distance-measurements">Distance Measurements</h2>
+<ul>
+  <li>Euclidean Distance</li>
+  <li>Manhattan Distance</li>
+  <li>Chebyshev Distance</li>
+  <li>Minkowski Distance</li>
+  <li>Mahalanobis Distance</li>
+</ul>
+
+<h2 id="cons-2">Cons:</h2>
+<ol>
+  <li>Calculation cose</li>
+  <li>Space complexity</li>
+  <li>Imbalanced classes</li>
+  <li>Limited performance on data with high dimensionality</li>
+  <li>Sensitive to noisy data</li>
+  <li>Hard to decide the correct value of k</li>
+</ol>
+
+<h1 id="support-vector-machine">Support Vector Machine</h1>
+<p>Linear SVM (Hard Margin)
+——
+\(f(x) = sign(w\cdot x+b)\)</p>
+
+<h2 id="non-linear-kernel-trick">Non-linear (kernel trick)</h2>
+<p>\(f(x) = sign(\sum_{i=1}^{n}\alpha_{i}y_iK(x_i, x)+b)\)</p>
+
+<h2 id="svm-for-imbalanced-class-soft-margin">SVM for imbalanced class (Soft Margin)</h2>
+
+<p>this is very easy to accomplish using the aligned environment from amsmath:</p>
+
+\[\begin{equation}
+\begin{aligned}
+\min_{w,b,\xi} \quad &amp; \frac{1}{2}w^{t}w+C\sum_{i=1}^{N}{\xi_{i}}\\
+\textrm{s.t.} \quad &amp; y_{i}(w\phi(x_{i}+b))+\xi_{i}-1\\
+  &amp;\xi\geq0    \\
+\end{aligned}
+\end{equation}\]
+
+<h2 id="pros-2">Pros:</h2>
+<ol>
+  <li>Can be used in various cases: text classification, image recognition, etc.</li>
+  <li>Robust to noisy data points</li>
+  <li>Avoid stucking at local optima</li>
+  <li>Still works in high dimensional space (kernel trick)</li>
+  <li>Avoid over-fitting (by regularization)</li>
+</ol>
+
+<h2 id="cons-3">Cons:</h2>
+<ol>
+  <li>Only work for binary classification case</li>
+  <li>High computation complexity</li>
+  <li>Sensitive to choice of parameter</li>
+  <li>Sensitive to missing data</li>
+</ol>
+
+<h1 id="adaboost">AdaBoost</h1>
+
+<h1 id="gradient-boosting-trees">Gradient Boosting Trees</h1>
+
+<h1 id="multilayer-perceptrons">Multilayer Perceptrons</h1>
+
+<p>Artificial Neural Network</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Classification Algorithms]]></summary></entry><entry><title type="html">Time-series Forecasting</title><link href="http://localhost:4000/posts/2024/03/time-series-forecasting/" rel="alternate" type="text/html" title="Time-series Forecasting" /><published>2024-03-10T00:00:00+08:00</published><updated>2024-03-10T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/time-series-forecasting</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/time-series-forecasting/"><![CDATA[<h1 id="arima-autoregressive-integrated-moving-average">ARIMA (Autoregressive Integrated Moving Average)</h1>
+<p>It is a popular statistical analysis model used for forecasting time series data. 
+ARIMA models are especially well-suited for short to medium-term forecasting models that have data with trends, seasonality, or cyclic patterns. 
+The model aims to describe the <em>autocorrelations</em> in the data.</p>
+
+<h2 id="description">Description</h2>
+<p>ARIMA models are characterized by three key parameters: (p, d, q).</p>
+<ul>
+  <li>AR (p) - Autoregression:<br />
+An autoregression model is a regression of the variable against itself. The “p” parameter represents the number of lag observations included in the model, also known as the lag order. It captures the relationship between an observation and a specified number of lagged observations (i.e., previous time steps).</li>
+  <li>I (d) - Integrated:<br />
+Differencing involves subtracting the previous observation from the current observation to make the time series stationary. The “d” parameter represents the degree of differencing required to make the time series stationary, i.e., the number of times the data have had past values subtracted. Stationarity is a crucial aspect of time series analysis, as it ensures that the statistical properties of the series (mean, variance) do not change over time.</li>
+  <li>MA (q) - Moving Average:<br />
+A moving average model uses past forecast errors in a regression-like model. The “q” parameter represents the size of the moving average window, also known as the order of moving average. It captures the relationship between an observation and a residual error from a moving average model applied to lagged observations.</li>
+</ul>
+
+<h2 id="strengths">Strengths</h2>
+<ul>
+  <li>Flexibility: ARIMA models can be configured to model a wide range of time series data.</li>
+  <li>Interpretability: The components of ARIMA (AR, I, MA) have a clear interpretation, making it easier to understand the model dynamics.</li>
+  <li>Forecasting Accuracy: For many practical forecasting problems, especially those with data showing trends and seasonality, ARIMA models provide robust and reliable forecasts.</li>
+</ul>
+
+<h2 id="model-identification-and-fitting">Model Identification and Fitting</h2>
+<p>The process of developing an ARIMA model typically involves several steps:</p>
+
+<ol>
+  <li>
+    <p>Identification: Determine whether the time series is stationary and identify the order of differencing (d) needed. This often involves using plots and statistical tests (e.g., Augmented Dickey-Fuller test) to check for stationarity.</p>
+  </li>
+  <li>
+    <p>Estimation of p and q: Use plots (like the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF)) to decide the AR (p) and MA (q) terms.</p>
+  </li>
+  <li>
+    <p>Model Fitting: Use statistical software to fit the ARIMA model with the identified parameters.</p>
+  </li>
+  <li>
+    <p>Diagnostic Checking: Evaluate the model fit by analyzing the residuals to ensure there are no patterns (autocorrelation) left unexplained.</p>
+  </li>
+  <li>
+    <p>Forecasting: Use the model to make forecasts.</p>
+  </li>
+</ol>
+
+<h1 id="autoarima">AutoARIMA</h1>
+<p>Description
+——
+AutoARIMA stands for “Automatic Autoregressive Integrated Moving Average.” It is an extension of the ARIMA model that automatically selects the best combination of (p, d, q) parameters for the ARIMA model based on the given time series data. It does this by evaluating various combinations and selecting the one that minimizes a given metric, typically AIC (Akaike Information Criterion).</p>
+
+<h2 id="strengths-1">Strengths</h2>
+<p>Highly versatile and capable of modeling a wide range of time series data with or without seasonal components. Auto-tuning of parameters simplifies the modeling process.</p>
+
+<h2 id="use-cases">Use Cases</h2>
+<p>Ideal for univariate time series forecasting where data shows patterns of autocorrelation, seasonality, and trends.</p>
+
+<h1 id="naiveseasonal">NaiveSeasonal</h1>
+<p>Description
+——
+NaiveSeasonal is a simple forecasting method that assumes the seasonal patterns will repeat at a fixed frequency. The forecast for a future time point is simply the value from the last observed cycle.</p>
+
+<h2 id="strengths-2">Strengths</h2>
+<p>Extremely simple and fast, requiring no model training. Works well when the time series has a strong and consistent seasonal pattern.</p>
+
+<h2 id="use-cases-1">Use Cases</h2>
+<p>Best suited for time series with clear, stable seasonal patterns and when simplicity and speed are prioritized over precision.</p>
+
+<ol>
+  <li>
+    <p>Prophet
+Description: Developed by Facebook, Prophet is designed for forecasting with daily observations that display patterns on different time scales. It works well with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend.
+Strengths: Handles outliers well, and its additive model makes it more flexible than multiplicative approaches. It can incorporate holidays and events, making it suitable for more complex scenarios.
+Use Cases: Ideal for daily time series with multiple seasonality patterns, holidays, and events. Useful in business metrics forecasting, such as sales and website traffic.</p>
+  </li>
+  <li>
+    <p>ExponentialSmoothing
+Description: Exponential Smoothing models data by applying exponentially decreasing weights over time. It includes Simple Exponential Smoothing, Holt’s Linear Trend method, and Holt-Winters Seasonal method, allowing it to handle time series data with and without trends and/or seasonal components.
+Strengths: Versatile, with the ability to model time series data with various combinations of trend and seasonality. Parameters can be optimized to fit a wide range of time series patterns.
+Use Cases: Applicable to a broad range of time series data, especially when the data exhibits trends and seasonality. Useful in inventory demand forecasting.</p>
+  </li>
+  <li>
+    <p>NaiveDrift
+Description: NaiveDrift is a simple forecasting method that assumes a linear trend (drift) based on the change between the first and last observation. The forecast is then a continuation of this trend into the future.
+Strengths: Simplicity and speed, with no need for model training. Can capture linear trends in the data.
+Use Cases: Suitable for time series with a linear trend and when a quick, simple baseline model is needed for comparison.</p>
+  </li>
+</ol>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><summary type="html"><![CDATA[ARIMA (Autoregressive Integrated Moving Average) It is a popular statistical analysis model used for forecasting time series data. ARIMA models are especially well-suited for short to medium-term forecasting models that have data with trends, seasonality, or cyclic patterns. The model aims to describe the autocorrelations in the data.]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/clustering-alrogithms/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-09T00:00:00+08:00</published><updated>2024-03-09T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/clustering-alrogithms</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/clustering-alrogithms/"><![CDATA[<p>The importance of clustering are of</p>
+
+<h1 id="headings-are-cool">Headings are cool</h1>
+
+<h1 id="you-can-have-many-headings">You can have many headings</h1>
+
+<h2 id="arent-headings-cool">Aren’t headings cool?</h2>
+<p><a href="https://mp.weixin.qq.com/s/DlT4LAIQdD8mc4yjD9VMjQ">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><summary type="html"><![CDATA[The importance of clustering are of]]></summary></entry><entry><title type="html">Metrics to Evaluate Predictive Models</title><link href="http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models/" rel="alternate" type="text/html" title="Metrics to Evaluate Predictive Models" /><published>2024-03-08T00:00:00+08:00</published><updated>2024-03-08T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models/"><![CDATA[<p>Metrics used to evaluate predictive modeling, highly used in regression, time-series forecasting cases.</p>
+
+<h1 id="mae-mean-absolute-error">MAE (Mean Absolute Error)</h1>
+<p>Definition
+——
+MAE measures the average magnitude of the errors in a set of predictions, without considering their direction.
+It’s calculated as the average of the absolute differences between the predicted values and the actual values.</p>
+
+<h2 id="formula">Formula</h2>
+<p>\(MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y_i}|\)</p>
+
+<h2 id="interpretation">Interpretation</h2>
+<p>Lower MAE values indicate better model performance. MAE provides a straightforward measure of prediction accuracy with the same units as the predicted variable.</p>
+
+<h1 id="mse-mean-squared-error">MSE (Mean Squared Error)</h1>
+<p>Definition
+——
+MSE measures the average of the squares of the errors—that is, the average squared difference between the estimated values and the actual value.</p>
+
+<h2 id="formula-1">Formula</h2>
+<p>\(MSE =\)</p>
+
+<h2 id="interpretation-1">Interpretation</h2>
+<p>Lower MSE values indicate better model performance. MSE is more sensitive to outliers than MAE because it squares the errors before averaging, which disproportionately penalizes larger errors.</p>
+
+<h1 id="rmse-root-mean-squared-error">RMSE (Root Mean Squared Error)</h1>
+<p>Definition
+——
+RMSE is the square root of the mean squared error. 
+It measures the standard deviation of the residuals or prediction errors.</p>
+
+<h2 id="formula-2">Formula</h2>
+<p>\(RMSE\)</p>
+
+<h2 id="interpretation-2">Interpretation</h2>
+<p>Lower RMSE values indicate better model performance. RMSE is similar to MSE but is in the same units as the predicted and actual values, making it more interpretable.</p>
+
+<h1 id="r-squared-coefficient-of-determination">R-Squared (Coefficient of Determination)</h1>
+<p>Definition
+——
+R-Squared is a statistical measure that represents the proportion of the variance for a dependent variable that’s explained by an independent variable or variables in a regression model.</p>
+
+<h2 id="formula-3">Formula</h2>
+<p>\(R^2 
+= 1-\frac{\sum_{i=1}^{n}(y_i-\hat{y_i})^2}{\sum_{i=1}^{n}(y_i-\bar{y})^2}\)</p>
+
+<h2 id="interpretation-3">Interpretation</h2>
+<p>R-Squared values range from 0 to 1, where higher values indicate that a greater proportion of variance is accounted for by the model. An R-Squared value of 1 indicates perfect fit.</p>
+
+<h1 id="mape-mean-absolute-percentage-error">MAPE (Mean Absolute Percentage Error)</h1>
+
+<h2 id="definition">Definition</h2>
+<p>MAPE measures the average of the absolute percentage errors by comparing the actual value with the predicted value.</p>
+
+<h2 id="formula-4">Formula</h2>
+<p>\(MAPE = \frac{100\%}{n}\sum_{i=1}^{n}|\frac{y_i-\hat{y_i}}{y_i}|\)</p>
+
+<h2 id="interpretation-4">Interpretation</h2>
+<p>Lower MAPE values indicate better model performance. 
+MAPE is useful because it provides an error percentage that is easy to interpret, but it can be undefined for values of $y_i = 0$ and can disproportionately penalize underpredictions when $y_i$ is small.</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="evaluation metrics" /><category term="machine learning" /><summary type="html"><![CDATA[Metrics used to evaluate predictive modeling, highly used in regression, time-series forecasting cases.]]></summary></entry><entry><title type="html">Donut: an OCR-free Document Understanding Transformer</title><link href="http://localhost:4000/posts/2024/03/ocr-free-document-understanding-transformer/" rel="alternate" type="text/html" title="Donut: an OCR-free Document Understanding Transformer" /><published>2024-03-07T00:00:00+08:00</published><updated>2024-03-07T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/donut</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/ocr-free-document-understanding-transformer/"><![CDATA[<p>My notes on this paper: <a href="https://arxiv.org/abs/2111.15664">OCR-free Document Understanding Transformer</a> (<a href="https://github.com/clovaai/donut">github repo</a>).</p>
+
+<p>Understanding <em>document images</em> (commercial invoices, receipts, and business cards, etc.) is an important but challenging task. 
+Normally it consists of <em>reading text</em> and <em>a holistic understanding of the document</em>. 
+Current visual document understanding (VDU) solutions rely heavily on Optical Character Recognition (OCR) engines and the main efforts are paied to the understanding task based on the OCR outputs. (OCR-based approaches)</p>
+
+<p>Conventional (OCR-based) document information extraction (IE) pipeline:
+<strong>Goal</strong>: extract the structured information from a given <em>semi-structured</em> document image</p>
+<ol>
+  <li>Text reading (text <strong>detection</strong> and <strong>text recognition</strong>): obtain text location (bbox) and comprehend characters from each bbox
+    <ul>
+      <li>deep-learning-based OCR</li>
+    </ul>
+  </li>
+  <li>Text understanding: Recognized texts and corresponding locations are passed to the downstream model to extract desired structure form of information</li>
+</ol>
+
+<p>Proposed OCR-free VDU solution (Donut): 
+<strong>Goal</strong>: modeling a direct mapping from a raw input image to the desired output <strong>without</strong> OCR.</p>
+
+<h1 id="donut-model">Donut model</h1>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>Transformer-based visual encoder and textual decoder modules.</p>
+
+<h3 id="encoder">Encoder</h3>
+<ul>
+  <li>The visual encoder converts the input document image into a set of <em>embeddings</em>.</li>
+  <li>CNN-based models or Transformer-based models can be used as the encoder network. <strong>Swin Transformer</strong> is used in this paper.</li>
+</ul>
+
+<h3 id="decoder">Decoder</h3>
+<ul>
+  <li>Given <em>embeddings</em> from the Encoder, the decoder generates a token sequence.</li>
+  <li><strong>BART</strong> is used as the decoder architecture.</li>
+</ul>
+
+<h3 id="output-conversion">Output Conversion</h3>
+<p>The output token sequence is converted to a desired structured format (JSON)</p>
+
+<h2 id="training-scheme-pre-train-and-fine-tune-scheme">Training scheme: Pre-train-and-fine-tune scheme</h2>
+
+<h3 id="pre-training-phase">Pre-training phase:</h3>
+<p>Learns how to read the texts by predicting the next words by conditioning jointly on the image and previous text contexts</p>
+
+<p>Objective: minimize <strong>cross-entropy loss</strong> of next token prediction (by jointly conditioning on the image and previous contexts)</p>
+
+<h3 id="fine-tuning-stage">Fine-tuning stage:</h3>
+<p>Learns how to understand the whole document accord-ing to the downstream task</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="AI" /><category term="Visual Document Understanding" /><summary type="html"><![CDATA[My notes on this paper: OCR-free Document Understanding Transformer (github repo).]]></summary></entry><entry><title type="html">Object Detection Algorithms</title><link href="http://localhost:4000/posts/2024/03/object-detection-algorithms/" rel="alternate" type="text/html" title="Object Detection Algorithms" /><published>2024-03-06T00:00:00+08:00</published><updated>2024-03-06T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/object-detection-algorithms</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/object-detection-algorithms/"><![CDATA[<p>A summary of object detection algorithms</p>
+
+<h1 id="faster-r-cnn">Faster R-CNN</h1>
+
+<p>It combines RPN (Region Proposal Network) and CNN (Convolutional Neural Network) for object classificaion and bounding box regression</p>
+
+<h3 id="important-notes">Important notes</h3>
+<ol>
+  <li>RPN<br />
+A fully convolutional network that simultaneously predicts object bounds and objectness scores at each position.
+    <ol>
+      <li>Generating region proposals by sliding a small window over the original image.</li>
+      <li>Anchor Boxes: At each sliding-window location, the RPN generates multiple region proposals simultaneously. 
+ It does this by predicting multiple bounding boxes and their objectness scores. These bounding boxes are called “anchors.” 
+ Anchors are <em>predefined</em> and are of different scales and aspect ratios to ensure coverage of various object sizes and shapes.</li>
+      <li>Bounding Box Regression and Classification: For each anchor, the RPN predicts two sets of values:
+        <ul>
+          <li>Bounding box regression adjustments: These values adjust the anchors to better fit potential objects.</li>
+          <li>Objectness scores: These scores indicate how likely each adjusted anchor is to contain an object.</li>
+        </ul>
+      </li>
+      <li>Non-Maximum Suppression (NMS): Since many anchors can overlap significantly, leading to multiple proposals for the same object, NMS is applied to reduce redundancy. It does this by keeping only the proposals with the highest objectness scores while removing others that have a high overlap (measured by Intersection over Union, IoU) with these top proposals.</li>
+    </ol>
+  </li>
+  <li>
+    <p>ROI Pooling <br />
+Efficiently extract <strong>fixed-size</strong> feature vectors from the variable-sized regions proposed by the Region Proposal Network (RPN). These fixed-size feature vectors are then used for classifying the regions into specific object categories and for refining their bounding box coordinates.</p>
+  </li>
+  <li>Object Classification and Bounding Box Regression<br />
+Fully connected layer</li>
+</ol>
+
+<h3 id="loss-function">Loss Function</h3>
+<ul>
+  <li>Classification loss (cross entropy loss)
+\(L_{cls} = -\frac{1}{N_{cls}}\sum_{i=1}^{N_{cls}}[y_ilog(p_i)+[(1-y_i)log(1-p_i)]\)</li>
+  <li>Bounding box regression loss (smooth L1 loss)
+\(L_{reg} = \frac{1}{N_{reg}}\sum_{i=1}^{N_{reg}}L_{smooth}(t_i-t_{i}^{*})\)</li>
+  <li>Loss from the RPN
+    <ul>
+      <li>Classification loss:
+\(L_{cls}^{rpn} = -\frac{1}{N_{cls}}\sum_{i}[p_ilog(\hat{p_i})+(1-p_i)log(1-\hat{p_i})]\)</li>
+      <li>Bounding box regression loss
+\(L_{reg}^{rpn} = \frac{1}{N_{reg}}\sum_ismooth_{L1}(t_i-\hat{t_i})\)</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="mask-r-cnn">Mask R-CNN</h1>
+<h3 id="important-notes-1">Important notes</h3>
+<p>It extends and improves faster R-CNN by 
+1) Replacing ROI pooling by ROI align to improve precision
+2) Including segmentation mask for each object</p>
+
+<h3 id="loss-function-1">Loss Function</h3>
+<ul>
+  <li>Mask loss:
+\(L_{mask} = -\frac{1}{N_{mask}}\sum_{i}\sum_{p}(m_{i,p}log(\hat{m_{i,p}})+(1-m_{i,p})log(1-\hat{m_{i,p}}))\)</li>
+</ul>
+
+<h1 id="yolo">YOLO</h1>
+<p>It a real-time object detection algorithm that transforms the task of object detection into a single end-to-end convolutional neural network (CNN) model.</p>
+<h3 id="important-notes-2">Important notes</h3>
+<ol>
+  <li>Grid search:<br />
+The input images are splitted into fixed size grids and predictions are made for each grid</li>
+  <li>
+    <p>Single shot:</p>
+  </li>
+  <li>Multi-size prediction:<br />
+Different levels of feature maps</li>
+</ol>
+
+<h3 id="loss-function-2">Loss Function</h3>
+<ul>
+  <li>Classification loss
+\(L_{cls} = -\frac{1}{N_{obj}}\sum_{i=1}^{N_{obj}}\sum_{c\in classes}y_{i,c}log(\hat{y_{i,c}})\)
+$N_{obj}$ is the number of grids.</li>
+  <li>Bounding box regression loss 
+\(L_{box} = \frac{1}{N_{obj}}\sum_{i=1}^{N_{obj}}\sum_{j=1}^{B}\mathbf{1}_{ij}^{obj}[(x_i-\hat{x_i})^2
++(y_i-\hat{y_i})^2
++(\sqrt{w_i}-\sqrt{\hat{w_i}})^2
++(\sqrt{h_i}-\sqrt{\hat{h_i}})^2]\)
+where<br />
+$B$: number of bbox in each grid<br />
+$\mathbf{1}_{ij}$: an indicator function that shows whether the j-th bbox in the i-th grid has object detected<br />
+$x_i$, $y_i$, $w_i$, $h_i$ represent for the location and size of predicted bboxes (ground-truth)<br />
+$\hat{x_i}$, $\hat{y_i}$, $\hat{w_i}$, $\hat{h_i}$ represent for the location and size of predicted bboxes (predicted)</li>
+</ul>
+
+<h1 id="ssd-single-shot-multibox-detector">SSD (Single Shot MultiBox Detector)</h1>
+
+<h1 id="retinanet">RetinaNet</h1>
+
+<h1 id="efficientdet">EfficientDet</h1>
+
+<h1 id="cascade-r-cnn">Cascade R-CNN</h1>
+
+<h1 id="centernet">CenterNet</h1>
+
+<h1 id="detr-detection-transformer">DETR (Detection Transformer)</h1>
+
+<p>HRNet (High-Resolution Network)</p>
+
+<hr />]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="computer vision" /><category term="AI" /><summary type="html"><![CDATA[A summary of object detection algorithms]]></summary></entry></feed>

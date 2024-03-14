@@ -1,0 +1,506 @@
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+
+<meta charset="utf-8">
+
+
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Switchgrass Genotype Classification using Hyperspectral Imagery - Hudanyun Sheng / Data Scientist</title>
+
+
+
+
+
+
+
+<meta property="og:locale" content="en-US">
+<meta property="og:site_name" content="Hudanyun Sheng / Data Scientist">
+<meta property="og:title" content="Switchgrass Genotype Classification using Hyperspectral Imagery">
+
+
+  <link rel="canonical" href="http://localhost:4000/portfolio/portfolio-project3/">
+  <meta property="og:url" content="http://localhost:4000/portfolio/portfolio-project3/">
+
+
+
+  <meta property="og:description" content="Master Thesis">
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2024-03-14T08:01:03+08:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Hudanyun Sheng",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<!-- <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Hudanyun Sheng / Data Scientist Feed"> -->
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    
+
+<!-- start custom head snippets -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="http://localhost:4000/images/apple-touch-icon-57x57.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:4000/images/apple-touch-icon-60x60.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:4000/images/apple-touch-icon-76x76.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:4000/images/apple-touch-icon-120x120.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:4000/images/apple-touch-icon-152x152.png?v=M44lzPylqQ">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/images/apple-touch-icon-180x180.png?v=M44lzPylqQ">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-32x32.png?v=M44lzPylqQ" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/android-chrome-192x192.png?v=M44lzPylqQ" sizes="192x192">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-96x96.png?v=M44lzPylqQ" sizes="96x96">
+<link rel="icon" type="image/png" href="http://localhost:4000/images/favicon-16x16.png?v=M44lzPylqQ" sizes="16x16">
+<link rel="manifest" href="http://localhost:4000/images/manifest.json?v=M44lzPylqQ">
+<link rel="mask-icon" href="http://localhost:4000/images/safari-pinned-tab.svg?v=M44lzPylqQ" color="#000000">
+<link rel="shortcut icon" href="/images/favicon.ico?v=M44lzPylqQ">
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="msapplication-TileImage" content="http://localhost:4000/images/mstile-144x144.png?v=M44lzPylqQ">
+<meta name="msapplication-config" content="http://localhost:4000/images/browserconfig.xml?v=M44lzPylqQ">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/academicons.css"/>
+
+
+<!-- Support for MatJax -->
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <!-- <a href="/" class="site-logo">
+            <img src="/assets/images/logo.png" alt="Hudanyun Sheng / Data Scientist logo">
+          </a>           -->
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Hudanyun Sheng / Data Scientist</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/cv/">CV</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/portfolio/">Portfolio</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/publications/">Publications</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Blog Posts</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <div class="sidebar sticky">
+  
+
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  <div class="author__avatar">
+    
+    	<img src="http://localhost:4000/images/profile2.jpg" class="author__avatar" alt="Hudanyun Sheng">
+    
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">Hudanyun Sheng</h3>
+    <p class="author__pronouns">she/her (Dannie)</p>
+    <p class="author__bio">Data Scientist | Machine Learning | Computer Vision | AI</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      <!-- Font Awesome icons / Biographic information  -->
+      
+        <li><i class="fa-solid fa-location-dot icon-pad-right" aria-hidden="true"></i>Beijing, China</li>
+      
+      
+      
+      
+        <li><a href="mailto:hudanyun.sheng@outlook.com"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>Email</a></li>
+      
+
+      <!-- Font Awesome and Academicons icons / Academic websites -->
+            
+      
+      
+      
+                              
+      
+
+      <!-- Font Awesome icons / Repositories and software development -->
+      
+            
+            
+      
+        <li><a href="https://github.com/DannieSheng"><i class="fab fa-fw fa-github icon-pad-right" aria-hidden="true"></i>Github</a></li>
+      
+            
+            
+
+      <!-- Font Awesome icons / Social media -->
+      
+      
+            
+      
+                  
+                  
+      
+            
+            
+      
+        <li><a href="https://www.linkedin.com/in/https://www.linkedin.com/in/hudanyunsheng/"><i class="fab fa-fw fa-linkedin icon-pad-right" aria-hidden="true"></i>LinkedIn</a></li>
+            
+      
+            
+                  
+            
+      
+            
+            
+      
+              
+      
+                      
+      
+      
+            
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Switchgrass Genotype Classification using Hyperspectral Imagery">
+    <meta itemprop="description" content="Master Thesis">
+    <meta itemprop="datePublished" content="March 14, 2024">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Switchgrass Genotype Classification using Hyperspectral Imagery
+</h1>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-03-14T08:01:03+08:00">March 14, 2024</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p><img src="/images/portforlio3.png" /></p>
+<p>The adoption of remote sensing techniques in agricultural has been proven to be time and labor efficient, which saves labor and time from otherwise tedious and time-consuming field measurements.
+    Hyperspectral signatures have proven to be capable of material detection.
+    Spectra for different materials are different and can be used for distinguishing different materials.
+    However, in the problem I dealt with, the spectra of different genotypes of the same plant species are so similar that it is challenging to distinguish between them using only spectra.
+    Additionally, large variances make them overlap...</p>
+<p><br />
+<a href="https://faculty.eng.ufl.edu/machine-learning/2020/01/switchgrass-genotype-classification-using-hyperspectral-imagery/">Read the thesis</a></p>
+
+<h1 id="motivation-and-goal">Motivation and Goal</h1>
+<ul>
+  <li>The adoption of remote sensing techniques in agricultural has been proven to be time and labor efficient.</li>
+  <li>Hyperspectral signatures have proven to be capable of material detection.</li>
+  <li>However, the spectra of different genotypes of the same plant species are similar so it is challenging to distinguish between them using the spectra.</li>
+  <li>A protocol for hyperspectral data processing is proposed.</li>
+  <li>Due to the challenges in distinguishing between genotypes of the same species, whether dimensionality reduction can help in discriminating between these classes is investigated.
+      - High correlation among hyperspectral bands – so data compression is indicated 
+      - No clear wavelength (or set of wavelengths) that easily distinguish the classes - so a non-linear dimensionality reduction method is needed</li>
+</ul>
+
+<h1>Literature Review</h1>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2&gt;The Siamese Network&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;A supervised dimensionality reduction method.&lt;/li&gt;
+        &lt;li&gt;Goal: “Classification-friendly” dimensionality reduction.&lt;/li&gt;
+        &lt;li&gt;Maps high dimensional input data points onto a low dimensional manifold such that “similar” pairs of inputs are mapped to nearby points on the learned manifold, whereas “dissimilar” pairs of inputs are mapped to far-away points on the manifold.&lt;/li&gt;
+        &lt;li&gt;Siamese network is a class of neural network architectures that contain two or more subnetworks.&lt;/li&gt;
+        &lt;li&gt;Applications:
+            &lt;ul&gt;
+                &lt;li&gt;Face recognition&lt;/li&gt;
+                &lt;li&gt;Paraphrase scoring&lt;/li&gt;
+                &lt;li&gt;Signature verification&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;li&gt;Network architecture:
+            &lt;ul&gt;
+                &lt;li&gt;Pairs of inputs with a binary label.&lt;/li&gt;
+                &lt;li&gt;Contrastive loss function to deal with pairs with label 0 or 1 differently.&lt;/li&gt;
+                &lt;li&gt;Similarity score: distance measure.&lt;/li&gt;
+                &lt;li&gt;The model predict whether a pair of input data are similar in the original space by setting a threshold to the similarity score.&lt;/li&gt;
+            &lt;/ul&gt;        
+        &lt;/li&gt;
+    &lt;/ul&gt;
+</code></pre></div></div>
+
+<h3 id="mathematical-details">Mathematical Details</h3>
+<h4 id="contrastive-loss">Contrastive Loss</h4>
+<p>Let $\overrightarrow{X_{1}}$ and $\overrightarrow{X_{2}}$ ($\overrightarrow{X_{1}}, \overrightarrow{X_{2}}\in{D}$) be a pair of input vectors, and Y be the binary label describing the similarity of this pair of data, i.e. 
+\(Y = 
+\left\{
+    \begin{aligned}
+    0, if\ a\ similar\ pair \\
+    1, if\ a\ dissimilar\ pair
+    \end{aligned}
+\right.\)
+Output from the last layer of the Siamese Network: $G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})$ ($G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})\in {}d$)<br />
+Distance of the pair in the output space:
+\(D_W(\overrightarrow{X_1}, \overrightarrow{X_2}) 
+= ||G_W(\overrightarrow{X_1})-G_W(\overrightarrow{X_2})||_2\)
+Contrastive loss:
+\(L(W, (Y, \overrightarrow{X_1}, \overrightarrow{X_2})) 
+= (1-Y)L_S(D_W^i) + YL_D(D_W^i)\)
+where<br />
+$L_S(D_W^i) = \frac{1}{2}D_W^2$<br />
+$L_D(D_W^i) = \frac{1}{2}[max(0, m-D_W)]^2$</p>
+
+<p>From the definition above, we observe that the loss function treat similar pairs and dissimilar pairs of input differently:</p>
+<ul>
+  <li>For similar pairs, the larger the distance, the larger the loss value.</li>
+  <li>For dissimilar paris, the larger the distance, the smaller the loss; 
+further, a threshold (call margin $m$) is set such that the loss becomes zero when the distance between a dissimilar pair is large enough.</li>
+</ul>
+
+<h1 id="dataset-and-methodology">Dataset and Methodology</h1>
+
+<h2 id="dataset">Dataset</h2>
+<ul>
+  <li>Hyperspectral images collected from a switchgrass field in Columbia, Missouri using a hyperspectral camera mounted on a UAV.</li>
+  <li>Six switchgrass genotypes are present in the field</li>
+  <li>A plot-based stand experiment design is adopted
+    <ul>
+      <li>A group of all the same type of switchgrass are planted in 6m x 6m plots and replicated 5 times in the field.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="methodology">Methodology</h2>
+
+<h3 id="preprocessing">Preprocessing</h3>
+<h4 id="radiometric-calibration">Radiometric calibration</h4>
+<h4 id="noisy-band-removal">Noisy band removal</h4>
+
+<h3 id="switchgrass-detection">Switchgrass Detection</h3>
+<p>Switchgrass detection is done by hyperspectral unmixing, the algorithm I used is called <a href="https://ieeexplore.ieee.org/abstract/document/4271474">Sparsity-Promoting Iterative Constrained Endmembers (SPICE)</a>.</p>
+
+<h3 id="genotype-classification">Genotype Classification</h3>
+<h4 id="ground-truth-generation">Ground Truth Generation</h4>
+<h4 id="dimensionality-reduction">Dimensionality Reduction</h4>
+<h5 id="the-siamese-network">The Siamese Network</h5>
+<h5 id="principal-component-analysis-baseline-method">Principal Component Analysis (baseline method)</h5>
+<h5 id="linear-discriminant-analysis-baseline-method-2">Linear Discriminant Analysis (baseline method 2)</h5>
+<p>Linear Discriminant Analysis (LDA) is a statistical technique for categorizing data into groups. 
+It identifies patterns in features to distinguish between different classes. 
+For instance, it may analyze characteristics like size and color to classify fruits as apples or oranges. 
+LDA aims to find a straight line or plane that best separates these groups while minimizing overlap within each class. 
+By <strong>maximizing</strong> the separation between classes, it enables accurate classification of new data points. 
+The main goal of LDA is to project the data onto a lower-dimensional space with good class-separability in order to avoid overfitting (“curse of dimensionality”) and also reduce computational costs. 
+LDA seeks to reduce dimensions while preserving as much of the class discriminatory information as possible.
+In simpler terms, LDA helps make sense of data by finding the most effective way to separate different categories, aiding tasks like pattern recognition and classification.<br />
+Cons:</p>
+<ul>
+  <li>Linear decision boundaries may not effectively separate non-linearly separable classes. More flexible boundaries are desired.</li>
+  <li>In cases where the number of observations exceeds the number of features, LDA might not perform as desired (Small Sample Size (SSS) problem). Regularization is required.</li>
+</ul>
+<h1>Results</h1>
+<h1>Summary and Conclusions</h1>
+
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/portfolio/portfolio-project3/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/portfolio/portfolio-project3/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/portfolio/portfolio-project3/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/portfolio/portfolio-project2/" class="pagination--pager" title="Echo Cancellation
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/portfolio/portfolio-project4/" class="pagination--pager" title="Python-based CyTOF processing and analyzing package
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+<!-- <a href="/sitemap/">Sitemap</a> -->
+<!-- end custom footer snippets -->
+
+        
+
+<div class="page__footer-follow">
+  <ul class="social-icons">
+    <!-- 
+      <li><strong>Follow:</strong></li>
+     -->
+    
+    
+    
+      <li><a href="http://github.com/DannieSheng"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <!-- <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li> -->
+  </ul>
+  
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 Hudanyun Sheng.</div>
+
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
+
