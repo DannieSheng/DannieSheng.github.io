@@ -11,6 +11,25 @@ My name is Hudanyun Sheng, also known as Dannie. I am a data scientist, a resear
 
 I am using recording my past experiences, learning notes here. 
 
+Welcome to My World!
+======
+👋 Hi there! I'm Hudanyun Sheng (Dannie), a passionate explorer of knowledge and experiences. This space is my digital canvas, where I document my journey through life's lessons, both professional and personal.
+
+About Me
+------
+I'm a Data Scientist with a keen interest in technology, art, food, coffee... Beyond my professional endeavors, I'm always on a quest to learn something new, whether it's mastering a new skill, diving deep into a fascinating topic, or simply exploring the world around me.
+
+What You'll Find Here
+------
+**Past Experiences**: Dive into stories from my career and personal adventures. From triumphs to challenges, I share insights and reflections on the path I've traveled.
+**Learning Notes**: My virtual notebook, filled with summaries, thoughts, and analyses on various subjects I'm exploring. 
+<!-- Expect a mix of [mention specific topics or fields relevant to your interests]. -->
+<!-- [Optional Section]: [If you have other content types, like projects, portfolio, or a blog, mention them briefly here.]
+Connect With Me -->
+I believe in the power of connection and collaboration. If you're interested in discussing any topics, or just want to say hi, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/hudanyunsheng/).
+
+<!-- feel free to [contact me/link to your contact page] or  -->
+
 
 <!-- This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
 
