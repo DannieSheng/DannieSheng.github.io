@@ -8,7 +8,8 @@ redirect_from:
 ---
 
 {% include base_path %}
-[查看中文简历]({{ site.baseurl }}/cv-cn/)
+[查看中文简历]({{ site.baseurl }}/cv-cn/)  
+[Download My Resume](/files/HudanyunSheng_CV.pdf)
 
 Education
 ======

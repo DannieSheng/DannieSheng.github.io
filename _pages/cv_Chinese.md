@@ -9,7 +9,8 @@ lang: zh-CN
 ---
 
 {% include base_path %}
-[View English Resume]({{ site.baseurl }}/cv/)
+[View English Resume]({{ site.baseurl }}/cv/)  
+[下载我的简历](/files/盛胡丹筠简历.pdf)
 
 教育经历
 ======
