@@ -11,8 +11,13 @@ tags:
 
 A summary of object detection algorithms
 
-Faster R-CNN
+R-CNN 
 ======
+What is R-CNN and how does it work?
+Region-based Convolutional Neural Network (R-CNN) is a type of deep learning architecture used for object detection in computer vision tasks. RCNN was one of the pioneering models that helped advance the object detection field by combining the power of convolutional neural networks and region-based approaches.
+
+Faster R-CNN
+------
 
 It combines RPN (Region Proposal Network) and CNN (Convolutional Neural Network) for object classificaion and bounding box regression
 
@@ -46,7 +51,7 @@ $$L_{reg} = \frac{1}{N_{reg}}\sum_{i=1}^{N_{reg}}L_{smooth}(t_i-t_{i}^{*})$$
   $$L_{reg}^{rpn} = \frac{1}{N_{reg}}\sum_ismooth_{L1}(t_i-\hat{t_i})$$
 
 Mask R-CNN
-======
+------
 ### Important notes
 It extends and improves faster R-CNN by 
 1) Replacing ROI pooling by ROI align to improve precision
@@ -57,7 +62,7 @@ It extends and improves faster R-CNN by
 $$L_{mask} = -\frac{1}{N_{mask}}\sum_{i}\sum_{p}(m_{i,p}log(\hat{m_{i,p}})+(1-m_{i,p})log(1-\hat{m_{i,p}}))$$
 
 YOLO
-======
+------
 It a real-time object detection algorithm that transforms the task of object detection into a single end-to-end convolutional neural network (CNN) model. 
 ### Important notes
 1. Grid search:  
@@ -84,22 +89,22 @@ $\hat{x_i}$, $\hat{y_i}$, $\hat{w_i}$, $\hat{h_i}$ represent for the location an
 
 
 SSD (Single Shot MultiBox Detector)
-======
+------
 
 RetinaNet
-======
+------
 
 EfficientDet
-======
+------
 
 Cascade R-CNN
-======
+------
 
 CenterNet
-======
+------
 
 DETR (Detection Transformer)
-======
+------
 
 HRNet (High-Resolution Network)
 

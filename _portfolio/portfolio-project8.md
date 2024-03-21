@@ -33,4 +33,4 @@ Why This Approach?
 Conclusion
 ======
 
-This project highlights the potential of advanced document understanding technologies in automating prescription parsing, with specific adaptations to meet the unique needs of the Japanese eyewear market. It showcases the project team's ability to innovate and efficiently extend the reach of existing tools to new markets.
+This project highlights the potential of advanced document understanding technologies in automating prescription parsing, with specific adaptations to meet the unique needs of the Japanese eyewear market. It showcases our ability to innovate and efficiently extend the reach of existing tools to new markets.

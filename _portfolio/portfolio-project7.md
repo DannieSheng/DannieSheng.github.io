@@ -11,12 +11,13 @@ Key Achievements
 Model Adaptation
 ------
 
-Started with an existing Keras-based Mask R-CNN model designed for detecting six common types of cell nuclei in NSCLC pathology images. Through transfer learning, the model was fine-tuned to detect and classify seven common types of cell nuclei in breast cancer pathology images, achieving simultaneous segmentation and classification.
+Started with an existing Keras-based Mask R-CNN model designed for detecting six common types of cell nuclei in NSCLC (
+Non-small cell lung cancers) pathology images. Through transfer learning, the model was fine-tuned to detect and classify seven common types of cell nuclei in breast cancer pathology images, achieving simultaneous segmentation and classification.
 
 Data Labeling Challenge
 ------
 
-Faced with a dataset where approximately 20% of the samples had incomplete labels—missing either the class labels (`unlabeled`) or the pixel-level mask labels—direct training was not feasible without addressing the issue of data wastage.
+Faced with a dataset where approximately 20% of the samples had incomplete labels—missing either the class labels (`unlabeled`) or the pixel-level mask labels—direct training was not feasible without addressing the issue.
 
 Loss Function Redesign
 ------
