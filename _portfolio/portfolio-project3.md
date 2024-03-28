@@ -22,32 +22,29 @@ Motivation and Goal
         - High correlation among hyperspectral bands – so data compression is indicated 
         - No clear wavelength (or set of wavelengths) that easily distinguish the classes - so a non-linear dimensionality reduction method is needed
 
-<h1>Literature Review</h1>
-    <h2>The Siamese Network</h2>
-        <ul>
-            <li>A supervised dimensionality reduction method.</li>
-            <li>Goal: “Classification-friendly” dimensionality reduction.</li>
-            <li>Maps high dimensional input data points onto a low dimensional manifold such that “similar” pairs of inputs are mapped to nearby points on the learned manifold, whereas “dissimilar” pairs of inputs are mapped to far-away points on the manifold.</li>
-            <li>Siamese network is a class of neural network architectures that contain two or more subnetworks.</li>
-            <li>Applications:
-                <ul>
-                    <li>Face recognition</li>
-                    <li>Paraphrase scoring</li>
-                    <li>Signature verification</li>
-                </ul>
-            <li>Network architecture:
-                <ul>
-                    <li>Pairs of inputs with a binary label.</li>
-                    <li>Contrastive loss function to deal with pairs with label 0 or 1 differently.</li>
-                    <li>Similarity score: distance measure.</li>
-                    <li>The model predict whether a pair of input data are similar in the original space by setting a threshold to the similarity score.</li>
-                </ul>        
-            </li>
-        </ul>
+Literature Review
+======
+
+The Siamese Network
+------
+- A supervised dimensionality reduction method.
+- Goal: “Classification-friendly” dimensionality reduction.
+- Maps high dimensional input data points onto a low dimensional manifold such that “similar” pairs of inputs are mapped to nearby points on the learned manifold, whereas “dissimilar” pairs of inputs are mapped to far-away points on the manifold.
+- Siamese network is a class of neural network architectures that contain two or more subnetworks.
+- Applications:
+    - Face recognition
+    - Paraphrase scoring
+    - Signature verification<
+- Network architecture:
+    - Pairs of inputs with a binary label.
+    - Contrastive loss function to deal with pairs with label 0 or 1 differently.
+    - Similarity score: distance measure.
+    - The model predict whether a pair of input data are similar in the original space by setting a threshold to the similarity score.
 
 ### Mathematical Details
 #### Contrastive Loss
-Let $\overrightarrow{X_{1}}$ and $\overrightarrow{X_{2}}$ ($\overrightarrow{X_{1}}, \overrightarrow{X_{2}}\in{D}$) be a pair of input vectors, and Y be the binary label describing the similarity of this pair of data, i.e. 
+Let  $\overrightarrow{X_{1}}$  and  $\overrightarrow{X_{2}}$  ($\overrightarrow{X_{1}}$, $\overrightarrow{X_{2}}\in{D}$) be a pair of input vectors, and Y be the binary label describing the similarity of this pair of data, i.e. 
+
 $$Y = 
 \left\{
     \begin{aligned}
@@ -55,11 +52,15 @@ $$Y =
     1, if\ a\ dissimilar\ pair
     \end{aligned}
 \right.$$
+
 Output from the last layer of the Siamese Network: $G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})$ ($G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})\in {}d$)  
 Distance of the pair in the output space:
+
 $$D_W(\overrightarrow{X_1}, \overrightarrow{X_2}) 
 = ||G_W(\overrightarrow{X_1})-G_W(\overrightarrow{X_2})||_2$$
+
 Contrastive loss:
+
 $$L(W, (Y, \overrightarrow{X_1}, \overrightarrow{X_2})) 
 = (1-Y)L_S(D_W^i) + YL_D(D_W^i)$$
 where  
@@ -108,6 +109,10 @@ In simpler terms, LDA helps make sense of data by finding the most effective way
 Cons:
 - Linear decision boundaries may not effectively separate non-linearly separable classes. More flexible boundaries are desired.
 - In cases where the number of observations exceeds the number of features, LDA might not perform as desired (Small Sample Size (SSS) problem). Regularization is required.
-<h1>Results</h1>
-<h1>Summary and Conclusions</h1>
+
+Results
+======
+
+Summary and Conclusions
+======
 

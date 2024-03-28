@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-18T10:43:41+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Happy 31th birthday</title><link href="http://localhost:4000/posts/2024/03/31th-birthday/" rel="alternate" type="text/html" title="Happy 31th birthday" /><published>2024-03-15T00:00:00+08:00</published><updated>2024-03-15T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/31th</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/31th-birthday/"><![CDATA[<p>今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-22T15:21:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Basic numpy</title><link href="http://localhost:4000/posts/2024/03/basic-numpy/" rel="alternate" type="text/html" title="Basic numpy" /><published>2024-03-22T00:00:00+08:00</published><updated>2024-03-22T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/numpy</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/basic-numpy/"><![CDATA[<p>Python, data science, numpy</p>
+
+<p><a href="https://mp.weixin.qq.com/s/zgcugVeBE2grz9rwqPm8Ig">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Python" /><category term="Data Science" /><summary type="html"><![CDATA[Python, data science, numpy]]></summary></entry><entry><title type="html">Happy 31th birthday</title><link href="http://localhost:4000/posts/2024/03/31th-birthday/" rel="alternate" type="text/html" title="Happy 31th birthday" /><published>2024-03-15T00:00:00+08:00</published><updated>2024-03-15T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/31th</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/31th-birthday/"><![CDATA[<p>今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。</p>
 
 <p>为什么最近会有时间做这么多思考呢？因为我在今年1月，农历新年前不到1个月的时候，试用期还有1周就转正的时候，突然被通知不转正了。</p>
 
@@ -45,7 +47,7 @@
 <ul>
   <li>梯度的一阶矩 (first moment)：过往梯度与当前梯度的平均 -&gt; 惯性保持</li>
   <li>梯度的二阶矩 (second moment)：过往梯度平方与当前梯度平方的平均 -&gt; 环境感知，为不同参数产生自适应的学习速率</li>
-</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Activation Functions</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Activation Functions" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
 
 <h1 id="sigmoid-family">Sigmoid Family</h1>
 <p>\(sigmoid(x) = \frac{1}{1+e^{-x}}\)</p>
@@ -561,108 +563,4 @@ Current visual document understanding (VDU) solutions rely heavily on Optical Ch
 <p>Objective: minimize <strong>cross-entropy loss</strong> of next token prediction (by jointly conditioning on the image and previous contexts)</p>
 
 <h3 id="fine-tuning-stage">Fine-tuning stage:</h3>
-<p>Learns how to understand the whole document accord-ing to the downstream task</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="AI" /><category term="Visual Document Understanding" /><summary type="html"><![CDATA[My notes on this paper: OCR-free Document Understanding Transformer (github repo).]]></summary></entry><entry><title type="html">Object Detection Algorithms</title><link href="http://localhost:4000/posts/2024/03/object-detection-algorithms/" rel="alternate" type="text/html" title="Object Detection Algorithms" /><published>2024-03-06T00:00:00+08:00</published><updated>2024-03-06T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/object-detection-algorithms</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/object-detection-algorithms/"><![CDATA[<p>A summary of object detection algorithms</p>
-
-<h1 id="faster-r-cnn">Faster R-CNN</h1>
-
-<p>It combines RPN (Region Proposal Network) and CNN (Convolutional Neural Network) for object classificaion and bounding box regression</p>
-
-<h3 id="important-notes">Important notes</h3>
-<ol>
-  <li>RPN<br />
-A fully convolutional network that simultaneously predicts object bounds and objectness scores at each position.
-    <ol>
-      <li>Generating region proposals by sliding a small window over the original image.</li>
-      <li>Anchor Boxes: At each sliding-window location, the RPN generates multiple region proposals simultaneously. 
- It does this by predicting multiple bounding boxes and their objectness scores. These bounding boxes are called “anchors.” 
- Anchors are <em>predefined</em> and are of different scales and aspect ratios to ensure coverage of various object sizes and shapes.</li>
-      <li>Bounding Box Regression and Classification: For each anchor, the RPN predicts two sets of values:
-        <ul>
-          <li>Bounding box regression adjustments: These values adjust the anchors to better fit potential objects.</li>
-          <li>Objectness scores: These scores indicate how likely each adjusted anchor is to contain an object.</li>
-        </ul>
-      </li>
-      <li>Non-Maximum Suppression (NMS): Since many anchors can overlap significantly, leading to multiple proposals for the same object, NMS is applied to reduce redundancy. It does this by keeping only the proposals with the highest objectness scores while removing others that have a high overlap (measured by Intersection over Union, IoU) with these top proposals.</li>
-    </ol>
-  </li>
-  <li>
-    <p>ROI Pooling <br />
-Efficiently extract <strong>fixed-size</strong> feature vectors from the variable-sized regions proposed by the Region Proposal Network (RPN). These fixed-size feature vectors are then used for classifying the regions into specific object categories and for refining their bounding box coordinates.</p>
-  </li>
-  <li>Object Classification and Bounding Box Regression<br />
-Fully connected layer</li>
-</ol>
-
-<h3 id="loss-function">Loss Function</h3>
-<ul>
-  <li>Classification loss (cross entropy loss)
-\(L_{cls} = -\frac{1}{N_{cls}}\sum_{i=1}^{N_{cls}}[y_ilog(p_i)+[(1-y_i)log(1-p_i)]\)</li>
-  <li>Bounding box regression loss (smooth L1 loss)
-\(L_{reg} = \frac{1}{N_{reg}}\sum_{i=1}^{N_{reg}}L_{smooth}(t_i-t_{i}^{*})\)</li>
-  <li>Loss from the RPN
-    <ul>
-      <li>Classification loss:
-\(L_{cls}^{rpn} = -\frac{1}{N_{cls}}\sum_{i}[p_ilog(\hat{p_i})+(1-p_i)log(1-\hat{p_i})]\)</li>
-      <li>Bounding box regression loss
-\(L_{reg}^{rpn} = \frac{1}{N_{reg}}\sum_ismooth_{L1}(t_i-\hat{t_i})\)</li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="mask-r-cnn">Mask R-CNN</h1>
-<h3 id="important-notes-1">Important notes</h3>
-<p>It extends and improves faster R-CNN by 
-1) Replacing ROI pooling by ROI align to improve precision
-2) Including segmentation mask for each object</p>
-
-<h3 id="loss-function-1">Loss Function</h3>
-<ul>
-  <li>Mask loss:
-\(L_{mask} = -\frac{1}{N_{mask}}\sum_{i}\sum_{p}(m_{i,p}log(\hat{m_{i,p}})+(1-m_{i,p})log(1-\hat{m_{i,p}}))\)</li>
-</ul>
-
-<h1 id="yolo">YOLO</h1>
-<p>It a real-time object detection algorithm that transforms the task of object detection into a single end-to-end convolutional neural network (CNN) model.</p>
-<h3 id="important-notes-2">Important notes</h3>
-<ol>
-  <li>Grid search:<br />
-The input images are splitted into fixed size grids and predictions are made for each grid</li>
-  <li>
-    <p>Single shot:</p>
-  </li>
-  <li>Multi-size prediction:<br />
-Different levels of feature maps</li>
-</ol>
-
-<h3 id="loss-function-2">Loss Function</h3>
-<ul>
-  <li>Classification loss
-\(L_{cls} = -\frac{1}{N_{obj}}\sum_{i=1}^{N_{obj}}\sum_{c\in classes}y_{i,c}log(\hat{y_{i,c}})\)
-$N_{obj}$ is the number of grids.</li>
-  <li>Bounding box regression loss 
-\(L_{box} = \frac{1}{N_{obj}}\sum_{i=1}^{N_{obj}}\sum_{j=1}^{B}\mathbf{1}_{ij}^{obj}[(x_i-\hat{x_i})^2
-+(y_i-\hat{y_i})^2
-+(\sqrt{w_i}-\sqrt{\hat{w_i}})^2
-+(\sqrt{h_i}-\sqrt{\hat{h_i}})^2]\)
-where<br />
-$B$: number of bbox in each grid<br />
-$\mathbf{1}_{ij}$: an indicator function that shows whether the j-th bbox in the i-th grid has object detected<br />
-$x_i$, $y_i$, $w_i$, $h_i$ represent for the location and size of predicted bboxes (ground-truth)<br />
-$\hat{x_i}$, $\hat{y_i}$, $\hat{w_i}$, $\hat{h_i}$ represent for the location and size of predicted bboxes (predicted)</li>
-</ul>
-
-<h1 id="ssd-single-shot-multibox-detector">SSD (Single Shot MultiBox Detector)</h1>
-
-<h1 id="retinanet">RetinaNet</h1>
-
-<h1 id="efficientdet">EfficientDet</h1>
-
-<h1 id="cascade-r-cnn">Cascade R-CNN</h1>
-
-<h1 id="centernet">CenterNet</h1>
-
-<h1 id="detr-detection-transformer">DETR (Detection Transformer)</h1>
-
-<p>HRNet (High-Resolution Network)</p>
-
-<hr />]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="computer vision" /><category term="AI" /><summary type="html"><![CDATA[A summary of object detection algorithms]]></summary></entry></feed>
+<p>Learns how to understand the whole document accord-ing to the downstream task</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="AI" /><category term="Visual Document Understanding" /><summary type="html"><![CDATA[My notes on this paper: OCR-free Document Understanding Transformer (github repo).]]></summary></entry></feed>

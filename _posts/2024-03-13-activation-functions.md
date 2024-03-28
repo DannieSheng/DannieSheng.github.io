@@ -1,5 +1,5 @@
 ---
-title: 'Clustering alrogithms'
+title: 'Activation Functions'
 date: 2024-03-13
 permalink: /posts/2024/03/activation-functions/
 tags:

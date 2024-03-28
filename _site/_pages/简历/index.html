@@ -351,7 +351,7 @@
 
 <h3 id="模糊度检测图像质量测评模块-202311--202401">模糊度检测图像质量测评模块 2023.11 ～ 2024.01</h3>
 <ul>
-  <li>从之前生产环境收集到的数据来看，图像本身的质量会极大程度影响处方解析的成功率与准确率 。
+  <li>从直观感受以及之前生产环境收集到的数据来看，图像本身的质量会极大程度影响处方解析的成功率与准确率 。
     <ul>
       <li>已有内部开发的图像质量测评模块，该模块可以检测图像的方向(orientation)。但是仍然需要一个模块来评估图像的模糊程度。</li>
     </ul>
@@ -370,7 +370,7 @@
   </li>
   <li>数据标记：
     <ul>
-      <li>在已有处方解析标签的数据集（用label studio标记）上，通过制定相关标记规则，来产生针对模糊度的标签</li>
+      <li>在已有处方解析标签的数据集（用label studio标记）上，通过制定相关标记规则，来产生针对模糊度的标签（～1800 labeled prescription images）</li>
       <li>但是面临的巨大挑战是，已有数据中，<code class="language-plaintext highlighter-rouge">高度模糊</code> (<code class="language-plaintext highlighter-rouge">Blurry</code>) 所占比例相比<code class="language-plaintext highlighter-rouge">Fine</code> 来说太小，造成类别严重不均衡，不利于分类模型训练。</li>
       <li>通过查询生产数据库来收集更多 <code class="language-plaintext highlighter-rouge">Blurry</code> 数据
         <ul>
@@ -413,7 +413,7 @@
     </ul>
   </li>
   <li>获得了一个基于PyTorch框架的、适用于检测乳腺癌的染色病理图像中常见的7类细胞核，并同时进行分割和分类的mask R-CNN模型（检测率82.5%，7分类准确率82.0%）</li>
-  <li>Mask R-CNN选择原因：
+  <li>Mask R-CNN (region based CNN) 选择原因：
     <ul>
       <li>Mask R-CNN在实例分割任务中具有高精确度和准确性。在肿瘤细胞核检测中，准确地定位和分割细胞核是至关重要的。</li>
       <li>Mask R-CNN不仅能够检测物体的边界框，还能生成每个对象实例的详细掩码。对于肿瘤细胞核检测，掩码的生成能力可以提供更详细和精细的信息，有助于更准确地理解细胞核的形状和结构。</li>

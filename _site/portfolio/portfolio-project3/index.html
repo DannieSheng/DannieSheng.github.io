@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2024-03-18T10:43:41+08:00">
+  <meta property="article:published_time" content="2024-03-22T15:21:50+08:00">
 
 
 
@@ -264,7 +264,7 @@
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
     <meta itemprop="headline" content="Switchgrass Genotype Classification using Hyperspectral Imagery">
     <meta itemprop="description" content="Master Thesis">
-    <meta itemprop="datePublished" content="March 18, 2024">
+    <meta itemprop="datePublished" content="March 22, 2024">
     
 
     <div class="page__inner-wrap">
@@ -276,7 +276,7 @@
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-03-18T10:43:41+08:00">March 18, 2024</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-03-22T15:21:50+08:00">March 22, 2024</time></p>
             
         </header>
       
@@ -302,46 +302,52 @@
       - No clear wavelength (or set of wavelengths) that easily distinguish the classes - so a non-linear dimensionality reduction method is needed</li>
 </ul>
 
-<h1>Literature Review</h1>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h2&gt;The Siamese Network&lt;/h2&gt;
-    &lt;ul&gt;
-        &lt;li&gt;A supervised dimensionality reduction method.&lt;/li&gt;
-        &lt;li&gt;Goal: “Classification-friendly” dimensionality reduction.&lt;/li&gt;
-        &lt;li&gt;Maps high dimensional input data points onto a low dimensional manifold such that “similar” pairs of inputs are mapped to nearby points on the learned manifold, whereas “dissimilar” pairs of inputs are mapped to far-away points on the manifold.&lt;/li&gt;
-        &lt;li&gt;Siamese network is a class of neural network architectures that contain two or more subnetworks.&lt;/li&gt;
-        &lt;li&gt;Applications:
-            &lt;ul&gt;
-                &lt;li&gt;Face recognition&lt;/li&gt;
-                &lt;li&gt;Paraphrase scoring&lt;/li&gt;
-                &lt;li&gt;Signature verification&lt;/li&gt;
-            &lt;/ul&gt;
-        &lt;li&gt;Network architecture:
-            &lt;ul&gt;
-                &lt;li&gt;Pairs of inputs with a binary label.&lt;/li&gt;
-                &lt;li&gt;Contrastive loss function to deal with pairs with label 0 or 1 differently.&lt;/li&gt;
-                &lt;li&gt;Similarity score: distance measure.&lt;/li&gt;
-                &lt;li&gt;The model predict whether a pair of input data are similar in the original space by setting a threshold to the similarity score.&lt;/li&gt;
-            &lt;/ul&gt;        
-        &lt;/li&gt;
-    &lt;/ul&gt;
-</code></pre></div></div>
+<h1 id="literature-review">Literature Review</h1>
+
+<h2 id="the-siamese-network">The Siamese Network</h2>
+<ul>
+  <li>A supervised dimensionality reduction method.</li>
+  <li>Goal: “Classification-friendly” dimensionality reduction.</li>
+  <li>Maps high dimensional input data points onto a low dimensional manifold such that “similar” pairs of inputs are mapped to nearby points on the learned manifold, whereas “dissimilar” pairs of inputs are mapped to far-away points on the manifold.</li>
+  <li>Siamese network is a class of neural network architectures that contain two or more subnetworks.</li>
+  <li>Applications:
+    <ul>
+      <li>Face recognition</li>
+      <li>Paraphrase scoring</li>
+      <li>Signature verification&lt;</li>
+    </ul>
+  </li>
+  <li>Network architecture:
+    <ul>
+      <li>Pairs of inputs with a binary label.</li>
+      <li>Contrastive loss function to deal with pairs with label 0 or 1 differently.</li>
+      <li>Similarity score: distance measure.</li>
+      <li>The model predict whether a pair of input data are similar in the original space by setting a threshold to the similarity score.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="mathematical-details">Mathematical Details</h3>
 <h4 id="contrastive-loss">Contrastive Loss</h4>
-<p>Let $\overrightarrow{X_{1}}$ and $\overrightarrow{X_{2}}$ ($\overrightarrow{X_{1}}, \overrightarrow{X_{2}}\in{D}$) be a pair of input vectors, and Y be the binary label describing the similarity of this pair of data, i.e. 
-\(Y = 
+<p>Let  $\overrightarrow{X_{1}}$  and  $\overrightarrow{X_{2}}$  ($\overrightarrow{X_{1}}$, $\overrightarrow{X_{2}}\in{D}$) be a pair of input vectors, and Y be the binary label describing the similarity of this pair of data, i.e.</p>
+
+\[Y = 
 \left\{
     \begin{aligned}
     0, if\ a\ similar\ pair \\
     1, if\ a\ dissimilar\ pair
     \end{aligned}
-\right.\)
-Output from the last layer of the Siamese Network: $G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})$ ($G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})\in {}d$)<br />
-Distance of the pair in the output space:
-\(D_W(\overrightarrow{X_1}, \overrightarrow{X_2}) 
-= ||G_W(\overrightarrow{X_1})-G_W(\overrightarrow{X_2})||_2\)
-Contrastive loss:
-\(L(W, (Y, \overrightarrow{X_1}, \overrightarrow{X_2})) 
+\right.\]
+
+<p>Output from the last layer of the Siamese Network: $G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})$ ($G_W(\overrightarrow{X_1})$, $G_W(\overrightarrow{X_2})\in {}d$)<br />
+Distance of the pair in the output space:</p>
+
+\[D_W(\overrightarrow{X_1}, \overrightarrow{X_2}) 
+= ||G_W(\overrightarrow{X_1})-G_W(\overrightarrow{X_2})||_2\]
+
+<p>Contrastive loss:</p>
+
+<p>\(L(W, (Y, \overrightarrow{X_1}, \overrightarrow{X_2})) 
 = (1-Y)L_S(D_W^i) + YL_D(D_W^i)\)
 where<br />
 $L_S(D_W^i) = \frac{1}{2}D_W^2$<br />
@@ -379,7 +385,7 @@ further, a threshold (call margin $m$) is set such that the loss becomes zero wh
 <h3 id="genotype-classification">Genotype Classification</h3>
 <h4 id="ground-truth-generation">Ground Truth Generation</h4>
 <h4 id="dimensionality-reduction">Dimensionality Reduction</h4>
-<h5 id="the-siamese-network">The Siamese Network</h5>
+<h5 id="the-siamese-network-1">The Siamese Network</h5>
 <h5 id="principal-component-analysis-baseline-method">Principal Component Analysis (baseline method)</h5>
 <h5 id="linear-discriminant-analysis-baseline-method-2">Linear Discriminant Analysis (baseline method 2)</h5>
 <p>Linear Discriminant Analysis (LDA) is a statistical technique for categorizing data into groups. 
@@ -395,8 +401,10 @@ Cons:</p>
   <li>Linear decision boundaries may not effectively separate non-linearly separable classes. More flexible boundaries are desired.</li>
   <li>In cases where the number of observations exceeds the number of features, LDA might not perform as desired (Small Sample Size (SSS) problem). Regularization is required.</li>
 </ul>
-<h1>Results</h1>
-<h1>Summary and Conclusions</h1>
+
+<h1 id="results">Results</h1>
+
+<h1 id="summary-and-conclusions">Summary and Conclusions</h1>
 
 
 
