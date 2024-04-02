@@ -3,8 +3,9 @@ title: 'Clustering alrogithms'
 date: 2024-03-14
 permalink: /posts/2024/03/stochastic-gradient-descent/
 tags:
-  - Machine Learning
-  - Deep Learning
+  - machine learning
+  - deep learning
+  - learning notes
 ---
 
 gradient descent, stochastic gradient descent, batch gradient descent

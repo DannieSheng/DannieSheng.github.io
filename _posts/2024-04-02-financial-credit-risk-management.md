@@ -3,8 +3,9 @@ title: 'Financial Credit Risk Management'
 date: 2024-04-02
 permalink: /posts/2024/04/risk-management
 tags:
-  - Financial
-  - Risk Management
+  - financial
+  - risk management
+  - learning notes
 ---
 
 信贷业务模型维度
@@ -112,7 +113,7 @@ PSI (群体稳定性指标)
 
   - 卡方停止的阈值
   - 分箱数目的限制
-  
+
 Reference
 ------
 

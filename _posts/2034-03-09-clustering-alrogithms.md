@@ -3,7 +3,7 @@ title: 'Clustering alrogithms'
 date: 2024-03-09
 permalink: /posts/2024/03/clustering-alrogithms/
 tags:
-  - Machine Learning
+  - machine learning
 ---
 
 The importance of clustering are of 
