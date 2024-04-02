@@ -6,6 +6,10 @@ Initially supporting the North American market, the project's goal was to adapt 
 collection: portfolio
 ---
 
+Business Question
+======
+How can we leverage advanced document understanding and machine learning technologies to automate the parsing of eyeglass prescriptions, thereby improving accuracy, reducing manual processing times, and enhancing our service offerings in a new international market?
+
 Key Achievements
 ======
 
