@@ -3,7 +3,7 @@ title: 'Time-series Forecasting'
 date: 2024-03-10
 permalink: /posts/2024/03/time-series-forecasting/
 tags:
-  - Machine Learning
+  - machine learning
 ---
 
 ARIMA (Autoregressive Integrated Moving Average)

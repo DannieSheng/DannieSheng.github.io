@@ -19,7 +19,7 @@
 
 
 
-<title>Loss Functions - Hudanyun Sheng / Data Scientist</title>
+<title>Financial Credit Risk Management - Hudanyun Sheng / Data Scientist</title>
 
 
 
@@ -29,15 +29,15 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Hudanyun Sheng / Data Scientist">
-<meta property="og:title" content="Loss Functions">
+<meta property="og:title" content="Financial Credit Risk Management">
 
 
-  <link rel="canonical" href="http://localhost:4000/posts/2024/03/loss-functions/">
-  <meta property="og:url" content="http://localhost:4000/posts/2024/03/loss-functions/">
+  <link rel="canonical" href="http://localhost:4000/posts/2024/04/risk-management">
+  <meta property="og:url" content="http://localhost:4000/posts/2024/04/risk-management">
 
 
 
-  <meta property="og:description" content="Regression Loss Functions">
+  <meta property="og:description" content="信贷业务模型维度">
 
 
 
@@ -52,7 +52,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2024-03-12T00:00:00+08:00">
+  <meta property="article:published_time" content="2024-04-02T00:00:00+08:00">
 
 
 
@@ -262,107 +262,156 @@
 
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Loss Functions">
-    <meta itemprop="description" content="Regression Loss Functions">
-    <meta itemprop="datePublished" content="March 12, 2024">
+    <meta itemprop="headline" content="Financial Credit Risk Management">
+    <meta itemprop="description" content="信贷业务模型维度">
+    <meta itemprop="datePublished" content="April 02, 2024">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Loss Functions
+          <h1 class="page__title" itemprop="headline">Financial Credit Risk Management
 </h1>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
   
-	  1 minute read
+	  less than 1 minute read
 	
 </p>
           
         
         
         
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-03-12T00:00:00+08:00">March 12, 2024</time></p>
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-04-02T00:00:00+08:00">April 02, 2024</time></p>
             
         </header>
       
 
       <section class="page__content" itemprop="text">
-        <h1 id="regression-loss-functions">Regression Loss Functions</h1>
+        <h1 id="信贷业务模型维度">信贷业务模型维度</h1>
 
-<h2 id="l1-loss-mean-absolute-error-mse">L1 Loss (Mean Absolute Error, MSE)</h2>
-<p>\(MSE = \frac{\sum_{i=1}^{N}|f(x_{i})-y_i|}{N}\)</p>
+<ol>
+  <li>
+    <h2 id="贷前模型">贷前模型</h2>
+    <p>A卡 (Application scorecard) 申请评分卡</p>
+  </li>
+  <li>
+    <h2 id="贷中模型">贷中模型</h2>
+    <p>B卡 (Behavior scorecard) 行为评分卡</p>
+  </li>
+  <li>
+    <h2 id="贷后模型">贷后模型</h2>
+    <p>C卡 (Collection scorecard) 催收评分卡</p>
+  </li>
+  <li>
+    <h2 id="反欺诈模型">反欺诈模型</h2>
+  </li>
+  <li>
+    <h2 id="画像模型">画像模型</h2>
+  </li>
+</ol>
 
-<h2 id="l2-loss-mean-square-error-mse">L2 Loss (Mean Square Error, MSE)</h2>
-<p>\(MSE = \frac{\sum_{i=1}^{N}(f(x_{i})-y_i)^2}{N}\)</p>
+<h1 id="变量筛选的技术指标">变量筛选的技术指标</h1>
 
-<h2 id="smooth-l1-loss">Smooth L1 Loss</h2>
-<p>\(SmoothL1 = \left\{
-\begin{aligned}
-0.5x^2,\ if\ |x|\ &lt;\ 1 \\
-|x-0.5|,\ otherwise
-\end{aligned}
-\right.\)</p>
+<p>基于缺失率 (Missing Rate)</p>
 
-<h2 id="huber-loss">Huber Loss</h2>
-<p>Combines MSE and MAE.</p>
+<p>基于变异系数 (Coefficient of Variation，CV)</p>
 
-<h1 id="classification-loss-functions">Classification Loss Functions</h1>
-<p>Cross Entropy Loss
-——</p>
+<p>基于稳定性 (Population Stability Index，PSI)</p>
 
-<p>Binary case:
-\(CE(p, y) = \left\{
-  \begin{aligned}
-  -log(p),\ if\ y\ =\ 1, \\
-  -log(1-p),\ otherwise
-  \end{aligned}
-  \right.\)</p>
+<p>基于信息量 (Information Value，IV)</p>
 
-<p>\(p_t = \left\{
-  \begin{aligned}
-  p,\ if\ y=1,\\
-  1-p,\ otherwise 
-  \end{aligned}
-\right.\)
-Simplified to
-\(CE(p,y) = CE(pt) = -log(pt)\)</p>
+<p>基于RF/XGBoost特征重要性 (Feature Importance)</p>
 
-<p>Multi-class case:
-\(CE(p_i, y_i) = -y_{i,c}log(p_{ic})\)</p>
+<p>基于线性相关性 (Linear Correlation)</p>
 
-\[L = \frac{1}{N}\sum_{i}L_i = -\frac{1}{N}\sum_{i}\sum_{c=1}^{M}y_{ic}log(p_{ic})\]
+<p>基于多重共线性 (Multicollinearity)</p>
 
-<h2 id="balanced-cross-entropy-loss">Balanced Cross Entropy Loss</h2>
-<p>\(CE(p_t) = -\alpha_tlog(p_t)\)</p>
+<p>基于逐步回归 (stepwise)</p>
 
-<p>Balanced cross entropy loss solves the problem of imbalanced classes, but did not put different focus on hard vs. easy samples.</p>
+<p>基于P-Vaule显著性检验</p>
 
-<h2 id="focal-loss">Focal Loss</h2>
-<p>\(FL(p_t) = -\alpha_t(1-p_t)^{\gamma}log(p_t)\)
-$p_t$ is the model’s estimated probability for each class being the correct classification.
-$\alpha_T$ is a weighting factor for the class (to further address class imbalance).
-$\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy examples are down-weighted. When $\gamma=0$, focal loss is equivalent to cross-entropy loss. As $\gamma=0$ increases, the effect of the modulating factor increases, and the loss contribution from easy examples is reduced.</p>
+<h1 id="评分卡评估">评分卡评估</h1>
 
-<p>The key idea behind focal loss is to focus model training on hard, misclassified examples and reduce the relative loss for easy examples, preventing the overwhelming number of easy negatives from dominating the training of the model.</p>
-
+<h2 id="区分度">区分度</h2>
 <ul>
-  <li>For well-classified examples (where $p_t$ is high), $(1-p_t)^{\gamma}$ approaches 0, which significantly reduces their contribution to the loss. As a result, the loss for these easy examples becomes negligible, and they have little impact on the model updates during training.</li>
-  <li>For misclassified or hard examples (where $p_t$ is low), $(1-p_t)^{\gamma}$ is closer to 1, meaning these examples contribute more significantly to the total loss. This ensures that the model’s updates focus more on correcting these harder examples.</li>
+  <li>Gini</li>
+  <li>AUC</li>
+  <li>KS (Kolmogorov-Smirnov)</li>
 </ul>
 
-<h2 id="poly-loss">Poly Loss</h2>
+<h2 id="稳定性">稳定性</h2>
+<p>PSI (群体稳定性指标)</p>
 
-<h2 id="hinge-loss">Hinge Loss</h2>
-<p>Used in SVM. 
-\(L(y) = max(0, 1-t \cdot y)\)</p>
+<h2 id="排序性-ranking">排序性 (Ranking)</h2>
+<p>统计bad_rate、lift、Odds等指标，按照评分分数进行分箱。</p>
 
-<h2 id="triplet-loss">Triplet Loss</h2>
+<h2 id="拟合度-goodness-of-fit">拟合度 (Goodness of Fit)</h2>
 
-<h2 id="contrastive-loss">Contrastive Loss</h2>
+<h1 id="其他">其他</h1>
 
+<h2 id="卡方分箱-有监督分箱">卡方分箱 (有监督分箱)</h2>
+<p>卡方检验就是对分类数据的频数进行分析的一种方法，它的应用主要表现在两个方面：<strong>拟合优度检验</strong>和<strong>独立性检验（列联分析）</strong>。</p>
+<h3 id="拟合优度">拟合优度</h3>
+
+<p>拟合优度是对一个分类变量的检验，即根据总体分布状况，计算出分类变量中各类别的期望频数，与分布的观察频数进行对比，判断期望频数与观察频数是否有显著差异，从而达到对分类变量进行分析的目的。比如，泰坦尼克号中我们观察幸存者是否与性别有关，可以理解为一个X是否与Y有必然联系。</p>
+
+<h3 id="独立性检验">独立性检验</h3>
+
+<p>独立性检验是两个特征变量之间的计算，它可以用来分析两个分类变量是否独立，或者是否有关联。比如某原料质量和产地是否依赖关系，可以理解为一个X与另一个X是否独立。</p>
+
+<h3 id="卡方检验步骤">卡方检验步骤</h3>
+
+<p>(卡方检验的步骤其实就是一般假设检验的过程)</p>
+
+<ol>
+  <li>提出假设，比如假设两个变量之间独立</li>
+  <li>根据分类的观察频数计算期望频数</li>
+  <li>根据卡方公式，计算实际频数与期望频数的卡方值</li>
+  <li>根据自由度和事先确定的显著性水平，查找卡方分布表计算卡法值，并与上一步卡方值比较</li>
+  <li>得出结果判断是否拒绝原假设</li>
+</ol>
+
+<p>卡方分箱是基于<strong>独立性检验</strong>的应用。</p>
+
+<h3 id="卡方分箱步骤">卡方分箱步骤</h3>
+<ul>
+  <li>初始化</li>
+</ul>
+
+<p>根据连续变量值大小进行排序
+构建最初的离散化，即把每一个单独的值视为一个箱体。这样做的目的就是想从每个单独的个体开始逐渐合并。</p>
+<ul>
+  <li>合并
+    <ul>
+      <li>计算所有相邻分箱的卡方值：也就是说如果有1,2,3,4个分箱，那么就需要绑定相邻的两个分箱，共三组：12,23,34。然后分别计算三个绑定组的卡方值。</li>
+      <li>从计算的卡方值中找出最小的一个，并把这两个分箱合并：比如，23是卡方值最小的一个，那么就将2和3合并，本轮计算中分箱就变为了1,23,4。</li>
+    </ul>
+
+    <p><strong>基本思想</strong>：如果两个相邻的区间具有非常类似的类分布，那么这两个区间可以合并。否则，它们应该分开。低卡方值表明它们具有相似的类分布。</p>
+  </li>
+  <li>
+    <p>停止条件</p>
+
+    <ul>
+      <li>卡方停止的阈值</li>
+      <li>分箱数目的限制</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="https://zhuanlan.zhihu.com/p/370534836">漫谈信贷业务模型体系建设</a> <br />
+<a href="https://falbang.com/?p=350">一文看懂风控模型的所有（应该）</a><br />
+<a href="https://developer.kingdee.com/article/289708643615246080?productLineId=29&amp;isKnowledge=2&amp;lang=zh-CN&amp;islogin=true,true&amp;global=1">一文带你了解风控评分卡模型</a> (各种指标名称)<br />
+<a href="https://cloud.tencent.com/developer/article/1947627?areaId=106001">特征稳定性指标PSI的原理与代码分享</a><br />
+<a href="https://cloud.tencent.com/developer/article/1530232">一文介绍特征工程里的卡方分箱，附代码实现</a><br />
+<a href="https://blog.csdn.net/richardsz_/article/details/123777141">特征工程 | 信息价值IV与群体稳定性PSI</a>
+<a href="https://zhuanlan.zhihu.com/p/80134853">风控模型—WOE与IV指标的深入理解应用</a> (贝叶斯角度)<br />
+<a href="https://www.zhihu.com/tardis/zm/art/143472559?source_id=1005">2.2万字，一文看懂风控模型所有</a></p>
 
 
         
@@ -390,15 +439,15 @@ $\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy 
     
       
       
+      <a href="http://localhost:4000/tags/#financial" class="page__taxonomy-item" rel="tag">financial</a><span class="sep">, </span>
+    
+      
+      
       <a href="http://localhost:4000/tags/#learning-notes" class="page__taxonomy-item" rel="tag">learning notes</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/#loss-function" class="page__taxonomy-item" rel="tag">loss function</a><span class="sep">, </span>
-    
-      
-      
-      <a href="http://localhost:4000/tags/#machine-learning" class="page__taxonomy-item" rel="tag">machine learning</a>
+      <a href="http://localhost:4000/tags/#risk-management" class="page__taxonomy-item" rel="tag">risk management</a>
     
     </span>
   </p>
@@ -415,11 +464,11 @@ $\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy 
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2024/03/loss-functions/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2024/04/risk-management" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2024/03/loss-functions/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2024/04/risk-management" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2024/03/loss-functions/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2024/04/risk-management" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
       
@@ -427,12 +476,11 @@ $\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy 
 
   <nav class="pagination">
     
-      <a href="http://localhost:4000/posts/2034/08/classification-algorithms/" class="pagination--pager" title="Classification Algorithms
+      <a href="http://localhost:4000/posts/2024/04/fcn" class="pagination--pager" title="Fully Convolutional Networks
 ">Previous</a>
     
     
-      <a href="http://localhost:4000/posts/2024/03/activation-functions/" class="pagination--pager" title="Activation Functions
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -448,49 +496,6 @@ $\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy 
         <h4 class="page__related-title">You May Also Enjoy</h4>
       
       <div class="grid__wrapper">
-        
-          
-
-
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/posts/2024/04/risk-management" rel="permalink">Financial Credit Risk Management
-</a>
-      
-    </h2>
-    
-    
-      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
-
-
-  
-	  less than 1 minute read
-	
-</p>
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-04-02T00:00:00+08:00">April 02, 2024</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><h1 id="信贷业务模型维度">信贷业务模型维度</h1>
-
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
         
           
 
@@ -617,6 +622,49 @@ $\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy 
 
     
     <p class="archive__item-excerpt" itemprop="description"><p>Python, data science, pandas</p>
+
+</p>
+    
+    
+    
+
+  </article>
+</div>
+
+        
+          
+
+
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/posts/2034/03/basic-numpy/" rel="permalink">Basic numpy
+</a>
+      
+    </h2>
+    
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
+
+        
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-03-22T00:00:00+08:00">March 22, 2024</time></p>
+        
+
+    
+    <p class="archive__item-excerpt" itemprop="description"><p>Python, data science, numpy</p>
 
 </p>
     

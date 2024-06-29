@@ -56,9 +56,9 @@ C卡 (Collection scorecard) 催收评分卡
 
 区分度
 ------
-Gini  
-AUC  
-KS  
+- Gini  
+- AUC  
+- KS (Kolmogorov-Smirnov)  
 
 稳定性
 ------
@@ -123,5 +123,5 @@ Reference
 [特征稳定性指标PSI的原理与代码分享](https://cloud.tencent.com/developer/article/1947627?areaId=106001)  
 [一文介绍特征工程里的卡方分箱，附代码实现](https://cloud.tencent.com/developer/article/1530232)  
 [特征工程 | 信息价值IV与群体稳定性PSI](https://blog.csdn.net/richardsz_/article/details/123777141)
-[风控模型—WOE与IV指标的深入理解应用](https://zhuanlan.zhihu.com/p/80134853) (贝叶斯角度)
+[风控模型—WOE与IV指标的深入理解应用](https://zhuanlan.zhihu.com/p/80134853) (贝叶斯角度)  
 [2.2万字，一文看懂风控模型所有](https://www.zhihu.com/tardis/zm/art/143472559?source_id=1005)

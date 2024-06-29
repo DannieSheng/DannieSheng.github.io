@@ -1,6 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-22T15:21:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Basic numpy</title><link href="http://localhost:4000/posts/2024/03/basic-numpy/" rel="alternate" type="text/html" title="Basic numpy" /><published>2024-03-22T00:00:00+08:00</published><updated>2024-03-22T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/numpy</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/basic-numpy/"><![CDATA[<p>Python, data science, numpy</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-29T08:31:08+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Financial Credit Risk Management</title><link href="http://localhost:4000/posts/2024/04/risk-management" rel="alternate" type="text/html" title="Financial Credit Risk Management" /><published>2024-04-02T00:00:00+08:00</published><updated>2024-04-02T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/04/financial-credit-risk-management</id><content type="html" xml:base="http://localhost:4000/posts/2024/04/risk-management"><![CDATA[<h1 id="信贷业务模型维度">信贷业务模型维度</h1>
 
-<p><a href="https://mp.weixin.qq.com/s/zgcugVeBE2grz9rwqPm8Ig">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Python" /><category term="Data Science" /><summary type="html"><![CDATA[Python, data science, numpy]]></summary></entry><entry><title type="html">Happy 31th birthday</title><link href="http://localhost:4000/posts/2024/03/31th-birthday/" rel="alternate" type="text/html" title="Happy 31th birthday" /><published>2024-03-15T00:00:00+08:00</published><updated>2024-03-15T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/31th</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/31th-birthday/"><![CDATA[<p>今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。</p>
+<ol>
+  <li>
+    <h2 id="贷前模型">贷前模型</h2>
+    <p>A卡 (Application scorecard) 申请评分卡</p>
+  </li>
+  <li>
+    <h2 id="贷中模型">贷中模型</h2>
+    <p>B卡 (Behavior scorecard) 行为评分卡</p>
+  </li>
+  <li>
+    <h2 id="贷后模型">贷后模型</h2>
+    <p>C卡 (Collection scorecard) 催收评分卡</p>
+  </li>
+  <li>
+    <h2 id="反欺诈模型">反欺诈模型</h2>
+  </li>
+  <li>
+    <h2 id="画像模型">画像模型</h2>
+  </li>
+</ol>
+
+<h1 id="变量筛选的技术指标">变量筛选的技术指标</h1>
+
+<p>基于缺失率 (Missing Rate)</p>
+
+<p>基于变异系数 (Coefficient of Variation，CV)</p>
+
+<p>基于稳定性 (Population Stability Index，PSI)</p>
+
+<p>基于信息量 (Information Value，IV)</p>
+
+<p>基于RF/XGBoost特征重要性 (Feature Importance)</p>
+
+<p>基于线性相关性 (Linear Correlation)</p>
+
+<p>基于多重共线性 (Multicollinearity)</p>
+
+<p>基于逐步回归 (stepwise)</p>
+
+<p>基于P-Vaule显著性检验</p>
+
+<h1 id="评分卡评估">评分卡评估</h1>
+
+<h2 id="区分度">区分度</h2>
+<ul>
+  <li>Gini</li>
+  <li>AUC</li>
+  <li>KS (Kolmogorov-Smirnov)</li>
+</ul>
+
+<h2 id="稳定性">稳定性</h2>
+<p>PSI (群体稳定性指标)</p>
+
+<h2 id="排序性-ranking">排序性 (Ranking)</h2>
+<p>统计bad_rate、lift、Odds等指标，按照评分分数进行分箱。</p>
+
+<h2 id="拟合度-goodness-of-fit">拟合度 (Goodness of Fit)</h2>
+
+<h1 id="其他">其他</h1>
+
+<h2 id="卡方分箱-有监督分箱">卡方分箱 (有监督分箱)</h2>
+<p>卡方检验就是对分类数据的频数进行分析的一种方法，它的应用主要表现在两个方面：<strong>拟合优度检验</strong>和<strong>独立性检验（列联分析）</strong>。</p>
+<h3 id="拟合优度">拟合优度</h3>
+
+<p>拟合优度是对一个分类变量的检验，即根据总体分布状况，计算出分类变量中各类别的期望频数，与分布的观察频数进行对比，判断期望频数与观察频数是否有显著差异，从而达到对分类变量进行分析的目的。比如，泰坦尼克号中我们观察幸存者是否与性别有关，可以理解为一个X是否与Y有必然联系。</p>
+
+<h3 id="独立性检验">独立性检验</h3>
+
+<p>独立性检验是两个特征变量之间的计算，它可以用来分析两个分类变量是否独立，或者是否有关联。比如某原料质量和产地是否依赖关系，可以理解为一个X与另一个X是否独立。</p>
+
+<h3 id="卡方检验步骤">卡方检验步骤</h3>
+
+<p>(卡方检验的步骤其实就是一般假设检验的过程)</p>
+
+<ol>
+  <li>提出假设，比如假设两个变量之间独立</li>
+  <li>根据分类的观察频数计算期望频数</li>
+  <li>根据卡方公式，计算实际频数与期望频数的卡方值</li>
+  <li>根据自由度和事先确定的显著性水平，查找卡方分布表计算卡法值，并与上一步卡方值比较</li>
+  <li>得出结果判断是否拒绝原假设</li>
+</ol>
+
+<p>卡方分箱是基于<strong>独立性检验</strong>的应用。</p>
+
+<h3 id="卡方分箱步骤">卡方分箱步骤</h3>
+<ul>
+  <li>初始化</li>
+</ul>
+
+<p>根据连续变量值大小进行排序
+构建最初的离散化，即把每一个单独的值视为一个箱体。这样做的目的就是想从每个单独的个体开始逐渐合并。</p>
+<ul>
+  <li>合并
+    <ul>
+      <li>计算所有相邻分箱的卡方值：也就是说如果有1,2,3,4个分箱，那么就需要绑定相邻的两个分箱，共三组：12,23,34。然后分别计算三个绑定组的卡方值。</li>
+      <li>从计算的卡方值中找出最小的一个，并把这两个分箱合并：比如，23是卡方值最小的一个，那么就将2和3合并，本轮计算中分箱就变为了1,23,4。</li>
+    </ul>
+
+    <p><strong>基本思想</strong>：如果两个相邻的区间具有非常类似的类分布，那么这两个区间可以合并。否则，它们应该分开。低卡方值表明它们具有相似的类分布。</p>
+  </li>
+  <li>
+    <p>停止条件</p>
+
+    <ul>
+      <li>卡方停止的阈值</li>
+      <li>分箱数目的限制</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<p><a href="https://zhuanlan.zhihu.com/p/370534836">漫谈信贷业务模型体系建设</a> <br />
+<a href="https://falbang.com/?p=350">一文看懂风控模型的所有（应该）</a><br />
+<a href="https://developer.kingdee.com/article/289708643615246080?productLineId=29&amp;isKnowledge=2&amp;lang=zh-CN&amp;islogin=true,true&amp;global=1">一文带你了解风控评分卡模型</a> (各种指标名称)<br />
+<a href="https://cloud.tencent.com/developer/article/1947627?areaId=106001">特征稳定性指标PSI的原理与代码分享</a><br />
+<a href="https://cloud.tencent.com/developer/article/1530232">一文介绍特征工程里的卡方分箱，附代码实现</a><br />
+<a href="https://blog.csdn.net/richardsz_/article/details/123777141">特征工程 | 信息价值IV与群体稳定性PSI</a>
+<a href="https://zhuanlan.zhihu.com/p/80134853">风控模型—WOE与IV指标的深入理解应用</a> (贝叶斯角度)<br />
+<a href="https://www.zhihu.com/tardis/zm/art/143472559?source_id=1005">2.2万字，一文看懂风控模型所有</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="financial" /><category term="risk management" /><category term="learning notes" /><summary type="html"><![CDATA[信贷业务模型维度]]></summary></entry><entry><title type="html">Fully Convolutional Networks</title><link href="http://localhost:4000/posts/2024/04/fcn" rel="alternate" type="text/html" title="Fully Convolutional Networks" /><published>2024-04-01T00:00:00+08:00</published><updated>2024-04-01T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/04/FCN</id><content type="html" xml:base="http://localhost:4000/posts/2024/04/fcn"><![CDATA[<p><a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a><br />
+<a href="https://github.com/shelhamer/fcn.berkeleyvision.org">GitHub</a></p>
+<ol>
+  <li>
+    <p>去除全连接层：
+传统的卷积神经网络（CNN）通常包含卷积层和全连接层。在这篇论文中，作者认识到全连接层会导致输出固定大小的特征向量，从而限制了CNN在图像语义分割任务中的应用。
+因此，作者去除了CNN中的全连接层，将其替换为全卷积层，使得网络能够接受任意大小的输入图像，并输出相同尺寸的像素级别的分类结果。</p>
+  </li>
+  <li>
+    <p>转换为全卷积网络：
+通过将CNN中的全连接层替换为全卷积层，作者将CNN转换为了全卷积网络（FCN）。
+全卷积网络具有端到端的特性，能够直接对输入图像进行像素级别的分类，从而实现了图像语义分割任务的端到端映射。</p>
+  </li>
+  <li>
+    <p>使用反卷积（转置卷积）进行上采样：
+在FCN中，为了将卷积层的输出恢复到输入图像相同的大小，作者使用了反卷积（deconvolution）进行上采样。
+通过反卷积操作，网络能够学习将低分辨率的特征图扩展到与输入图像相同的分辨率，从而得到像素级别的分类结果。</p>
+  </li>
+  <li>
+    <p>添加跳跃连接：
+为了提高分割精度，作者在FCN中引入了跳跃连接（skip connections）。
+跳跃连接能够将不同层次的语义信息结合起来，从而提高了网络对局部和全局信息的感知能力，进而提高了分割精度。</p>
+  </li>
+  <li>
+    <p>使用多尺度特征融合：
+为了进一步提高分割精度，作者还提出了使用多尺度特征融合的方法。
+通过将不同层次的特征图进行融合，网络能够同时关注不同尺度的信息，从而提高了对图像语义的理解能力。</p>
+  </li>
+</ol>
+
+<p><a href="https://mp.weixin.qq.com/s/UbGYZFsJsgBZgtH0-9gL7Q">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="deep learning" /><category term="computer vision" /><category term="learning notes" /><summary type="html"><![CDATA[Fully Convolutional Networks for Semantic Segmentation GitHub 去除全连接层： 传统的卷积神经网络（CNN）通常包含卷积层和全连接层。在这篇论文中，作者认识到全连接层会导致输出固定大小的特征向量，从而限制了CNN在图像语义分割任务中的应用。 因此，作者去除了CNN中的全连接层，将其替换为全卷积层，使得网络能够接受任意大小的输入图像，并输出相同尺寸的像素级别的分类结果。]]></summary></entry><entry><title type="html">Convolutional Neural Networks</title><link href="http://localhost:4000/posts/2024/03/cnn" rel="alternate" type="text/html" title="Convolutional Neural Networks" /><published>2024-03-31T00:00:00+08:00</published><updated>2024-03-31T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/CNN</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/cnn"><![CDATA[<p>什么是卷积神经网络（CNN）？它在计算机视觉中的应用是什么？</p>
+
+<p>卷积神经网络（Convolutional Neural Network，CNN）是一种深度学习模型，特别适用于处理具有网格结构的数据，如图像和视频。
+CNN的核心思想是通过卷积操作和池化操作来提取输入数据的特征，并通过这些特征进行分类、识别或回归等任务。</p>
+
+<p>基本原理</p>
+<ul>
+  <li>
+    <p>卷积层（Convolutional Layer）：卷积操作是CNN中的核心部分。它使用一个卷积核（filter）在输入数据上滑动，将卷积核与输入数据的局部区域进行对应元素相乘并求和，生成输出特征图。这一操作能够提取出输入数据的局部特征。</p>
+  </li>
+  <li>
+    <p>激活函数（Activation Function）：通常在卷积层之后会添加一个非线性的激活函数，如ReLU（Rectified Linear Unit），用于引入非线性，增强网络的表达能力。</p>
+  </li>
+  <li>
+    <p>池化层（Pooling Layer）：池化操作用于减小特征图的尺寸并保留其重要信息，常见的池化操作有最大池化（Max Pooling）和平均池化（Average Pooling）等。</p>
+  </li>
+  <li>
+    <p>全连接层（Fully Connected Layer）：在卷积层和池化层之后，通常会连接一个或多个全连接层，用于将特征图展平并连接到输出层，以进行最终的分类或回归。</p>
+  </li>
+</ul>
+
+<p><a href="https://mp.weixin.qq.com/s/-Qejp91LOImLXZg0VluuMA">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="deep learning" /><category term="computer vision" /><category term="learning notes" /><summary type="html"><![CDATA[什么是卷积神经网络（CNN）？它在计算机视觉中的应用是什么？]]></summary></entry><entry><title type="html">Basic pandas</title><link href="http://localhost:4000/posts/2034/03/basic-pandas/" rel="alternate" type="text/html" title="Basic pandas" /><published>2024-03-22T00:00:00+08:00</published><updated>2024-03-22T00:00:00+08:00</updated><id>http://localhost:4000/posts/2034/03/pandas</id><content type="html" xml:base="http://localhost:4000/posts/2034/03/basic-pandas/"><![CDATA[<p>Python, data science, pandas</p>
+
+<p><a href="https://mp.weixin.qq.com/s/0WEoyDAN39KtbhIrgCImeA">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="python" /><category term="data science" /><summary type="html"><![CDATA[Python, data science, pandas]]></summary></entry><entry><title type="html">Basic numpy</title><link href="http://localhost:4000/posts/2034/03/basic-numpy/" rel="alternate" type="text/html" title="Basic numpy" /><published>2024-03-22T00:00:00+08:00</published><updated>2024-03-22T00:00:00+08:00</updated><id>http://localhost:4000/posts/2034/03/numpy</id><content type="html" xml:base="http://localhost:4000/posts/2034/03/basic-numpy/"><![CDATA[<p>Python, data science, numpy</p>
+
+<p><a href="https://mp.weixin.qq.com/s/zgcugVeBE2grz9rwqPm8Ig">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="python" /><category term="data science" /><summary type="html"><![CDATA[Python, data science, numpy]]></summary></entry><entry><title type="html">Happy 31th birthday</title><link href="http://localhost:4000/posts/2024/03/31th-birthday/" rel="alternate" type="text/html" title="Happy 31th birthday" /><published>2024-03-15T00:00:00+08:00</published><updated>2024-03-15T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/31th</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/31th-birthday/"><![CDATA[<p>今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。</p>
 
 <p>为什么最近会有时间做这么多思考呢？因为我在今年1月，农历新年前不到1个月的时候，试用期还有1周就转正的时候，突然被通知不转正了。</p>
 
@@ -27,7 +201,7 @@
 
 <p>我会被质疑不会沟通，会被质疑给不了情绪价值，说真的，那我还有什么价值呢？</p>
 
-<p>好吧，写到最后我才承认，这并不是常见的那种充满希望积极向上的30+小姐姐对生活的感悟</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Personal" /><summary type="html"><![CDATA[今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-14T00:00:00+08:00</published><updated>2024-03-14T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/gradient-descent</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/"><![CDATA[<p>gradient descent, stochastic gradient descent, batch gradient descent</p>
+<p>好吧，写到最后我才承认，这并不是常见的那种充满希望积极向上的30+小姐姐对生活的感悟</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="personal" /><summary type="html"><![CDATA[今天不谈机器学习，不再整理一些记不住的知识，而是在三十又一的当下，记录一下最近的思考。]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-14T00:00:00+08:00</published><updated>2024-03-14T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/gradient-descent</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/stochastic-gradient-descent/"><![CDATA[<p>gradient descent, stochastic gradient descent, batch gradient descent</p>
 
 <h1 id="improvements-for-gradient-descent">Improvements for gradient descent</h1>
 <p>Momentum (惯性保持)
@@ -47,7 +221,7 @@
 <ul>
   <li>梯度的一阶矩 (first moment)：过往梯度与当前梯度的平均 -&gt; 惯性保持</li>
   <li>梯度的二阶矩 (second moment)：过往梯度平方与当前梯度平方的平均 -&gt; 环境感知，为不同参数产生自适应的学习速率</li>
-</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Activation Functions</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Activation Functions" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="machine learning" /><category term="deep learning" /><category term="learning notes" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Activation Functions</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Activation Functions" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
 
 <h1 id="sigmoid-family">Sigmoid Family</h1>
 <p>\(sigmoid(x) = \frac{1}{1+e^{-x}}\)</p>
@@ -140,7 +314,7 @@ x,\ if\ -1\leq x\leq 0\\
 
 <h2 id="logsoftmax">LogSoftMax</h2>
 
-<h2 id="softmin">Softmin</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><category term="Deep Learning" /><summary type="html"><![CDATA[激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。]]></summary></entry><entry><title type="html">Loss Functions</title><link href="http://localhost:4000/posts/2024/03/loss-functions/" rel="alternate" type="text/html" title="Loss Functions" /><published>2024-03-12T00:00:00+08:00</published><updated>2024-03-12T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/loss-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/loss-functions/"><![CDATA[<h1 id="regression-loss-functions">Regression Loss Functions</h1>
+<h2 id="softmin">Softmin</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="machine learning" /><category term="deep learning" /><category term="learning notes" /><summary type="html"><![CDATA[激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。]]></summary></entry><entry><title type="html">Loss Functions</title><link href="http://localhost:4000/posts/2024/03/loss-functions/" rel="alternate" type="text/html" title="Loss Functions" /><published>2024-03-12T00:00:00+08:00</published><updated>2024-03-12T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/loss-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/loss-functions/"><![CDATA[<h1 id="regression-loss-functions">Regression Loss Functions</h1>
 
 <h2 id="l1-loss-mean-absolute-error-mse">L1 Loss (Mean Absolute Error, MSE)</h2>
 <p>\(MSE = \frac{\sum_{i=1}^{N}|f(x_{i})-y_i|}{N}\)</p>
@@ -363,204 +537,4 @@ $p$ can later be converted to binary classification.</p>
 
 <h1 id="multilayer-perceptrons">Multilayer Perceptrons</h1>
 
-<p>Artificial Neural Network</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Classification Algorithms]]></summary></entry><entry><title type="html">Time-series Forecasting</title><link href="http://localhost:4000/posts/2024/03/time-series-forecasting/" rel="alternate" type="text/html" title="Time-series Forecasting" /><published>2024-03-10T00:00:00+08:00</published><updated>2024-03-10T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/time-series-forecasting</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/time-series-forecasting/"><![CDATA[<h1 id="arima-autoregressive-integrated-moving-average">ARIMA (Autoregressive Integrated Moving Average)</h1>
-<p>It is a popular statistical analysis model used for forecasting time series data. 
-ARIMA models are especially well-suited for short to medium-term forecasting models that have data with trends, seasonality, or cyclic patterns. 
-The model aims to describe the <em>autocorrelations</em> in the data.</p>
-
-<h2 id="description">Description</h2>
-<p>ARIMA models are characterized by three key parameters: (p, d, q).</p>
-<ul>
-  <li>AR (p) - Autoregression:<br />
-An autoregression model is a regression of the variable against itself. The “p” parameter represents the number of lag observations included in the model, also known as the lag order. It captures the relationship between an observation and a specified number of lagged observations (i.e., previous time steps).</li>
-  <li>I (d) - Integrated:<br />
-Differencing involves subtracting the previous observation from the current observation to make the time series stationary. The “d” parameter represents the degree of differencing required to make the time series stationary, i.e., the number of times the data have had past values subtracted. Stationarity is a crucial aspect of time series analysis, as it ensures that the statistical properties of the series (mean, variance) do not change over time.</li>
-  <li>MA (q) - Moving Average:<br />
-A moving average model uses past forecast errors in a regression-like model. The “q” parameter represents the size of the moving average window, also known as the order of moving average. It captures the relationship between an observation and a residual error from a moving average model applied to lagged observations.</li>
-</ul>
-
-<h2 id="strengths">Strengths</h2>
-<ul>
-  <li>Flexibility: ARIMA models can be configured to model a wide range of time series data.</li>
-  <li>Interpretability: The components of ARIMA (AR, I, MA) have a clear interpretation, making it easier to understand the model dynamics.</li>
-  <li>Forecasting Accuracy: For many practical forecasting problems, especially those with data showing trends and seasonality, ARIMA models provide robust and reliable forecasts.</li>
-</ul>
-
-<h2 id="model-identification-and-fitting">Model Identification and Fitting</h2>
-<p>The process of developing an ARIMA model typically involves several steps:</p>
-
-<ol>
-  <li>
-    <p>Identification: Determine whether the time series is stationary and identify the order of differencing (d) needed. This often involves using plots and statistical tests (e.g., Augmented Dickey-Fuller test) to check for stationarity.</p>
-  </li>
-  <li>
-    <p>Estimation of p and q: Use plots (like the Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF)) to decide the AR (p) and MA (q) terms.</p>
-  </li>
-  <li>
-    <p>Model Fitting: Use statistical software to fit the ARIMA model with the identified parameters.</p>
-  </li>
-  <li>
-    <p>Diagnostic Checking: Evaluate the model fit by analyzing the residuals to ensure there are no patterns (autocorrelation) left unexplained.</p>
-  </li>
-  <li>
-    <p>Forecasting: Use the model to make forecasts.</p>
-  </li>
-</ol>
-
-<h1 id="autoarima">AutoARIMA</h1>
-<p>Description
-——
-AutoARIMA stands for “Automatic Autoregressive Integrated Moving Average.” It is an extension of the ARIMA model that automatically selects the best combination of (p, d, q) parameters for the ARIMA model based on the given time series data. It does this by evaluating various combinations and selecting the one that minimizes a given metric, typically AIC (Akaike Information Criterion).</p>
-
-<h2 id="strengths-1">Strengths</h2>
-<p>Highly versatile and capable of modeling a wide range of time series data with or without seasonal components. Auto-tuning of parameters simplifies the modeling process.</p>
-
-<h2 id="use-cases">Use Cases</h2>
-<p>Ideal for univariate time series forecasting where data shows patterns of autocorrelation, seasonality, and trends.</p>
-
-<h1 id="naiveseasonal">NaiveSeasonal</h1>
-<p>Description
-——
-NaiveSeasonal is a simple forecasting method that assumes the seasonal patterns will repeat at a fixed frequency. The forecast for a future time point is simply the value from the last observed cycle.</p>
-
-<h2 id="strengths-2">Strengths</h2>
-<p>Extremely simple and fast, requiring no model training. Works well when the time series has a strong and consistent seasonal pattern.</p>
-
-<h2 id="use-cases-1">Use Cases</h2>
-<p>Best suited for time series with clear, stable seasonal patterns and when simplicity and speed are prioritized over precision.</p>
-
-<ol>
-  <li>
-    <p>Prophet
-Description: Developed by Facebook, Prophet is designed for forecasting with daily observations that display patterns on different time scales. It works well with time series that have strong seasonal effects and several seasons of historical data. Prophet is robust to missing data and shifts in the trend.
-Strengths: Handles outliers well, and its additive model makes it more flexible than multiplicative approaches. It can incorporate holidays and events, making it suitable for more complex scenarios.
-Use Cases: Ideal for daily time series with multiple seasonality patterns, holidays, and events. Useful in business metrics forecasting, such as sales and website traffic.</p>
-  </li>
-  <li>
-    <p>ExponentialSmoothing
-Description: Exponential Smoothing models data by applying exponentially decreasing weights over time. It includes Simple Exponential Smoothing, Holt’s Linear Trend method, and Holt-Winters Seasonal method, allowing it to handle time series data with and without trends and/or seasonal components.
-Strengths: Versatile, with the ability to model time series data with various combinations of trend and seasonality. Parameters can be optimized to fit a wide range of time series patterns.
-Use Cases: Applicable to a broad range of time series data, especially when the data exhibits trends and seasonality. Useful in inventory demand forecasting.</p>
-  </li>
-  <li>
-    <p>NaiveDrift
-Description: NaiveDrift is a simple forecasting method that assumes a linear trend (drift) based on the change between the first and last observation. The forecast is then a continuation of this trend into the future.
-Strengths: Simplicity and speed, with no need for model training. Can capture linear trends in the data.
-Use Cases: Suitable for time series with a linear trend and when a quick, simple baseline model is needed for comparison.</p>
-  </li>
-</ol>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><summary type="html"><![CDATA[ARIMA (Autoregressive Integrated Moving Average) It is a popular statistical analysis model used for forecasting time series data. ARIMA models are especially well-suited for short to medium-term forecasting models that have data with trends, seasonality, or cyclic patterns. The model aims to describe the autocorrelations in the data.]]></summary></entry><entry><title type="html">Clustering alrogithms</title><link href="http://localhost:4000/posts/2024/03/clustering-alrogithms/" rel="alternate" type="text/html" title="Clustering alrogithms" /><published>2024-03-09T00:00:00+08:00</published><updated>2024-03-09T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/clustering-alrogithms</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/clustering-alrogithms/"><![CDATA[<p>The importance of clustering are of</p>
-
-<h1 id="headings-are-cool">Headings are cool</h1>
-
-<h1 id="you-can-have-many-headings">You can have many headings</h1>
-
-<h2 id="arent-headings-cool">Aren’t headings cool?</h2>
-<p><a href="https://mp.weixin.qq.com/s/DlT4LAIQdD8mc4yjD9VMjQ">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="Machine Learning" /><summary type="html"><![CDATA[The importance of clustering are of]]></summary></entry><entry><title type="html">Metrics to Evaluate Predictive Models</title><link href="http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models/" rel="alternate" type="text/html" title="Metrics to Evaluate Predictive Models" /><published>2024-03-08T00:00:00+08:00</published><updated>2024-03-08T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/metrics-to-evaluate-predictive-models/"><![CDATA[<p>Metrics used to evaluate predictive modeling, highly used in regression, time-series forecasting cases.</p>
-
-<h1 id="mae-mean-absolute-error">MAE (Mean Absolute Error)</h1>
-<p>Definition
-——
-MAE measures the average magnitude of the errors in a set of predictions, without considering their direction.
-It’s calculated as the average of the absolute differences between the predicted values and the actual values.</p>
-
-<h2 id="formula">Formula</h2>
-<p>\(MAE = \frac{1}{N}\sum_{i=1}^{N}|y_i-\hat{y_i}|\)</p>
-
-<h2 id="interpretation">Interpretation</h2>
-<p>Lower MAE values indicate better model performance. MAE provides a straightforward measure of prediction accuracy with the same units as the predicted variable.</p>
-
-<h1 id="mse-mean-squared-error">MSE (Mean Squared Error)</h1>
-<p>Definition
-——
-MSE measures the average of the squares of the errors—that is, the average squared difference between the estimated values and the actual value.</p>
-
-<h2 id="formula-1">Formula</h2>
-<p>\(MSE =\)</p>
-
-<h2 id="interpretation-1">Interpretation</h2>
-<p>Lower MSE values indicate better model performance. MSE is more sensitive to outliers than MAE because it squares the errors before averaging, which disproportionately penalizes larger errors.</p>
-
-<h1 id="rmse-root-mean-squared-error">RMSE (Root Mean Squared Error)</h1>
-<p>Definition
-——
-RMSE is the square root of the mean squared error. 
-It measures the standard deviation of the residuals or prediction errors.</p>
-
-<h2 id="formula-2">Formula</h2>
-<p>\(RMSE\)</p>
-
-<h2 id="interpretation-2">Interpretation</h2>
-<p>Lower RMSE values indicate better model performance. RMSE is similar to MSE but is in the same units as the predicted and actual values, making it more interpretable.</p>
-
-<h1 id="r-squared-coefficient-of-determination">R-Squared (Coefficient of Determination)</h1>
-<p>Definition
-——
-R-Squared is a statistical measure that represents the proportion of the variance for a dependent variable that’s explained by an independent variable or variables in a regression model.</p>
-
-<h2 id="formula-3">Formula</h2>
-<p>\(R^2 
-= 1-\frac{\sum_{i=1}^{n}(y_i-\hat{y_i})^2}{\sum_{i=1}^{n}(y_i-\bar{y})^2}\)</p>
-
-<h2 id="interpretation-3">Interpretation</h2>
-<p>R-Squared values range from 0 to 1, where higher values indicate that a greater proportion of variance is accounted for by the model. An R-Squared value of 1 indicates perfect fit.</p>
-
-<h1 id="mape-mean-absolute-percentage-error">MAPE (Mean Absolute Percentage Error)</h1>
-
-<h2 id="definition">Definition</h2>
-<p>MAPE measures the average of the absolute percentage errors by comparing the actual value with the predicted value.</p>
-
-<h2 id="formula-4">Formula</h2>
-<p>\(MAPE = \frac{100\%}{n}\sum_{i=1}^{n}|\frac{y_i-\hat{y_i}}{y_i}|\)</p>
-
-<h2 id="interpretation-4">Interpretation</h2>
-<p>Lower MAPE values indicate better model performance. 
-MAPE is useful because it provides an error percentage that is easy to interpret, but it can be undefined for values of $y_i = 0$ and can disproportionately penalize underpredictions when $y_i$ is small.</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="evaluation metrics" /><category term="machine learning" /><summary type="html"><![CDATA[Metrics used to evaluate predictive modeling, highly used in regression, time-series forecasting cases.]]></summary></entry><entry><title type="html">Donut: an OCR-free Document Understanding Transformer</title><link href="http://localhost:4000/posts/2024/03/ocr-free-document-understanding-transformer/" rel="alternate" type="text/html" title="Donut: an OCR-free Document Understanding Transformer" /><published>2024-03-07T00:00:00+08:00</published><updated>2024-03-07T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/donut</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/ocr-free-document-understanding-transformer/"><![CDATA[<p>My notes on this paper: <a href="https://arxiv.org/abs/2111.15664">OCR-free Document Understanding Transformer</a> (<a href="https://github.com/clovaai/donut">github repo</a>).</p>
-
-<p>Understanding <em>document images</em> (commercial invoices, receipts, and business cards, etc.) is an important but challenging task. 
-Normally it consists of <em>reading text</em> and <em>a holistic understanding of the document</em>. 
-Current visual document understanding (VDU) solutions rely heavily on Optical Character Recognition (OCR) engines and the main efforts are paied to the understanding task based on the OCR outputs. (OCR-based approaches)</p>
-
-<p>Conventional (OCR-based) document information extraction (IE) pipeline:
-<strong>Goal</strong>: extract the structured information from a given <em>semi-structured</em> document image</p>
-<ol>
-  <li>Text reading (text <strong>detection</strong> and <strong>text recognition</strong>): obtain text location (bbox) and comprehend characters from each bbox
-    <ul>
-      <li>deep-learning-based OCR</li>
-    </ul>
-  </li>
-  <li>Text understanding: Recognized texts and corresponding locations are passed to the downstream model to extract desired structure form of information</li>
-</ol>
-
-<p>Proposed OCR-free VDU solution (Donut): 
-<strong>Goal</strong>: modeling a direct mapping from a raw input image to the desired output <strong>without</strong> OCR.</p>
-
-<h1 id="donut-model">Donut model</h1>
-
-<h2 id="architecture">Architecture</h2>
-
-<p>Transformer-based visual encoder and textual decoder modules.</p>
-
-<h3 id="encoder">Encoder</h3>
-<ul>
-  <li>The visual encoder converts the input document image into a set of <em>embeddings</em>.</li>
-  <li>CNN-based models or Transformer-based models can be used as the encoder network. <strong>Swin Transformer</strong> is used in this paper.</li>
-</ul>
-
-<h3 id="decoder">Decoder</h3>
-<ul>
-  <li>Given <em>embeddings</em> from the Encoder, the decoder generates a token sequence.</li>
-  <li><strong>BART</strong> is used as the decoder architecture.</li>
-</ul>
-
-<h3 id="output-conversion">Output Conversion</h3>
-<p>The output token sequence is converted to a desired structured format (JSON)</p>
-
-<h2 id="training-scheme-pre-train-and-fine-tune-scheme">Training scheme: Pre-train-and-fine-tune scheme</h2>
-
-<h3 id="pre-training-phase">Pre-training phase:</h3>
-<p>Learns how to read the texts by predicting the next words by conditioning jointly on the image and previous text contexts</p>
-
-<p>Objective: minimize <strong>cross-entropy loss</strong> of next token prediction (by jointly conditioning on the image and previous contexts)</p>
-
-<h3 id="fine-tuning-stage">Fine-tuning stage:</h3>
-<p>Learns how to understand the whole document accord-ing to the downstream task</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="deep learning" /><category term="AI" /><category term="Visual Document Understanding" /><summary type="html"><![CDATA[My notes on this paper: OCR-free Document Understanding Transformer (github repo).]]></summary></entry></feed>
+<p>Artificial Neural Network</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Classification Algorithms]]></summary></entry></feed>
