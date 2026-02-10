@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: "简历"
-permalink: /cv-cn/
+permalink: /resume-cn/
 author_profile: true
 redirect_from:
   - /resume-cn
@@ -9,7 +9,7 @@ lang: zh-CN
 ---
 
 {% include base_path %}
-[View English Resume]({{ site.baseurl }}/cv/)  
+[View English Resume]({{ site.baseurl }}/resume/)  
 [下载我的简历](/files/盛胡丹筠简历.pdf)
 
 教育经历

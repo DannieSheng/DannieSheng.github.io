@@ -19,7 +19,7 @@
 
 
 
-<title>Portfolio - Hudanyun Sheng / Data Scientist</title>
+<title>Boruta Feature Selection - Hudanyun Sheng / Data Scientist</title>
 
 
 
@@ -29,13 +29,15 @@
 
 <meta property="og:locale" content="en-US">
 <meta property="og:site_name" content="Hudanyun Sheng / Data Scientist">
-<meta property="og:title" content="Portfolio">
+<meta property="og:title" content="Boruta Feature Selection">
 
 
-  <link rel="canonical" href="http://localhost:4000/portfolio/">
-  <meta property="og:url" content="http://localhost:4000/portfolio/">
+  <link rel="canonical" href="http://localhost:4000/posts/2024/10/boruta-feature-selection/">
+  <meta property="og:url" content="http://localhost:4000/posts/2024/10/boruta-feature-selection/">
 
 
+
+  <meta property="og:description" content="PurposeBoruta is designed to determine which variables (features) are significant in predicting the outcome with the given dataset. It is particularly useful when dealing with high-dimensional data.">
 
 
 
@@ -48,6 +50,9 @@
 
 
 
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2024-10-16T00:00:00+08:00">
 
 
 
@@ -165,6 +170,8 @@
 
 
 
+
+
 <div id="main" role="main">
   
 
@@ -254,12 +261,71 @@
   </div>
 
 
-  <div class="archive">
-    
-      <h1 class="page__title">Portfolio</h1>
-    
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Boruta Feature Selection">
+    <meta itemprop="description" content="PurposeBoruta is designed to determine which variables (features) are significant in predicting the outcome with the given dataset. It is particularly useful when dealing with high-dimensional data.">
+    <meta itemprop="datePublished" content="October 16, 2024">
     
 
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Boruta Feature Selection
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+          
+        
+        
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-10-16T00:00:00+08:00">October 16, 2024</time></p>
+            
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <h2 id="purpose">Purpose</h2>
+<p>Boruta is designed to determine which variables (features) are significant in predicting the outcome with the given dataset. It is particularly useful when dealing with high-dimensional data.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<ul>
+  <li>Random Forest Base: It starts by fitting a Random Forest model to the original data.</li>
+  <li>Shadow Features: For each feature in the dataset, it creates a duplicate (shadow) feature by shuffling its values. This helps establish a baseline for what “random” looks like.</li>
+  <li>Importance Scores: The algorithm calculates importance scores for both original and shadow features based on how well they help in predicting the outcome.</li>
+  <li>
+    <p>Comparison: The original features are then compared to the best-performing shadow feature. If an original feature has a higher importance score, it is considered significant.
+Decision Process: Boruta iteratively tests features, deciding whether to confirm them as important, reject them, or keep them under consideration based on their importance scores across multiple iterations.</p>
+  </li>
+  <li>Final Output: The result is a clear classification of each feature into three categories: confirmed (important), rejected (not important), or tentative (needs further assessment).</li>
+</ul>
+
+<h2 id="advantages">Advantages</h2>
+
+<p>Identifies all relevant features, not just the best ones, which can be crucial in some analyses.
+Reduces the likelihood of overfitting by providing a more comprehensive feature selection process.
+Implementation: Boruta is available in various programming environments, with a popular implementation in R and Python.</p>
+
+<h2 id="reference">Reference:</h2>
+
+<p>[1] <a href="https://mp.weixin.qq.com/s?__biz=MzIzNjk2NDg4NA==&amp;mid=2247486560&amp;idx=1&amp;sn=91f12c85c824f7f5c05bc56f97720fd3&amp;chksm=e8ce911bdfb9180d43f22057310c263e6cf2839e69b99171779c2aabd3cb734b23cdcabbeef7&amp;token=1653053598&amp;lang=zh_CN#rd">预测变量的选择：森林之神[Boruta]</a>
+[2] Miron B. Kursa, Witold R. Rudnicki. Feature selection with the Boruta package.J Stat Softw,2010, 36(11): 1-13.</p>
+
+
+        
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
 
 
   
@@ -267,26 +333,105 @@
 
 
 
+  
+  
+  
 
-<div class="list__item">
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/#feature-selection" class="page__taxonomy-item" rel="tag">feature selection</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/#machine-learning" class="page__taxonomy-item" rel="tag">machine learning</a>
+    
+    </span>
+  </p>
+
+
+
+
+      </footer>
+
+      
+
+<section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=http://localhost:4000/posts/2024/10/boruta-feature-selection/" class="btn btn--twitter" title="Share on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/posts/2024/10/boruta-feature-selection/" class="btn btn--facebook" title="Share on Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/posts/2024/10/boruta-feature-selection/" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+      
+
+
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/posts/2024/10/kernel-density-estimation/" class="pagination--pager" title="Kernel Density Estimation
+">Previous</a>
+    
+    
+      <a href="http://localhost:4000/LLM_RAG/" class="pagination--pager" title="Llm_rag
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      
+        <h4 class="page__related-title">You May Also Enjoy</h4>
+      
+      <div class="grid__wrapper">
+        
+          
+
+
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/portfolio/portfolio-project1/" rel="permalink">MNIST Handwritten Classification
+        <a href="http://localhost:4000/try-except-else-finally/" rel="permalink">Try Except Else Finally
 </a>
       
     </h2>
     
     
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-05T00:00:00+08:00">February 05, 2026</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Machine Learning course project <br /></p>
+    <p class="archive__item-excerpt" itemprop="description"><h1 id="python-try--except--else--finally-学习笔记">Python <code class="language-plaintext highlighter-rouge">try</code> / <code class="language-plaintext highlighter-rouge">except</code> / <code class="language-plaintext highlighter-rouge">else</code> / <code class="language-plaintext highlighter-rouge">finally</code> 学习笔记</h1>
+<p>Python中的 <code class="language-plaintext highlighter-rouge">try</code> / <code class="language-plaintext highlighter-rouge">except</code> / <code class="language-plaintext highlighter-rouge">else</code> / <code class="language-plaintext highlighter-rouge">finally</code>，之前没有很认真使用过。最近开发中用的比较多，也踩了一些坑。今天总结一下。</p>
 </p>
     
     
@@ -295,32 +440,46 @@
   </article>
 </div>
 
-
-  
-
-
+        
+          
 
 
 
-<div class="list__item">
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/portfolio/portfolio-project2/" rel="permalink">Echo Cancellation
+        <a href="http://localhost:4000/LLM_RAG/" rel="permalink">Llm_rag
 </a>
       
     </h2>
     
     
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-01-20T00:00:00+08:00">January 20, 2026</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Machine Learning course project: Solve the adaptive echo calcellation problem, such that the noise is removed from music<br /></p>
+    <p class="archive__item-excerpt" itemprop="description"><h2 id="系统补齐llmrag的知识结构">系统补齐LLM/RAG的知识结构</h2>
+<h3 id="主要内容">主要内容</h3>
+<ul>
+  <li>LangChain / LlamaIndex 各选 1 套代表用法</li>
+  <li>本地 embedding vs API embedding 的差异</li>
+  <li>Function calling / tool calling 的基本范式</li>
+</ul>
 </p>
     
     
@@ -329,32 +488,40 @@
   </article>
 </div>
 
-
-  
-
-
+        
+          
 
 
 
-<div class="list__item">
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/portfolio/portfolio-project3/" rel="permalink">Switchgrass Genotype Classification using Hyperspectral Imagery
+        <a href="http://localhost:4000/posts/2024/10/kernel-density-estimation/" rel="permalink">Kernel Density Estimation
 </a>
       
     </h2>
     
     
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  1 minute read
+	
+</p>
+    
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-10-15T00:00:00+08:00">October 15, 2024</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Master Thesis<br /></p>
+    <p class="archive__item-excerpt" itemprop="description"><p>It has been a while since I last took some learning notes - I have been buried in work and trying to figure out a balance, and wasting my time …</p>
 </p>
     
     
@@ -363,32 +530,40 @@
   </article>
 </div>
 
-
-  
-
-
+        
+          
 
 
 
-<div class="list__item">
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
 
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/portfolio/portfolio-project4/" rel="permalink">Python-based CyTOF processing and analyzing package
+        <a href="http://localhost:4000/posts/2024/04/fcn" rel="permalink">Fully Convolutional Networks
 </a>
       
     </h2>
     
     
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  less than 1 minute read
+	
+</p>
+    
 
         
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
+         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2024-04-01T00:00:00+08:00">April 01, 2024</time></p>
         
 
     
-    <p class="archive__item-excerpt" itemprop="description"><p>Machine Learning course project: Solve the adaptive echo calcellation problem, such that the noise is removed from music<br /></p>
+    <p class="archive__item-excerpt" itemprop="description"><p>A summary of FCN (Fully Convolutional Networks)</p>
 </p>
     
     
@@ -397,180 +572,10 @@
   </article>
 </div>
 
-
+        
+      </div>
+    </div>
   
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/portfolio/portfolio-project5/" rel="permalink">Time-series forecasting
-</a>
-      
-    </h2>
-    
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>Time-series forecasting - A winning contribution to the Siemens’ <a href="https://ecosystem.siemens.com/techforsustainability/campaign/overview">Tech For Sustainability 2023</a> campaign in the <a href="https://ecosystem.siemens.com/techforsustainability/swarm-behaviour-on-the-grid/overview">Swarm Behaviour on the Grid track</a> <br /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-  
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/portfolio/portfolio-project6/" rel="permalink">Advancing Plant Phenotyping with PlantCV: An Open-Source Image Analysis Software Package
-</a>
-      
-    </h2>
-    
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>February 2020 ~ September 2021<br />This project was centered around <a href="https://plantcv.danforthcenter.org">PlantCV</a> (Plant Computer Vision), an open-source software package meticulously designed for plant phenotyping analysis. Developed in Python and integrating advanced image processing libraries such as OpenCV (Open Source Computer Vision Library), PlantCV aims to provide plant scientists and researchers with a powerful, flexible, and user-friendly tool for automating and quantifying the extraction of plant phenotypic information from various image data. <br /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-  
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/portfolio/portfolio-project7/" rel="permalink">Enhanced Detection and Classification of Cell Nuclei in H&amp;E Stained Pathology Images Using Mask R-CNN
-</a>
-      
-    </h2>
-    
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>October 2021 ~ December 2021<br />This project focused on the application of Mask R-CNN, a state-of-the-art model for instance segmentation tasks, to detect and classify common types of cell nuclei in H&amp;E (Hematoxylin and Eosin) stained pathology images of Non-Small Cell Lung Cancer (NSCLC) and Breast Cancer. By leveraging transfer learning and customizing the loss function of Mask R-CNN, the project aimed to address the challenges posed by incomplete labeling in the dataset and improve the model’s performance in both detection and classification tasks. <br /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-  
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/portfolio/portfolio-project8/" rel="permalink">Automated Prescription Parsing API development, maintain, and improvement (for the Japanese Market)
-</a>
-      
-    </h2>
-    
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>September 2023 – October 2023<br /> This project aimed to extend the capabilities of an existing in-house developed tool, OptiReader, designed for the automatic parsing of eyeglass prescriptions. Initially supporting the North American market, the project’s goal was to adapt the tool for the Japanese market, particularly for VR eyeglasses, by incorporating innovative document understanding technologies and custom solutions to handle unique prescription formats prevalent in Japan. <br /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-  
-
-
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-
-    <h2 class="archive__item-title" itemprop="headline">
-      
-        <a href="http://localhost:4000/portfolio/portfolio-project9/" rel="permalink">Time-series forecasting for a payment processing company
-</a>
-      
-    </h2>
-    
-    
-
-        
-         <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Published:</strong> <time datetime="2026-02-10T09:35:32+08:00">February 10, 2026</time></p>
-        
-
-    
-    <p class="archive__item-excerpt" itemprop="description"><p>May 2023<br /> This project is actually a pre-interview project for data scientist. I have got a chance to perform data analysis and time-series modeling and forecasting. <br /></p>
-</p>
-    
-    
-    
-
-  </article>
-</div>
-
-
-
-
-  </div>
 </div>
 
 

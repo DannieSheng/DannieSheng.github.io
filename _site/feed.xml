@@ -1,125 +1,237 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-06-29T08:31:08+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Financial Credit Risk Management</title><link href="http://localhost:4000/posts/2024/04/risk-management" rel="alternate" type="text/html" title="Financial Credit Risk Management" /><published>2024-04-02T00:00:00+08:00</published><updated>2024-04-02T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/04/financial-credit-risk-management</id><content type="html" xml:base="http://localhost:4000/posts/2024/04/risk-management"><![CDATA[<h1 id="信贷业务模型维度">信贷业务模型维度</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-10T09:35:32+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Hudanyun Sheng / Data Scientist</title><subtitle>personal description</subtitle><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><entry><title type="html">Try Except Else Finally</title><link href="http://localhost:4000/try-except-else-finally/" rel="alternate" type="text/html" title="Try Except Else Finally" /><published>2026-02-05T00:00:00+08:00</published><updated>2026-02-05T00:00:00+08:00</updated><id>http://localhost:4000/try-except-else-finally</id><content type="html" xml:base="http://localhost:4000/try-except-else-finally/"><![CDATA[<h1 id="python-try--except--else--finally-学习笔记">Python <code class="language-plaintext highlighter-rouge">try</code> / <code class="language-plaintext highlighter-rouge">except</code> / <code class="language-plaintext highlighter-rouge">else</code> / <code class="language-plaintext highlighter-rouge">finally</code> 学习笔记</h1>
+<p>Python中的 <code class="language-plaintext highlighter-rouge">try</code> / <code class="language-plaintext highlighter-rouge">except</code> / <code class="language-plaintext highlighter-rouge">else</code> / <code class="language-plaintext highlighter-rouge">finally</code>，之前没有很认真使用过。最近开发中用的比较多，也踩了一些坑。今天总结一下。</p>
 
-<ol>
-  <li>
-    <h2 id="贷前模型">贷前模型</h2>
-    <p>A卡 (Application scorecard) 申请评分卡</p>
-  </li>
-  <li>
-    <h2 id="贷中模型">贷中模型</h2>
-    <p>B卡 (Behavior scorecard) 行为评分卡</p>
-  </li>
-  <li>
-    <h2 id="贷后模型">贷后模型</h2>
-    <p>C卡 (Collection scorecard) 催收评分卡</p>
-  </li>
-  <li>
-    <h2 id="反欺诈模型">反欺诈模型</h2>
-  </li>
-  <li>
-    <h2 id="画像模型">画像模型</h2>
-  </li>
-</ol>
-
-<h1 id="变量筛选的技术指标">变量筛选的技术指标</h1>
-
-<p>基于缺失率 (Missing Rate)</p>
-
-<p>基于变异系数 (Coefficient of Variation，CV)</p>
-
-<p>基于稳定性 (Population Stability Index，PSI)</p>
-
-<p>基于信息量 (Information Value，IV)</p>
-
-<p>基于RF/XGBoost特征重要性 (Feature Importance)</p>
-
-<p>基于线性相关性 (Linear Correlation)</p>
-
-<p>基于多重共线性 (Multicollinearity)</p>
-
-<p>基于逐步回归 (stepwise)</p>
-
-<p>基于P-Vaule显著性检验</p>
-
-<h1 id="评分卡评估">评分卡评估</h1>
-
-<h2 id="区分度">区分度</h2>
+<h2 id="核心概念">核心概念</h2>
 <ul>
-  <li>Gini</li>
-  <li>AUC</li>
-  <li>KS (Kolmogorov-Smirnov)</li>
+  <li>try 块：放可能抛异常的代码。</li>
+  <li>except 块：捕获并处理特定异常。可以有多个 except 分支，按从上到下匹配。</li>
+  <li>else 块（可选）：当 try 块没有抛出任何异常时执行。常用来把正常路径与异常路径分离。</li>
+  <li>finally 块：无论是否发生异常、是否被 return、是否被取消，finally 块都会执行（除非进程被强制终止）。常用来释放资源或做清理工作。</li>
 </ul>
 
-<h2 id="稳定性">稳定性</h2>
-<p>PSI (群体稳定性指标)</p>
+<h2 id="基本结构">基本结构</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    # 可能出错的代码
+except SomeException as e:
+    # 处理 SomeException
+except (TypeError, ValueError):
+    # 处理多个异常
+except Exception:
+    # 捕获其他常规异常（但不包括 BaseException 的子类，如 KeyboardInterrupt）
+else:
+    # 当没有异常发生时执行
+finally:
+    # 无论如何都会执行（清理工作）
+</code></pre></div></div>
 
-<h2 id="排序性-ranking">排序性 (Ranking)</h2>
-<p>统计bad_rate、lift、Odds等指标，按照评分分数进行分箱。</p>
+<p><strong>例子</strong>：文件读写（使用 finally 做清理）</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    f = open("data.txt", "r")
+    data = f.read()
+    # 处理 data
+except FileNotFoundError:
+    print("文件不存在")
+except OSError as e:
+    print("IO 错误:", e)
+else:
+    print("读取成功，处理数据")
+finally:
+    # 确保文件一定被关闭
+    try:
+        f.close()
+    except NameError:
+        # f 可能未定义（打开失败）
+        pass
+</code></pre></div></div>
+<p>不过文件读写更推荐的做法是使用 <code class="language-plaintext highlighter-rouge">with</code>（上下文管理器）：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    with open("data.txt", "r") as f:
+        data = f.read()
+        # 处理 data
+except FileNotFoundError:
+    print("文件不存在")
+</code></pre></div></div>
+<h3 id="except-优先捕捉能处理的特定异常类型"><code class="language-plaintext highlighter-rouge">except</code> 优先捕捉能处理的特定异常类型</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    ...
+except FileNotFoundError:
+    ...
+except PermissionError:
+    ...
+except Exception as e:  # 更宽泛的捕获，但尽量避免滥用
+    ...
 
-<h2 id="拟合度-goodness-of-fit">拟合度 (Goodness of Fit)</h2>
+</code></pre></div></div>
 
-<h1 id="其他">其他</h1>
+<h3 id="抛出或者记录异常">抛出或者记录异常</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    ...
+except ValueError:
+    # 做点记录
+    raise  # 把异常向上层继续传递
+</code></pre></div></div>
 
-<h2 id="卡方分箱-有监督分箱">卡方分箱 (有监督分箱)</h2>
-<p>卡方检验就是对分类数据的频数进行分析的一种方法，它的应用主要表现在两个方面：<strong>拟合优度检验</strong>和<strong>独立性检验（列联分析）</strong>。</p>
-<h3 id="拟合优度">拟合优度</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+    int("x")
+except ValueError as e:
+    raise RuntimeError("转换失败") from e
+</code></pre></div></div>
 
-<p>拟合优度是对一个分类变量的检验，即根据总体分布状况，计算出分类变量中各类别的期望频数，与分布的观察频数进行对比，判断期望频数与观察频数是否有显著差异，从而达到对分类变量进行分析的目的。比如，泰坦尼克号中我们观察幸存者是否与性别有关，可以理解为一个X是否与Y有必然联系。</p>
+<h3 id="常见陷阱关于-return-与-finally-的交互"><strong>常见陷阱</strong>：关于 <code class="language-plaintext highlighter-rouge">return</code> 与 <code class="language-plaintext highlighter-rouge">finally</code> 的交互</h3>
+<p><code class="language-plaintext highlighter-rouge">finally</code> 会在函数返回前执行。如果 <code class="language-plaintext highlighter-rouge">finally</code> 也有 <code class="language-plaintext highlighter-rouge">return</code>，会覆盖 <code class="language-plaintext highlighter-rouge">try/except</code> 中的返回值，导致难以发现的 bug，尽量避免在 finally 中返回值。 示例：</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def f():
+    try:
+        return 1
+    finally:
+        print("finally runs")
+        # 如果这里写 return 2，则函数最终返回 2（覆盖上面的 return 1）
 
-<h3 id="独立性检验">独立性检验</h3>
+print(f())  # 输出 finally runs 然后 1
 
-<p>独立性检验是两个特征变量之间的计算，它可以用来分析两个分类变量是否独立，或者是否有关联。比如某原料质量和产地是否依赖关系，可以理解为一个X与另一个X是否独立。</p>
+</code></pre></div></div>
 
-<h3 id="卡方检验步骤">卡方检验步骤</h3>
+<h3 id="最佳实践总结">最佳实践总结</h3>
 
-<p>(卡方检验的步骤其实就是一般假设检验的过程)</p>
-
-<ol>
-  <li>提出假设，比如假设两个变量之间独立</li>
-  <li>根据分类的观察频数计算期望频数</li>
-  <li>根据卡方公式，计算实际频数与期望频数的卡方值</li>
-  <li>根据自由度和事先确定的显著性水平，查找卡方分布表计算卡法值，并与上一步卡方值比较</li>
-  <li>得出结果判断是否拒绝原假设</li>
-</ol>
-
-<p>卡方分箱是基于<strong>独立性检验</strong>的应用。</p>
-
-<h3 id="卡方分箱步骤">卡方分箱步骤</h3>
 <ul>
-  <li>初始化</li>
+  <li>优先捕获具体异常类型，不要用”裸” except。</li>
+  <li>使用 <code class="language-plaintext highlighter-rouge">else</code> 把正常逻辑与异常处理分开，增加可读性。</li>
+  <li>用 <code class="language-plaintext highlighter-rouge">finally</code> 或 <code class="language-plaintext highlighter-rouge">with</code> 处理资源清理；推荐使用 <code class="language-plaintext highlighter-rouge">with</code>（上下文管理器）替代显式 <code class="language-plaintext highlighter-rouge">finally</code> 关闭资源。</li>
+  <li>在 except 中记录异常堆栈（logging.exception），便于排查问题。</li>
+  <li>避免在 <code class="language-plaintext highlighter-rouge">finally</code> 中返回值或抛出新的异常，这会覆盖原始错误或返回值，导致难以调试。</li>
+  <li>若需要让异常继续向上层传播，使用 <code class="language-plaintext highlighter-rouge">raise</code>（或 <code class="language-plaintext highlighter-rouge">raise from</code> 以保留原异常链）。</li>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><summary type="html"><![CDATA[Python try / except / else / finally 学习笔记 Python中的 try / except / else / finally，之前没有很认真使用过。最近开发中用的比较多，也踩了一些坑。今天总结一下。]]></summary></entry><entry><title type="html">Llm_rag</title><link href="http://localhost:4000/LLM_RAG/" rel="alternate" type="text/html" title="Llm_rag" /><published>2026-01-20T00:00:00+08:00</published><updated>2026-01-20T00:00:00+08:00</updated><id>http://localhost:4000/LLM_RAG</id><content type="html" xml:base="http://localhost:4000/LLM_RAG/"><![CDATA[<h2 id="系统补齐llmrag的知识结构">系统补齐LLM/RAG的知识结构</h2>
+<h3 id="主要内容">主要内容</h3>
+<ul>
+  <li>LangChain / LlamaIndex 各选 1 套代表用法</li>
+  <li>本地 embedding vs API embedding 的差异</li>
+  <li>Function calling / tool calling 的基本范式</li>
 </ul>
 
-<p>根据连续变量值大小进行排序
-构建最初的离散化，即把每一个单独的值视为一个箱体。这样做的目的就是想从每个单独的个体开始逐渐合并。</p>
+<h3 id="langchain主线总结报告">LangChain主线总结报告</h3>
+<h4 id="1-langchain解决的是什么问题">1. LangChain解决的是什么问题？</h4>
+<p>LangChain是一个用于快速构建LLM应用的工程框架，主要价值在于<strong>标准化常见组件接口</strong>（而不是替代系统设计决策）。</p>
+
+<h4 id="2-langchian在rag中的位置">2. LangChian在RAG中的位置</h4>
+<p>LangChain位于RAG Pipeline的orchestration层，负责：</p>
 <ul>
-  <li>合并
+  <li>串联Retriever, Prompt, and LLM</li>
+  <li>管理输入输出模式</li>
+  <li>提供常见流程的快速实现</li>
+</ul>
+
+<p>它不负责：</p>
+<ul>
+  <li>检索策略设计</li>
+  <li>Prompt语义质量</li>
+  <li>系统性能与效果上限</li>
+</ul>
+
+<h4 id="3-retriever的角色与边界">3. Retriever的角色与边界</h4>
+<p>Retriever是一个独立的信息检索模块，负责从向量库或其他数据源中返回与query相关的文档片段。
+在LangChain中，Retriever的输出最终被注入到Prompt模板中，而不是直接参与生成。</p>
+
+<h4 id="4-prompt--retrieval的真实拼接方式">4. Prompt + Retrieval的真实拼接方式</h4>
+<p>Prompt是一个参数化模板，retrieved documents通过字符串拼接或结构化方式填充到context slot中。<br />
+RAG的质量依赖于：</p>
+<ul>
+  <li>context选择</li>
+  <li>拼接顺序</li>
+  <li>token budget控制</li>
+</ul>
+
+<h4 id="5-chain的适用边界">5. Chain的适用边界</h4>
+<p>Chain 适用于稳定、线性的调用流程。<br />
+当流程需要动态判断或复杂控制逻辑时，应回退到显式 Python 实现。</p>
+
+<h4 id="6-什么时候该用--不该用-langchain">6. 什么时候“该用 / 不该用 LangChain”</h4>
+<ul>
+  <li>该用：快速 demo、标准 RAG、教学与验证</li>
+  <li>不该滥用：复杂生产系统、需要高度可控逻辑时</li>
+</ul>
+
+<h4 id="reference">Reference</h4>
+<ul>
+  <li><a href="https://www.langchain.com.cn/docs/tutorials/rag/">构建一个检索增强生成 (RAG) 应用</a></li>
+  <li><a href="https://docs.langchain.com/oss/python/langchain/rag#build-a-rag-agent-with-langchain">Build a RAG agent with LangChain</a></li>
+  <li><a href="https://www.langchain.com.cn/docs/concepts/#langchain-expression-language-lcel">LangChain概念指南</a></li>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><summary type="html"><![CDATA[系统补齐LLM/RAG的知识结构 主要内容 LangChain / LlamaIndex 各选 1 套代表用法 本地 embedding vs API embedding 的差异 Function calling / tool calling 的基本范式]]></summary></entry><entry><title type="html">Boruta Feature Selection</title><link href="http://localhost:4000/posts/2024/10/boruta-feature-selection/" rel="alternate" type="text/html" title="Boruta Feature Selection" /><published>2024-10-16T00:00:00+08:00</published><updated>2024-10-16T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/10/boruta</id><content type="html" xml:base="http://localhost:4000/posts/2024/10/boruta-feature-selection/"><![CDATA[<h2 id="purpose">Purpose</h2>
+<p>Boruta is designed to determine which variables (features) are significant in predicting the outcome with the given dataset. It is particularly useful when dealing with high-dimensional data.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<ul>
+  <li>Random Forest Base: It starts by fitting a Random Forest model to the original data.</li>
+  <li>Shadow Features: For each feature in the dataset, it creates a duplicate (shadow) feature by shuffling its values. This helps establish a baseline for what “random” looks like.</li>
+  <li>Importance Scores: The algorithm calculates importance scores for both original and shadow features based on how well they help in predicting the outcome.</li>
+  <li>
+    <p>Comparison: The original features are then compared to the best-performing shadow feature. If an original feature has a higher importance score, it is considered significant.
+Decision Process: Boruta iteratively tests features, deciding whether to confirm them as important, reject them, or keep them under consideration based on their importance scores across multiple iterations.</p>
+  </li>
+  <li>Final Output: The result is a clear classification of each feature into three categories: confirmed (important), rejected (not important), or tentative (needs further assessment).</li>
+</ul>
+
+<h2 id="advantages">Advantages</h2>
+
+<p>Identifies all relevant features, not just the best ones, which can be crucial in some analyses.
+Reduces the likelihood of overfitting by providing a more comprehensive feature selection process.
+Implementation: Boruta is available in various programming environments, with a popular implementation in R and Python.</p>
+
+<h2 id="reference">Reference:</h2>
+
+<p>[1] <a href="https://mp.weixin.qq.com/s?__biz=MzIzNjk2NDg4NA==&amp;mid=2247486560&amp;idx=1&amp;sn=91f12c85c824f7f5c05bc56f97720fd3&amp;chksm=e8ce911bdfb9180d43f22057310c263e6cf2839e69b99171779c2aabd3cb734b23cdcabbeef7&amp;token=1653053598&amp;lang=zh_CN#rd">预测变量的选择：森林之神[Boruta]</a>
+[2] Miron B. Kursa, Witold R. Rudnicki. Feature selection with the Boruta package.J Stat Softw,2010, 36(11): 1-13.</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="feature selection" /><category term="machine learning" /><summary type="html"><![CDATA[Purpose Boruta is designed to determine which variables (features) are significant in predicting the outcome with the given dataset. It is particularly useful when dealing with high-dimensional data.]]></summary></entry><entry><title type="html">Kernel Density Estimation</title><link href="http://localhost:4000/posts/2024/10/kernel-density-estimation/" rel="alternate" type="text/html" title="Kernel Density Estimation" /><published>2024-10-15T00:00:00+08:00</published><updated>2024-10-15T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/10/kernel-density-estimation</id><content type="html" xml:base="http://localhost:4000/posts/2024/10/kernel-density-estimation/"><![CDATA[<p>It has been a while since I last took some learning notes - I have been buried in work and trying to figure out a balance, and wasting my time …</p>
+
+<p>Anyway, from a recent project I learned about KDE and I realized that I did not even know this very basic knowledge.</p>
+
+<h1 id="kernel-density-estimation">Kernel Density Estimation</h1>
+<p>If I was to analyze the distribution of a newly given dataset, the first thing came to my mind was to visualize with some scatter plots (if possible, i.e. low dimensionality). The histogram only comes to my mind later on. However, we are all aware that histogram shapes changes with the choice of the grid size.</p>
+
+<p>Kernel Density Estimation (KDE) is a nonparametric model used for estimating probability density distributions. It can be used to get a smooth PDF (probability density function) from the data.</p>
+
+<h2 id="nonparametric-estimation">Nonparametric Estimation</h2>
+
+<p>Nonparametric estimation does not assume that data is drawn from a known distribution. 
+Rather, nonparametric models determine the model structure from the underlying data.
+Some examples of nonparametric models include:</p>
+<ul>
+  <li>Histograms and kernel density estimation.</li>
+  <li>Nonparametric regression.</li>
+  <li>K-nearest neighbor algorithms.</li>
+  <li>Support vector machines.</li>
+</ul>
+
+<h2 id="the-univariate-case-1-variable">The univariate case (1 variable):</h2>
+
+<p>\(\hat{f}(x,h) = \frac{1}{N}\sum_{i=1}^{N}K_{h}(x-x_{i})\)
+Basically, we center a smooth scaled kernel function at each data point and then take their average.</p>
+
+<p>\(\hat{f}_{h}(x) = \frac{1}{Nh}\sum_{i=1}^{N}K(\frac{x-x_{i}}{h})\)</p>
+<ul>
+  <li>$K$ is the kernel (a simple non-negative function like the normal or uniform distribution)</li>
+  <li>$h$ is the bandwidth (a real positive number that defines smoothness of the density plot)
     <ul>
-      <li>计算所有相邻分箱的卡方值：也就是说如果有1,2,3,4个分箱，那么就需要绑定相邻的两个分箱，共三组：12,23,34。然后分别计算三个绑定组的卡方值。</li>
-      <li>从计算的卡方值中找出最小的一个，并把这两个分箱合并：比如，23是卡方值最小的一个，那么就将2和3合并，本轮计算中分箱就变为了1,23,4。</li>
-    </ul>
-
-    <p><strong>基本思想</strong>：如果两个相邻的区间具有非常类似的类分布，那么这两个区间可以合并。否则，它们应该分开。低卡方值表明它们具有相似的类分布。</p>
-  </li>
-  <li>
-    <p>停止条件</p>
-
-    <ul>
-      <li>卡方停止的阈值</li>
-      <li>分箱数目的限制</li>
+      <li>For each $x_{i}$, draw a normal distribution $N(x_{i}, h^2)$ (mean: $x_{i}$, variance: $h^2$)</li>
+      <li>A <em>small</em> bandwidth leads to <em>undersmoothing</em>; A <em>huge</em> bandwidth leads to <em>oversmoothing</em>.</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="reference">Reference</h2>
+<p>The Gaussian kernel is one of the most commonly used one:
+\(K(u)=\frac{1}{\sqrt{2\pi}}exp(-\frac{u^2}{2})\)</p>
 
-<p><a href="https://zhuanlan.zhihu.com/p/370534836">漫谈信贷业务模型体系建设</a> <br />
-<a href="https://falbang.com/?p=350">一文看懂风控模型的所有（应该）</a><br />
-<a href="https://developer.kingdee.com/article/289708643615246080?productLineId=29&amp;isKnowledge=2&amp;lang=zh-CN&amp;islogin=true,true&amp;global=1">一文带你了解风控评分卡模型</a> (各种指标名称)<br />
-<a href="https://cloud.tencent.com/developer/article/1947627?areaId=106001">特征稳定性指标PSI的原理与代码分享</a><br />
-<a href="https://cloud.tencent.com/developer/article/1530232">一文介绍特征工程里的卡方分箱，附代码实现</a><br />
-<a href="https://blog.csdn.net/richardsz_/article/details/123777141">特征工程 | 信息价值IV与群体稳定性PSI</a>
-<a href="https://zhuanlan.zhihu.com/p/80134853">风控模型—WOE与IV指标的深入理解应用</a> (贝叶斯角度)<br />
-<a href="https://www.zhihu.com/tardis/zm/art/143472559?source_id=1005">2.2万字，一文看懂风控模型所有</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="financial" /><category term="risk management" /><category term="learning notes" /><summary type="html"><![CDATA[信贷业务模型维度]]></summary></entry><entry><title type="html">Fully Convolutional Networks</title><link href="http://localhost:4000/posts/2024/04/fcn" rel="alternate" type="text/html" title="Fully Convolutional Networks" /><published>2024-04-01T00:00:00+08:00</published><updated>2024-04-01T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/04/FCN</id><content type="html" xml:base="http://localhost:4000/posts/2024/04/fcn"><![CDATA[<p><a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a><br />
+<p>The intuition behind KDE is straightforward – the more data points in a sample that occur around a location, the higher the likelihood of an observation occurring at that location.</p>
+
+<h2 id="the-bivariate-case-2-variables">The Bivariate case (2 variables):</h2>
+
+\[\hat{f}(\mathbf{x},\mathbf{H}) = \frac{1}{N}\sum_{i=1}^{N}K_{\mathbf{H}}(\mathbf{x}-\mathbf{x_{i}})\]
+
+<h2 id="reference">Reference:</h2>
+
+<p>[1] <a href="https://ekamperi.github.io/math/2020/12/08/kernel-density-estimation.html">A gentle introduction to kernel density estimation</a>
+[2] <a href="https://www.aptech.com/blog/the-fundamentals-of-kernel-density-estimation/">The Fundamentals of Kernel Density Estimation</a>
+[3] <a href="https://aakinshin.net/posts/kde-bw/">The importance of kernel density estimation bandwidth</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="data science" /><category term="statistics" /><category term="machine learning" /><summary type="html"><![CDATA[It has been a while since I last took some learning notes - I have been buried in work and trying to figure out a balance, and wasting my time …]]></summary></entry><entry><title type="html">Fully Convolutional Networks</title><link href="http://localhost:4000/posts/2024/04/fcn" rel="alternate" type="text/html" title="Fully Convolutional Networks" /><published>2024-04-01T00:00:00+08:00</published><updated>2024-04-01T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/04/FCN</id><content type="html" xml:base="http://localhost:4000/posts/2024/04/fcn"><![CDATA[<p>A summary of FCN (Fully Convolutional Networks)</p>
+
+<p><a href="https://arxiv.org/abs/1411.4038">Fully Convolutional Networks for Semantic Segmentation</a><br />
 <a href="https://github.com/shelhamer/fcn.berkeleyvision.org">GitHub</a></p>
 <ol>
   <li>
@@ -149,7 +261,7 @@
   </li>
 </ol>
 
-<p><a href="https://mp.weixin.qq.com/s/UbGYZFsJsgBZgtH0-9gL7Q">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="deep learning" /><category term="computer vision" /><category term="learning notes" /><summary type="html"><![CDATA[Fully Convolutional Networks for Semantic Segmentation GitHub 去除全连接层： 传统的卷积神经网络（CNN）通常包含卷积层和全连接层。在这篇论文中，作者认识到全连接层会导致输出固定大小的特征向量，从而限制了CNN在图像语义分割任务中的应用。 因此，作者去除了CNN中的全连接层，将其替换为全卷积层，使得网络能够接受任意大小的输入图像，并输出相同尺寸的像素级别的分类结果。]]></summary></entry><entry><title type="html">Convolutional Neural Networks</title><link href="http://localhost:4000/posts/2024/03/cnn" rel="alternate" type="text/html" title="Convolutional Neural Networks" /><published>2024-03-31T00:00:00+08:00</published><updated>2024-03-31T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/CNN</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/cnn"><![CDATA[<p>什么是卷积神经网络（CNN）？它在计算机视觉中的应用是什么？</p>
+<p><a href="https://mp.weixin.qq.com/s/UbGYZFsJsgBZgtH0-9gL7Q">ref</a></p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="deep learning" /><category term="computer vision" /><category term="learning notes" /><summary type="html"><![CDATA[A summary of FCN (Fully Convolutional Networks)]]></summary></entry><entry><title type="html">Convolutional Neural Networks</title><link href="http://localhost:4000/posts/2024/03/cnn" rel="alternate" type="text/html" title="Convolutional Neural Networks" /><published>2024-03-31T00:00:00+08:00</published><updated>2024-03-31T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/CNN</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/cnn"><![CDATA[<p>什么是卷积神经网络（CNN）？它在计算机视觉中的应用是什么？</p>
 
 <p>卷积神经网络（Convolutional Neural Network，CNN）是一种深度学习模型，特别适用于处理具有网格结构的数据，如图像和视频。
 CNN的核心思想是通过卷积操作和池化操作来提取输入数据的特征，并通过这些特征进行分类、识别或回归等任务。</p>
@@ -221,320 +333,4 @@ CNN的核心思想是通过卷积操作和池化操作来提取输入数据的�
 <ul>
   <li>梯度的一阶矩 (first moment)：过往梯度与当前梯度的平均 -&gt; 惯性保持</li>
   <li>梯度的二阶矩 (second moment)：过往梯度平方与当前梯度平方的平均 -&gt; 环境感知，为不同参数产生自适应的学习速率</li>
-</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="machine learning" /><category term="deep learning" /><category term="learning notes" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry><entry><title type="html">Activation Functions</title><link href="http://localhost:4000/posts/2024/03/activation-functions/" rel="alternate" type="text/html" title="Activation Functions" /><published>2024-03-13T00:00:00+08:00</published><updated>2024-03-13T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/activation-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/activation-functions/"><![CDATA[<p>激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。</p>
-
-<h1 id="sigmoid-family">Sigmoid Family</h1>
-<p>\(sigmoid(x) = \frac{1}{1+e^{-x}}\)</p>
-
-<h2 id="hard-sigmoid">Hard Sigmoid</h2>
-<p>\(\)</p>
-
-<h2 id="swish">Swish</h2>
-<p>\(swish(x) = x\cdot sigmoid(x) = \frac{x}{1+e^{-x}}\)</p>
-
-<h2 id="maxout">Maxout</h2>
-
-<h1 id="relu-family-rectified-linear-unit">ReLU Family (Rectified Linear Unit)</h1>
-<p>\(ReLU(x) = max(0,x)\)</p>
-<ul>
-  <li>Dying neuron</li>
-  <li>Handles the vanishing gradient issue</li>
-  <li>Cannot avoid exploding gradient issue</li>
-</ul>
-
-<h2 id="elu">ELU</h2>
-<p>\(ELU(x) = \left\{
-\begin{aligned}
-x,\ if\ x\ \geq 0 \\
-\alpha(e^x-1),\ x&lt;0
-\end{aligned}
-\right.\)</p>
-
-<ul>
-  <li>Avoids dying neuron issue</li>
-  <li>Cannot avoid exploding gradient</li>
-  <li>Computational expensive (because of exponantial calculation)</li>
-  <li>$\alpha$ is an hyper-parameter (normally, $\alpha$ between 0.1 and 0.3)</li>
-</ul>
-
-<h2 id="leaky-relu">Leaky ReLU</h2>
-<p>\(LeakyReLU(x) = \left\{
-\begin{aligned}
-x,\ if\ x\ \geq 0 \\
-\alpha x,\ x&lt;0
-\end{aligned}
-\right.\)</p>
-
-<ul>
-  <li>Avoids dying neuron issue</li>
-  <li>Not computational expensive</li>
-  <li>$\alpha$ is an hyper-parameter (normally, $\alpha$ between 0.1 and 0.3)</li>
-</ul>
-
-<h2 id="selu-scaled-exponential-linear-units">SELU (Scaled Exponential Linear Units)</h2>
-<p>\(SELU(x) = \left\{
-\begin{aligned}
-\lambda x,\ if\ x\ \geq 0 \\
-\lambda \alpha (e^x-1),\ x&lt;0
-\end{aligned}
-\right.\)
-$\alpha \approx 1.6733$, $\lambda \approx 1.0507$.</p>
-
-<h2 id="gelu-gaussian-error-linear-unit">GELU (Gaussian Error Linear Unit)</h2>
-<p>\(GELU(x) = xP(X\leq x) = x\Phi(x) = x\cdot\frac{1}{2}[1+erf(\frac{x}{\sqrt(2)})]\)
-if $X \sim \mathcal{N}(0,1)$.</p>
-
-<ul>
-  <li>GELUs are used in GPT-3, BERT, and most other Transformers.</li>
-</ul>
-
-<h1 id="tanh-family">Tanh Family</h1>
-<p>\(Tanh(x) = \frac{e^x-e^{-x}}{e^x+e^{-x}}\)</p>
-<ul>
-  <li>Vanishing gradient problem</li>
-  <li>Symmetric about the origin</li>
-</ul>
-
-<h2 id="hardtanh">HardTanh</h2>
-<p>\(HardTanh(x) = \left\{
-\begin{aligned}
--1,\ if\ x &lt; -1\\
-x,\ if\ -1\leq x\leq 0\\
-1,\ if x&gt;1
-\end{aligned}
-\right.\)</p>
-
-<ul>
-  <li>It is a cheaper and more computationally efficient version of the tanh activation.</li>
-</ul>
-
-<h2 id="tanhshrink">TanhShrink</h2>
-
-<h1 id="softmax">Softmax</h1>
-
-<h2 id="logsoftmax">LogSoftMax</h2>
-
-<h2 id="softmin">Softmin</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="machine learning" /><category term="deep learning" /><category term="learning notes" /><summary type="html"><![CDATA[激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。]]></summary></entry><entry><title type="html">Loss Functions</title><link href="http://localhost:4000/posts/2024/03/loss-functions/" rel="alternate" type="text/html" title="Loss Functions" /><published>2024-03-12T00:00:00+08:00</published><updated>2024-03-12T00:00:00+08:00</updated><id>http://localhost:4000/posts/2024/03/loss-functions</id><content type="html" xml:base="http://localhost:4000/posts/2024/03/loss-functions/"><![CDATA[<h1 id="regression-loss-functions">Regression Loss Functions</h1>
-
-<h2 id="l1-loss-mean-absolute-error-mse">L1 Loss (Mean Absolute Error, MSE)</h2>
-<p>\(MSE = \frac{\sum_{i=1}^{N}|f(x_{i})-y_i|}{N}\)</p>
-
-<h2 id="l2-loss-mean-square-error-mse">L2 Loss (Mean Square Error, MSE)</h2>
-<p>\(MSE = \frac{\sum_{i=1}^{N}(f(x_{i})-y_i)^2}{N}\)</p>
-
-<h2 id="smooth-l1-loss">Smooth L1 Loss</h2>
-<p>\(SmoothL1 = \left\{
-\begin{aligned}
-0.5x^2,\ if\ |x|\ &lt;\ 1 \\
-|x-0.5|,\ otherwise
-\end{aligned}
-\right.\)</p>
-
-<h2 id="huber-loss">Huber Loss</h2>
-<p>Combines MSE and MAE.</p>
-
-<h1 id="classification-loss-functions">Classification Loss Functions</h1>
-<p>Cross Entropy Loss
-——</p>
-
-<p>Binary case:
-\(CE(p, y) = \left\{
-  \begin{aligned}
-  -log(p),\ if\ y\ =\ 1, \\
-  -log(1-p),\ otherwise
-  \end{aligned}
-  \right.\)</p>
-
-<p>\(p_t = \left\{
-  \begin{aligned}
-  p,\ if\ y=1,\\
-  1-p,\ otherwise 
-  \end{aligned}
-\right.\)
-Simplified to
-\(CE(p,y) = CE(pt) = -log(pt)\)</p>
-
-<p>Multi-class case:
-\(CE(p_i, y_i) = -y_{i,c}log(p_{ic})\)</p>
-
-\[L = \frac{1}{N}\sum_{i}L_i = -\frac{1}{N}\sum_{i}\sum_{c=1}^{M}y_{ic}log(p_{ic})\]
-
-<h2 id="balanced-cross-entropy-loss">Balanced Cross Entropy Loss</h2>
-<p>\(CE(p_t) = -\alpha_tlog(p_t)\)</p>
-
-<p>Balanced cross entropy loss solves the problem of imbalanced classes, but did not put different focus on hard vs. easy samples.</p>
-
-<h2 id="focal-loss">Focal Loss</h2>
-<p>\(FL(p_t) = -\alpha_t(1-p_t)^{\gamma}log(p_t)\)
-$p_t$ is the model’s estimated probability for each class being the correct classification.
-$\alpha_T$ is a weighting factor for the class (to further address class imbalance).
-$\gamma$ is the focusing parameter that smoothly adjusts the rate at which easy examples are down-weighted. When $\gamma=0$, focal loss is equivalent to cross-entropy loss. As $\gamma=0$ increases, the effect of the modulating factor increases, and the loss contribution from easy examples is reduced.</p>
-
-<p>The key idea behind focal loss is to focus model training on hard, misclassified examples and reduce the relative loss for easy examples, preventing the overwhelming number of easy negatives from dominating the training of the model.</p>
-
-<ul>
-  <li>For well-classified examples (where $p_t$ is high), $(1-p_t)^{\gamma}$ approaches 0, which significantly reduces their contribution to the loss. As a result, the loss for these easy examples becomes negligible, and they have little impact on the model updates during training.</li>
-  <li>For misclassified or hard examples (where $p_t$ is low), $(1-p_t)^{\gamma}$ is closer to 1, meaning these examples contribute more significantly to the total loss. This ensures that the model’s updates focus more on correcting these harder examples.</li>
-</ul>
-
-<h2 id="poly-loss">Poly Loss</h2>
-
-<h2 id="hinge-loss">Hinge Loss</h2>
-<p>Used in SVM. 
-\(L(y) = max(0, 1-t \cdot y)\)</p>
-
-<h2 id="triplet-loss">Triplet Loss</h2>
-
-<h2 id="contrastive-loss">Contrastive Loss</h2>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Regression Loss Functions]]></summary></entry><entry><title type="html">Classification Algorithms</title><link href="http://localhost:4000/posts/2034/08/classification-algorithms/" rel="alternate" type="text/html" title="Classification Algorithms" /><published>2024-03-11T00:00:00+08:00</published><updated>2024-03-11T00:00:00+08:00</updated><id>http://localhost:4000/posts/2034/08/classification-algorithms</id><content type="html" xml:base="http://localhost:4000/posts/2034/08/classification-algorithms/"><![CDATA[<p>Classification Algorithms</p>
-
-<h1 id="logistic-regression">Logistic Regression</h1>
-
-<h2 id="description">Description</h2>
-<p>\(z = w_0+w_1x_1+w_2x_2+...++w_nx_n\)
-Then, the sigmoid function is used to convert z to probability $p$:
-\(p = \frac{1}{1+e^{-z}}\)
-$p$ can later be converted to binary classification.</p>
-
-<h2 id="pros">Pros</h2>
-<ol>
-  <li>Easy to implement</li>
-  <li>Suitable for linear separable cases</li>
-  <li>Result explanable</li>
-</ol>
-
-<h2 id="cons">Cons</h2>
-<ol>
-  <li>Hard to solve non-linear problems</li>
-  <li>Performance impaired when dealing highly correlated data</li>
-  <li>Sensitive to noisy data</li>
-  <li>Not suitable for classification of more than 2 classes</li>
-</ol>
-
-<h1 id="decision-tree">Decision Tree</h1>
-
-<h2 id="description-1">Description</h2>
-<ol>
-  <li>Feature selection</li>
-  <li>Tree construction: recursively</li>
-</ol>
-
-<h2 id="pros-1">Pros</h2>
-<ol>
-  <li>Easy and explanation</li>
-  <li>Capable of handling both numerical and categorical data</li>
-  <li>No need to prepare data, e.g. normalization</li>
-</ol>
-
-<h2 id="cons-1">Cons</h2>
-<ol>
-  <li>Easy to overfit, especially on data with high dimensionality</li>
-  <li>Sensitive to outliers</li>
-  <li>Unstable, small changes of data could result in large changes of the tree structure</li>
-  <li>Not suitable of handling complicated relationship</li>
-</ol>
-
-<h2 id="suitable-for">Suitable for</h2>
-<ol>
-  <li>Cases where explanability is of essence, e.g. medical diagnosis</li>
-  <li>Small to medium data size</li>
-  <li>Data easy to be splited</li>
-  <li>Feature selection</li>
-</ol>
-
-<h1 id="random-forest">Random Forest</h1>
-
-<h1 id="naive-bayes">Naive Bayes</h1>
-
-<h2 id="description-2">Description</h2>
-
-<h3 id="assumption">Assumption:</h3>
-<p>All features are independent on each other.</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>$$P(C_k</td>
-      <td>x) = \frac{P(x</td>
-      <td>C_k)P(C_k)}{P(x)}$$</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>$$P(x</td>
-      <td>C_k) = P(x_1</td>
-      <td>C_k)P(x_2</td>
-      <td>C_k)…P(x_n</td>
-      <td>C_k)$$</td>
-    </tr>
-  </tbody>
-</table>
-
-<h1 id="k-nearest-neighbors-knn">K-Nearest Neighbors (KNN)</h1>
-<ul>
-  <li>Classification: majority vote</li>
-  <li>Regression: weighted average</li>
-</ul>
-
-<h2 id="distance-measurements">Distance Measurements</h2>
-<ul>
-  <li>Euclidean Distance</li>
-  <li>Manhattan Distance</li>
-  <li>Chebyshev Distance</li>
-  <li>Minkowski Distance</li>
-  <li>Mahalanobis Distance</li>
-</ul>
-
-<h2 id="cons-2">Cons:</h2>
-<ol>
-  <li>Calculation cose</li>
-  <li>Space complexity</li>
-  <li>Imbalanced classes</li>
-  <li>Limited performance on data with high dimensionality</li>
-  <li>Sensitive to noisy data</li>
-  <li>Hard to decide the correct value of k</li>
-</ol>
-
-<h1 id="support-vector-machine">Support Vector Machine</h1>
-<p>Linear SVM (Hard Margin)
-——
-\(f(x) = sign(w\cdot x+b)\)</p>
-
-<h2 id="non-linear-kernel-trick">Non-linear (kernel trick)</h2>
-<p>\(f(x) = sign(\sum_{i=1}^{n}\alpha_{i}y_iK(x_i, x)+b)\)</p>
-
-<h2 id="svm-for-imbalanced-class-soft-margin">SVM for imbalanced class (Soft Margin)</h2>
-
-<p>this is very easy to accomplish using the aligned environment from amsmath:</p>
-
-\[\begin{equation}
-\begin{aligned}
-\min_{w,b,\xi} \quad &amp; \frac{1}{2}w^{t}w+C\sum_{i=1}^{N}{\xi_{i}}\\
-\textrm{s.t.} \quad &amp; y_{i}(w\phi(x_{i}+b))+\xi_{i}-1\\
-  &amp;\xi\geq0    \\
-\end{aligned}
-\end{equation}\]
-
-<h2 id="pros-2">Pros:</h2>
-<ol>
-  <li>Can be used in various cases: text classification, image recognition, etc.</li>
-  <li>Robust to noisy data points</li>
-  <li>Avoid stucking at local optima</li>
-  <li>Still works in high dimensional space (kernel trick)</li>
-  <li>Avoid over-fitting (by regularization)</li>
-</ol>
-
-<h2 id="cons-3">Cons:</h2>
-<ol>
-  <li>Only work for binary classification case</li>
-  <li>High computation complexity</li>
-  <li>Sensitive to choice of parameter</li>
-  <li>Sensitive to missing data</li>
-</ol>
-
-<h1 id="adaboost">AdaBoost</h1>
-
-<h1 id="gradient-boosting-trees">Gradient Boosting Trees</h1>
-
-<h1 id="multilayer-perceptrons">Multilayer Perceptrons</h1>
-
-<p>Artificial Neural Network</p>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="learning notes" /><category term="machine learning" /><category term="loss function" /><summary type="html"><![CDATA[Classification Algorithms]]></summary></entry></feed>
+</ul>]]></content><author><name>Hudanyun Sheng</name><email>hudanyun.sheng@outlook.com</email></author><category term="machine learning" /><category term="deep learning" /><category term="learning notes" /><summary type="html"><![CDATA[gradient descent, stochastic gradient descent, batch gradient descent]]></summary></entry></feed>
