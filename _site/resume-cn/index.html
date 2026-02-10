@@ -262,59 +262,311 @@
 <p><a href="/resume/">View English Resume</a><br />
 <a href="/files/盛胡丹筠简历.pdf">下载我的简历</a></p>
 
-<h1 id="教育经历">教育经历</h1>
+<h2 id="个人简介">个人简介</h2>
+
+<p>系统型数据科学家，具备 <strong>机器学习（ML）与生成式 AI（GenAI）系统的端到端设计与落地经验</strong>，长期从事医疗、生命科学及企业级 AI 应用相关工作。</p>
+
+<p>研究与工程并重，擅长在<strong>真实业务约束</strong>下构建可用系统，包括：</p>
 <ul>
-  <li>佛罗里达大学
-    <ul>
-      <li>电子与计算机工程硕士（2018.01 - 2019.12）</li>
-      <li>硕士论文：基于高光谱图像的柳枝草基因型分类 (Switchgrass Genotype Classification using Hyperspectral Imagery)</li>
-      <li>工业系统工程硕士（2016.01 - 2017.12）</li>
-    </ul>
+  <li>数据质量不稳定</li>
+  <li>文档格式复杂（PDF / 扫描件 / OCR）</li>
+  <li>多语言与合规要求</li>
+  <li>需要人工参与（human-in-the-loop）的审核与修正流程</li>
+</ul>
+
+<p>关注点不局限于模型性能，而是 <strong>系统鲁棒性、可解释性、失败兜底与工程可维护性</strong>。</p>
+
+<hr />
+
+<h2 id="核心能力">核心能力</h2>
+
+<h3 id="机器学习--生成式-ai">机器学习 &amp; 生成式 AI</h3>
+<ul>
+  <li>传统机器学习：分类、排序、特征工程、模型评估</li>
+  <li>生成式 AI 系统：RAG（检索增强生成）、Prompt 设计、LLM 评估</li>
+  <li>向量检索、Cross-encoder 重排序、不确定性与置信度处理</li>
+  <li>Human-in-the-loop AI 系统设计</li>
+</ul>
+
+<h3 id="数据与系统工程">数据与系统工程</h3>
+<ul>
+  <li>端到端 ML / GenAI Pipeline 设计（质量校验 + fallback 机制）</li>
+  <li>非结构化文档理解：PDF 解析、OCR、表格抽取、图像推理</li>
+  <li>面向失败的系统设计（编码错误、破损文件、OCR 退化等）</li>
+</ul>
+
+<h3 id="平台与云环境">平台与云环境</h3>
+<ul>
+  <li>Databricks 上的 ML 工作流与特征流水线</li>
+  <li>Docker 容器化部署</li>
+  <li>合规环境下的 Azure / Azure OpenAI 平台</li>
+  <li>云原生数据处理与监控</li>
+</ul>
+
+<h3 id="技术栈">技术栈</h3>
+<ul>
+  <li>Python, Pandas, NumPy, scikit-learn</li>
+  <li>FAISS, Hugging Face（E5 embedding, reranker）</li>
+  <li>OpenAI / Azure OpenAI API</li>
+  <li>Kedro, Streamlit</li>
+</ul>
+
+<hr />
+
+<h2 id="工作经历">工作经历</h2>
+
+<hr />
+
+<h3 id="johnson--johnson--数据科学家外包">Johnson &amp; Johnson | 数据科学家（外包）</h3>
+<p>Center of Excellence，北京 | 2024.04 – 至今</p>
+
+<p>面向商业与医学场景，参与 <strong>机器学习与生成式 AI 系统的设计、原型构建与平台化落地</strong>，工作环境具有严格的合规与数据质量约束。</p>
+
+<h4 id="新药上市与-hcp-目标识别商业-ml-系统">新药上市与 HCP 目标识别（商业 ML 系统）</h4>
+<ul>
+  <li>基于历史销售、推广及医生行为数据，构建新药上市早期采用者识别模型</li>
+  <li>设计特征工程与评分流水线，用于大规模医生排序与优先级推荐</li>
+  <li>使用 Kedro 构建模块化数据流水线，提升数据校验、可复现性与跨团队交付能力</li>
+</ul>
+
+<h4 id="医学内容合规检查genai--rag">医学内容合规检查（GenAI / RAG）</h4>
+<ul>
+  <li>设计 RAG 工作流，用于比对本地化医学 FAQ 与药品说明书，识别潜在 off-label 或不合规内容（日本市场）</li>
+  <li>主导 Prompt 设计、检索策略选择及错误分析，应对翻译歧义与部分语义匹配问题</li>
+  <li>构建结合规则、向量检索与 LLM 推理的多级兜底机制，降低误报率</li>
+</ul>
+
+<h4 id="医学知识检索与医生查询平台">医学知识检索与医生查询平台</h4>
+<ul>
+  <li>构建日文医学 RAG 系统，集成 FAISS + 多语言 E5 embedding、历史感知检索与 cross-encoder 重排序</li>
+  <li>实现中日文姓名标准化与模糊匹配（NFKC、假名–罗马字、简繁转换），提升跨书写体系召回率</li>
+  <li>开发 Streamlit UI，用于参数调优、证据溯源与多轮对话记录，支持技术与非技术用户</li>
+</ul>
+
+<h4 id="医院排班表-pdf-抽取与审核系统">医院排班表 PDF 抽取与审核系统</h4>
+<ul>
+  <li>设计鲁棒的医院排班表抽取系统，支持电子 PDF、扫描件及格式异常文档</li>
+  <li>集成 Camelot、OCR 表格检测与 LLM 图像推理，多策略协同并带质量校验</li>
+  <li>构建 reviewer UI，支持批量检查、标注与人工修正</li>
+  <li>系统性处理编码异常、破损 PDF、OCR 退化与超大图像等失败场景，避免 pipeline 中断</li>
+</ul>
+
+<h4 id="平台与基础设施">平台与基础设施</h4>
+<ul>
+  <li>参与 ML 流水线向 Databricks 平台迁移</li>
+  <li>协同数据工程团队调整特征存储与转换逻辑，确保合规与平台一致性</li>
+</ul>
+
+<h3 id="zenni-optical--数据科学家ai--ml">Zenni Optical | 数据科学家（AI / ML）</h3>
+<p>北京 | 2023.06 – 2024.01</p>
+
+<h4 id="眼镜处方理解与识别系统">眼镜处方理解与识别系统</h4>
+<ul>
+  <li>设计并实现处方识别服务，从用户上传图片中提取球镜、柱镜、轴位等结构化参数</li>
+  <li>构建基于 FastAPI 的推理服务，将 OCR 结果与规则/启发式解析逻辑结合</li>
+  <li>针对日本处方格式进行定制化适配，提升多语言、多版式场景下的识别准确率</li>
+  <li>集成 CloudSQL 与 BigQuery，用于多区域数据存储与使用监控</li>
+</ul>
+
+<h4 id="图像质量分析与人工审核工具">图像质量分析与人工审核工具</h4>
+<ul>
+  <li>分析因模糊、拍摄质量问题导致的 OCR / 解析失败案例</li>
+  <li>基于日志与用户行为分析定位质量退化模式</li>
+  <li>构建 Streamlit 内部工具，用于结果可视化与人工校验</li>
+</ul>
+
+<h3 id="ut-southwestern-medical-center--数据科学家">UT Southwestern Medical Center | 数据科学家</h3>
+<p>Quantitative Biomedical Research Center<br />
+美国达拉斯 | 2021.09 – 2023.05</p>
+
+<h4 id="生物医学影像与多模态数据系统">生物医学影像与多模态数据系统</h4>
+<ul>
+  <li>设计并实现结合空间影像与 CyTOF 单细胞表达数据的分析系统</li>
+  <li>构建 Flask 服务，支持并行处理与 Docker 化部署</li>
+  <li>相比基线流程实现约 10× 性能提升</li>
+</ul>
+
+<h4 id="数字病理细胞分割与分类">数字病理细胞分割与分类</h4>
+<ul>
+  <li>基于 Mask R-CNN 构建 H&amp;E 切片中的细胞核分割与 6 类分类模型</li>
+  <li>针对不完整标注数据定制 loss 与训练策略，挽回约 20% 数据</li>
+  <li>在弱监督条件下达到 82.5% 检测率与 82.0% 分类准确率</li>
+</ul>
+
+<h4 id="电子病历文本处理支持性工作">电子病历文本处理（支持性工作）</h4>
+<ul>
+  <li>协助将现有 EHR 去标识化与预处理工具接入研究流程</li>
+</ul>
+
+<h3 id="donald-danforth-plant-science-center--数据科学研究员">Donald Danforth Plant Science Center | 数据科学研究员</h3>
+<p>美国圣路易斯 | 2020.02 – 2021.09</p>
+
+<ul>
+  <li>构建 RGB、热成像与高光谱植物影像的自动化处理与可视化流水线</li>
+  <li>开发叶片实例级分割与时间序列跟踪算法，用于生长分析</li>
+  <li>参与开源项目 PlantCV：模块开发、测试、文档与社区培训</li>
+  <li>支持生物学与工程团队开展可复现的数据分析</li>
+</ul>
+
+<hr />
+
+<h3 id="university-of-florida-academic-health-center--数据科学实习生">University of Florida Academic Health Center | 数据科学实习生</h3>
+<p>美国盖恩斯维尔 | 2019.05 – 2019.08</p>
+
+<ul>
+  <li>处理住院后 24 小时内的生命体征时间序列数据</li>
+  <li>构建特征并评估多种聚类方法</li>
+  <li>复现并验证应对非规则采样的插值建模方法</li>
+</ul>
+
+<hr />
+
+<h2 id="个人项目">个人项目</h2>
+
+<h3 id="ai-新闻-agentllm-新闻摘要与问答">AI 新闻 Agent（LLM 新闻摘要与问答）</h3>
+<ul>
+  <li>构建 AI 相关新闻的自动抓取、摘要与问答系统</li>
+  <li>设计轻量级 RAG 架构，结合网页抓取、向量检索与 LLM</li>
+  <li>实现定时抓取、自动标签与分类摘要</li>
+  <li>支持基于新闻语料的用户问答</li>
+  <li>使用 Streamlit 构建前端，部署于 Hugging Face Spaces，并探索 Docker 化部署</li>
+</ul>
+
+<hr />
+
+<h2 id="教育背景">教育背景</h2>
+
+<p><strong>佛罗里达大学</strong></p>
+<ul>
+  <li>
+    <p>电气与计算机工程 硕士（GPA 3.86/4），2019<br />
+<em>论文：基于高光谱影像的牧草基因型分类</em></p>
   </li>
-  <li>同济大学
-    <ul>
-      <li>物理学学士（2011.09 - 2015.06）</li>
-      <li>毕业论文： X射线多层膜KB成像的强度均匀性校正</li>
-    </ul>
+  <li>
+    <p>工业与系统工程 硕士（GPA 3.87/4），2017</p>
   </li>
 </ul>
 
-<h1 id="工作经历">工作经历</h1>
+<p><strong>同济大学</strong></p>
 <ul>
-  <li>Zenni Optical (2023.06 ~ 2024.01)
-    <ul>
-      <li>数据科学家 (其中8月前是兼职)</li>
-    </ul>
-  </li>
-  <li>德克萨斯西南医学中心 (2021.09 ~ 2023.05)
-    <ul>
-      <li>数据科学家</li>
-    </ul>
-  </li>
-  <li>唐纳德丹福思植物科学中心 (2020.02 ~ 2021.09)
-    <ul>
-      <li>数据科学研究员</li>
-    </ul>
-  </li>
-  <li>佛罗里达大学医疗中心 (2019.05 ~ 2019.08)
-    <ul>
-      <li>数据科学实习生</li>
-    </ul>
-  </li>
+  <li>物理学 学士（GPA 4.45/5），2015<br />
+<em>论文：X-Ray KB 成像强度不均匀性校正</em></li>
 </ul>
 
-<h1 id="技能清单">技能清单</h1>
+<hr />
+
+<h2 id="发表论文">发表论文</h2>
+
+<!-- - Sheng et al., MTIA: An open-source python package for multiplexed tissue image analysis（准备中）  
+- Sheng et al., Plant Phenotyping Annotation Throughput, Authorea, 2023  
+- Rong et al., Modern Pathology, 2023  
+- Panda et al., New Phytologist, 2023  
+- Yu et al., Machine Vision and Applications, 2020   -->
 <ul>
-  <li>数学和统计学基础：具备扎实的数学原理、概率论和统计学基础，并将这些概念应用于实际情境</li>
-  <li>人工智能和机器学习：机器学习、深度学习和计算机视觉，开发和部署复杂的深度学习和机器学习模型</li>
-  <li>深度学习框架或平台：PyTorch、Pytorch Lightning、spaCy、TensorFlow、Keras、Hugging Face</li>
-  <li>编程语言和工具：Python (包括NumPy、Pandas、Scikit-learn、SciPy、ggplot2、Seaborn、OpenCV、Streamlit和plotly等库)、 MATLAB</li>
-  <li>DevOps及云技术：Google Cloud、熟练使用Docker进行容器化</li>
-  <li>版本控制：Git</li>
-  <li>数据库和数据存储：MySQL、CloudSQL、BigQuery</li>
-  <li>Web开发：Flask框架、FastAPI框架、HTML、CSS、Ajax和JavaScript</li>
-  <li>数据分析：SQL、MS Office、Tableau</li>
-  <li>其他领域：电子健康档案（EHR）数据分析</li>
+  
+    
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <li>
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/publication/2023-10-19-increasing-the-throughput-of-annotation-tasks-across-scales-of-plant-phenotyping-experiments" rel="permalink">Increasing the Throughput of Annotation Tasks Across Scales of Plant Phenotyping Experiments
+</a>
+      
+    </h3>
+    
+    <p class="archive__item-excerpt" itemprop="description">Sheng H, Gutierrez J, Schuhl H, Murphy KM, Acosta-Gamboa L, Gehan M, Fahlgren N. Increasing the Throughput of Annotation Tasks Across Scales of Plant Phenotyping Experiments. Authorea Preprints. 2023 Oct 19.</p> 
+    </li>
+ </article>
+</div>
+
+  
+    
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <li>
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/publication/2023-04-24-a-deep-learning-approach-for-histology-based-nuclei-segmentation-and-tumor-microenvironment-characterization" rel="permalink">A Deep Learning Approach for Histology-Based Nuclei Segmentation and Tumor Microenvironment Characterization
+</a>
+      
+    </h3>
+    
+    <p class="archive__item-excerpt" itemprop="description">Rong R, Sheng H, Jin KW, Wu F, Luo D, Wen Z, Tang C, Yang DM, Jia L, Amgad M, Cooper LA. A Deep Learning Approach for Histology-Based Nucleus Segmentation and Tumor Microenvironment Characterization. Modern Pathology. 2023 Aug 1;36(8):100196.</p> 
+    </li>
+ </article>
+</div>
+
+  
+    
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <li>
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/publication/2023-03-14-the-plant-response-to-high-CO2-levels-is-heritable-and-orchestrated-by-DNA-methylation" rel="permalink">A Deep Learning Approach for Histology-Based Nuclei Segmentation and Tumor Microenvironment Characterization
+</a>
+      
+    </h3>
+    
+    <p class="archive__item-excerpt" itemprop="description">Panda K, Mohanasundaram B, Gutierrez J, McLain L, Castillo SE, Sheng H, Casto A, Gratacós G, Chakrabarti A, Fahlgren N, Pandey S. The plant response to high CO2 levels is heritable and orchestrated by DNA methylation. New Phytologist. 2023 Jun;238(6):2427-39.</p> 
+    </li>
+ </article>
+</div>
+
+  
+    
+
+
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="http://schema.org/CreativeWork">
+    <li>
+    
+    <h3 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/publication/Root-identification-in-minirhizotron-imagery-with-multiple-instance-learning" rel="permalink">Root identification in minirhizotron imagery with multiple instance learning
+</a>
+      
+    </h3>
+    
+    <p class="archive__item-excerpt" itemprop="description">"Yu, G., Zare, A., Sheng, H., Matamala, R., Reyes-Cabrera, J., Fritschi, F.B. and Juenger, T.E., 2020. Root identification in minirhizotron imagery with multiple instance learning. Machine Vision and Applications, 31, pp.1-13."
+</p> 
+    </li>
+ </article>
+</div>
+
+  
+</ul>
+<hr />
+
+<h2 id="个人优势">个人优势</h2>
+
+<ul>
+  <li><strong>系统思维</strong>：关注鲁棒性、失败处理与端到端设计</li>
+  <li><strong>快速学习能力</strong>：可快速进入新领域并独立落地</li>
+  <li><strong>沟通能力</strong>：能向技术与非技术对象解释复杂系统</li>
+  <li><strong>跨文化协作</strong>：中英双语，具备中美团队合作经验</li>
 </ul>
 
   </div>
