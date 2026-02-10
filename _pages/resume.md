@@ -171,7 +171,7 @@ Gainesville, FL, USA | May 2019 – Aug 2019
     {% include archive-single-cv.html %}
   {% endfor %}</ul> -->
 ## Publications
-*(Selected publications related to machine learning, imaging, and data systems)*
+<!-- *(Selected publications related to machine learning, imaging, and data systems)* -->
 
 <ul>
   {% for post in site.publications reversed %}
