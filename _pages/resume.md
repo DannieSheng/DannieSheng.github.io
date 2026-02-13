@@ -9,7 +9,7 @@ redirect_from:
 {% include base_path %}
 
 [查看中文简历]({{ site.baseurl }}/resume-cn/)  
-[Download My Resume](/files/HudanyunSheng_CV.pdf)
+[Download My Resume](/files/HudanyunSheng_resume.pdf)
 
 ## Professional Summary
 Data Scientist with experience building end-to-end machine learning and GenAI systems across healthcare, medical imaging, and applied AI products.
