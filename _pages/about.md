@@ -7,13 +7,17 @@ redirect_from:
   - /about.html
 ---
 
-My name is Hudanyun Sheng, also known as Dannie. I am a data scientist, a researcher, and as always, more than what I have been defined. 
+<!-- My name is Hudanyun Sheng, also known as Dannie. I am a data scientist, a researcher, and as always, more than what I have been defined. 
 
 I am using recording my past experiences, learning notes here. 
 
-Welcome to My World!
-======
-👋 Hi there! I'm Hudanyun Sheng (Dannie), a passionate explorer of knowledge and experiences. This space is my digital canvas, where I document my journey through life's lessons, both professional and personal.
+Welcome to My World! -->
+<!-- ====== -->
+<!-- 👋 Hi there! I'm Hudanyun Sheng (Dannie), a passionate explorer of knowledge and experiences. This space is my digital canvas, where I document my journey through life's lessons, both professional and personal. -->
+
+Hi👋, I’m Hudanyun Sheng (Dannie) — a data scientist interested in machine learning, AI applications, and building useful tools from data.
+
+This website is a place where I collect my projects, learning notes, and technical explorations. I enjoy breaking down complex topics, experimenting with new ideas, and documenting what I learn along the way.
 
 About Me
 ------
@@ -21,12 +25,17 @@ I'm a Data Scientist with a keen interest in technology, art, food, coffee... Be
 
 What You'll Find Here
 ------
-**Past Experiences**: Dive into stories from my career and personal adventures. From triumphs to challenges, I share insights and reflections on the path I've traveled.
+**Projects**  
+Hands-on experiments and practical applications of machine learning and AI.
 
-**Learning Notes**: My virtual notebook, filled with summaries, thoughts, and analyses on various subjects I'm exploring. 
-<!-- Expect a mix of [mention specific topics or fields relevant to your interests]. -->
-<!-- [Optional Section]: [If you have other content types, like projects, portfolio, or a blog, mention them briefly here.]
-Connect With Me -->
+**Learning Notes**  
+My notes while studying topics in data science, statistics, and artificial intelligence.
+
+**Blog Posts**
+Occasional thoughts on technology, problem-solving, and the learning process.
+
+Connect
+------
 I believe in the power of connection and collaboration. If you're interested in discussing any topics, or just want to say hi, feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/hudanyunsheng/).
 
 <!-- feel free to [contact me/link to your contact page] or  -->
