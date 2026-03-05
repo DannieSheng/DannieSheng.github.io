@@ -8,8 +8,8 @@ redirect_from:
 ---
 {% include base_path %}
 
-[查看中文简历]({{ site.baseurl }}/resume-cn/)  
-[Download My Resume](/files/HudanyunSheng_resume.pdf)
+<!-- [查看中文简历]({{ site.baseurl }}/resume-cn/)  
+[Download My Resume](/files/HudanyunSheng_resume.pdf) -->
 
 ## Professional Summary
 Data Scientist with experience building end-to-end machine learning and GenAI systems across healthcare, medical imaging, and applied AI products.
@@ -48,7 +48,7 @@ Currently focused on robust GenAI system design, evaluation, and deployment in r
 
 ## Professional Experience
 
-### Johnson & Johnson | Data Scientist (Contractor)  
+### Johnson & Johnson | Data Scientist
 Center of Excellence, Beijing, China | Apr 2024 – Present
 
 System-oriented Data Scientist working on **ML and GenAI systems** for commercial and medical use cases under strict compliance and data-quality constraints.

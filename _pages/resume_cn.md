@@ -9,8 +9,9 @@ lang: zh-CN
 ---
 
 {% include base_path %}
-[View English Resume]({{ site.baseurl }}/resume/)  
-[下载我的简历](/files/盛胡丹筠简历.pdf)
+
+<!-- [View English Resume]({{ site.baseurl }}/resume/)  
+[下载我的简历](/files/盛胡丹筠简历.pdf) -->
 
 ## 个人简介
 
@@ -57,7 +58,7 @@ lang: zh-CN
 
 ---
 
-### Johnson & Johnson | 数据科学家（外包）  
+### Johnson & Johnson | 数据科学家 
 Center of Excellence，北京 | 2024.04 – 至今
 
 面向商业与医学场景，参与 **机器学习与生成式 AI 系统的设计、原型构建与平台化落地**，工作环境具有严格的合规与数据质量约束。
@@ -184,3 +185,4 @@ Quantitative Biomedical Research Center
 - **快速学习能力**：可快速进入新领域并独立落地  
 - **沟通能力**：能向技术与非技术对象解释复杂系统  
 - **跨文化协作**：中英双语，具备中美团队合作经验  
+
