@@ -10,8 +10,8 @@ lang: zh-CN
 
 {% include base_path %}
 
-<!-- [View English Resume]({{ site.baseurl }}/resume/)  
-[下载我的简历](/files/盛胡丹筠简历.pdf) -->
+[View English Resume]({{ site.baseurl }}/resume/)  
+<!-- [下载我的简历](/files/盛胡丹筠简历.pdf) -->
 
 ## 个人简介
 
