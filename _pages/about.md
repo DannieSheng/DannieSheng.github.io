@@ -19,9 +19,9 @@ Hi👋, I’m Hudanyun Sheng (Dannie) — a data scientist interested in machine
 
 This website is a place where I collect my projects, learning notes, and technical explorations. I enjoy breaking down complex topics, experimenting with new ideas, and documenting what I learn along the way.
 
-About Me
+<!-- About Me
 ------
-I'm a Data Scientist with a keen interest in technology, art, food, coffee... Beyond my professional endeavors, I'm always on a quest to learn something new, whether it's mastering a new skill, diving deep into a fascinating topic, or simply exploring the world around me.
+I'm a Data Scientist with a keen interest in technology, art, food, coffee... Beyond my professional endeavors, I'm always on a quest to learn something new, whether it's mastering a new skill, diving deep into a fascinating topic, or simply exploring the world around me. -->
 
 What You'll Find Here
 ------
