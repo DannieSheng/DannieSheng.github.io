@@ -22,6 +22,7 @@ I'm a Data Scientist with a keen interest in technology, art, food, coffee... Be
 What You'll Find Here
 ------
 **Past Experiences**: Dive into stories from my career and personal adventures. From triumphs to challenges, I share insights and reflections on the path I've traveled.
+
 **Learning Notes**: My virtual notebook, filled with summaries, thoughts, and analyses on various subjects I'm exploring. 
 <!-- Expect a mix of [mention specific topics or fields relevant to your interests]. -->
 <!-- [Optional Section]: [If you have other content types, like projects, portfolio, or a blog, mention them briefly here.]
