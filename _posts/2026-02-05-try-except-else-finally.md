@@ -1,5 +1,5 @@
 ---
-title: 'Python `try` / `except` / `else` / `finally` learning notes'
+title: 'Python try / except / else / finally learning notes'
 date: 2026-02-05
 permalink: /posts/2026/02/python-try-except-learning-notes/
 tags:
