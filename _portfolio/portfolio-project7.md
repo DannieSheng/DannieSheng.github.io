@@ -3,6 +3,7 @@ title: "Enhanced Detection and Classification of Cell Nuclei in H&E Stained Path
 excerpt: "October 2021 ~ December 2021<br/>This project focused on the application of Mask R-CNN, a state-of-the-art model for instance segmentation tasks, to detect and classify common types of cell nuclei in H&E (Hematoxylin and Eosin) stained pathology images of Non-Small Cell Lung Cancer (NSCLC) and Breast Cancer. 
 By leveraging transfer learning and customizing the loss function of Mask R-CNN, the project aimed to address the challenges posed by incomplete labeling in the dataset and improve the model's performance in both detection and classification tasks. <br/>"
 collection: portfolio
+order: 7
 ---
 
 Key Achievements

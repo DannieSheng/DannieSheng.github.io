@@ -2,6 +2,7 @@
 title: "Advancing Plant Phenotyping with PlantCV: An Open-Source Image Analysis Software Package"
 excerpt: "February 2020 ~ September 2021<br/>This project was centered around <a href=\"https://plantcv.danforthcenter.org\">PlantCV</a> (Plant Computer Vision), an open-source software package meticulously designed for plant phenotyping analysis. Developed in Python and integrating advanced image processing libraries such as OpenCV (Open Source Computer Vision Library), PlantCV aims to provide plant scientists and researchers with a powerful, flexible, and user-friendly tool for automating and quantifying the extraction of plant phenotypic information from various image data. <br/>"
 collection: portfolio
+order: 6
 ---
 
 Core Features

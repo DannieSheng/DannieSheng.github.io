@@ -2,6 +2,7 @@
 title: "Switchgrass Genotype Classification using Hyperspectral Imagery"
 excerpt: "Master Thesis<br/>"
 collection: portfolio
+order: 3
 ---
 
 <img src='/images/portforlio3.png'>

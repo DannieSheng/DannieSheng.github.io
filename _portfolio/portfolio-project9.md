@@ -3,6 +3,7 @@ title: "Time-series forecasting for a payment processing company"
 excerpt: "May 2023<br/>
 This project is actually a pre-interview project for data scientist. I have got a chance to perform data analysis and time-series modeling and forecasting. <br/>"
 collection: portfolio
+order: 9
 ---
 
 ## Background

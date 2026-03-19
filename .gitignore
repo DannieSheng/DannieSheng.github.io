@@ -3,3 +3,9 @@
 img/.DS_Store
 archive**/
 _site/
+.jekyll-cache/
+.sass-cache/
+.bundle/
+vendor/
+node_modules/
+.idea/

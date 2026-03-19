@@ -4,6 +4,7 @@ excerpt: "September 2023 – October 2023<br/>
 This project aimed to extend the capabilities of an existing in-house developed tool, OptiReader, designed for the automatic parsing of eyeglass prescriptions. 
 Initially supporting the North American market, the project's goal was to adapt the tool for the Japanese market, particularly for VR eyeglasses, by incorporating innovative document understanding technologies and custom solutions to handle unique prescription formats prevalent in Japan. <br/>"
 collection: portfolio
+order: 8
 ---
 
 Business Question
