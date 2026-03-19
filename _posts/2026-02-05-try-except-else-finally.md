@@ -6,7 +6,6 @@ tags:
   - python
 ---
 
-# Python `try` / `except` / `else` / `finally` 学习笔记
 Python中的 `try` / `except` / `else` / `finally`，之前没有很认真使用过。最近开发中用的比较多，也踩了一些坑。今天总结一下。
 
 ## 核心概念

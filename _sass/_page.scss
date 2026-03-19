@@ -34,6 +34,72 @@
   }
 }
 
+.page--reading {
+  @include breakpoint($large) {
+    @include span(12 of 12);
+    @include prefix(0);
+    @include suffix(0);
+  }
+
+  .page__inner-wrap {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .page__title {
+    font-size: clamp(2rem, 2.6vw, 2.9rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .page__lead {
+    margin-top: 0.6em;
+    color: mix(#000, $text-color, 25%);
+  }
+
+  .page__meta,
+  .page__date {
+    font-size: $type-size-7;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .page__content {
+    font-size: 1.05em;
+    line-height: 1.85;
+  }
+
+  .page__content p {
+    margin-bottom: 1.6em;
+  }
+
+  .page__content h2 {
+    margin-top: 2.4em;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .page__content h3 {
+    margin-top: 2em;
+  }
+
+  .page__content blockquote {
+    margin: 2em 0;
+    padding-left: 1.25em;
+    border-left: 0.3em solid $border-color;
+    color: mix(#000, $text-color, 20%);
+  }
+
+  .page__content hr {
+    margin: 2.5em 0;
+  }
+
+  .page__content figure {
+    margin: 2.5em 0;
+  }
+}
+
 .page__title {
   margin-top: 0;
   line-height: 1;
