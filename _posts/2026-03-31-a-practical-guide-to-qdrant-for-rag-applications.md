@@ -53,7 +53,8 @@ At a high level, Qdrant provides the following building blocks:
 ## How Qdrant fits into a RAG architecture
 
 A simple RAG architecture with Qdrant can be built using the following workflow:
-![Figure 1: RAG pipeline](./images/article1_fig1.png)**Figure 1. A basic RAG pipeline with Qdrant as the retrieval layer.**  
+![Figure 1: RAG pipeline](/images/article1_fig1.png)
+**Figure 1. A basic RAG pipeline with Qdrant as the retrieval layer.**  
 
 Raw documents are first split into chunks and converted into embeddings. These embeddings are stored in Qdrant together with metadata. At query time, the user question is also embedded and used to retrieve relevant chunks, which are then passed to the LLM as context for answer generation.
 
@@ -88,7 +89,7 @@ Qdrant can be run locally, in Docker, or through managed/cloud options. For prot
 ## Basic concepts you need before using Qdrant
 Before implementing Qdrant, it helps to clarify three concepts to understand how data is organized in Qdrant.
 
-![Figure 2: Qdrant data model](./images/article1_fig2.png)
+![Figure 2: Qdrant data model](/images/article1_fig2.png)
 **Figure 2. Qdrant data model: collections, points, vectors, and payloads.**  
 In Qdrant, data is stored as points within a collection. Each point contains an embedding vector and an associated payload (metadata). This vector-plus-payload design allows the system to support both semantic similarity search and structured filtering.
 ### Embeddings
@@ -193,8 +194,7 @@ The retrieval score helps rank candidates, but downstream logic may still be nee
 
 In practical RAG systems, retrieval is rarely based on similarity alone. Instead, it often needs to satisfy both semantic relevance and structured constraints, such as restricting results to a specific source, language, or document type.
 
-![Figure 3: Retrieval with filtering](./images/article1_fig3.png)
-
+![Figure 3: Retrieval with filtering](/images/article1_fig3.png)
 **Figure 3. Semantic retrieval with payload-based filtering in Qdrant.**  
 
 At query time, the user question is converted into an embedding and used to search the vector store. Qdrant combines similarity search with payload-based filtering, allowing results to remain both semantically relevant and constrained by structured metadata such as source or language.
