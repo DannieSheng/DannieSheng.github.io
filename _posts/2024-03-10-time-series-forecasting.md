@@ -4,6 +4,8 @@ date: 2024-03-10
 permalink: /posts/2024/03/time-series-forecasting/
 tags:
   - machine learning
+categories: [ml]
+excerpt: "A practical overview of Time-series Forecasting, covering ARIMA (Autoregressive Integrated Moving Average), Description, Strengths."
 ---
 
 ARIMA (Autoregressive Integrated Moving Average)

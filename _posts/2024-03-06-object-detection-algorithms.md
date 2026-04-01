@@ -7,6 +7,8 @@ tags:
   - deep learning
   - computer vision
   - AI
+categories: [cv]
+excerpt: "A practical overview of Object Detection Algorithms, covering Important notes, Loss Function, R-CNN."
 ---
 
 A summary of object detection algorithms

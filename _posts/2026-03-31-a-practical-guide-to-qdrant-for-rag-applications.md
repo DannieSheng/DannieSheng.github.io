@@ -10,10 +10,11 @@ tags:
   - qdrant
   - genai
 
-categories:
+categories: [rag]
   - ai-engineering
 
 draft: false
+excerpt: "A practical overview of A Practical Guide to Qdrant for RAG Applications, covering A Practical Guide to Qdrant for RAG Applications, Why a vector database is needed in RAG, What..."
 ---
 
 # A Practical Guide to Qdrant for RAG Applications

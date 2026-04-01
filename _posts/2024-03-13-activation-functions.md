@@ -6,6 +6,8 @@ tags:
   - machine learning
   - deep learning
   - learning notes
+categories: [ml]
+excerpt: "A practical overview of Activation Functions, covering Sigmoid Family, Hard Sigmoid, Swish."
 ---
 
 激活函数（Activation Function），负责将神经元的输入映射到输出端，激活函数将神经网络中将输入信号的总和转换为输出信号。激活函数大多是非线性函数，才能将多层感知机的输出转换为非线性，使得神经网络可以任意逼近任何非线性函数，进而可以应用到众多的非线性模型中。

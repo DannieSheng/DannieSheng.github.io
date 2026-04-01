@@ -5,6 +5,8 @@ permalink: /posts/2024/03/metrics-to-evaluate-predictive-models/
 tags:
   - evaluation metrics
   - machine learning
+categories: [ml]
+excerpt: "A practical overview of Metrics to Evaluate Predictive Models, covering MAE (Mean Absolute Error), Definition, Formula."
 ---
 
 Metrics used to evaluate predictive modeling, highly used in regression, time-series forecasting cases. 

@@ -6,6 +6,8 @@ tags:
   - machine learning
   - deep learning
   - learning notes
+categories: [ml]
+excerpt: "A practical overview of Clustering alrogithms, covering Improvements for gradient descent, Momentum (惯性保持), AdaGrad (环境感知)."
 ---
 
 gradient descent, stochastic gradient descent, batch gradient descent

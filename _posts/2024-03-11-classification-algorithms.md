@@ -6,6 +6,8 @@ tags:
   - learning notes
   - machine learning
   - loss function
+categories: [ml]
+excerpt: "A practical overview of Classification Algorithms, covering Assumption, Logistic Regression, Description."
 ---
 
 Classification Algorithms

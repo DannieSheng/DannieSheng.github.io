@@ -4,6 +4,8 @@ date: 2026-02-05
 permalink: /posts/2026/02/python-try-except-learning-notes/
 tags:
   - python
+categories: [python]
+excerpt: "A practical overview of Python try / except / else / finally learning notes, covering 核心概念, 基本结构, except 优先捕捉能处理的特定异常类型."
 ---
 
 Python中的 `try` / `except` / `else` / `finally`，之前没有很认真使用过。最近开发中用的比较多，也踩了一些坑。今天总结一下。

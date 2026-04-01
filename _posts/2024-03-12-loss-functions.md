@@ -6,6 +6,8 @@ tags:
   - learning notes
   - machine learning
   - loss function
+categories: [ml]
+excerpt: "A practical overview of Loss Functions, covering Regression Loss Functions, L1 Loss (Mean Absolute Error, MSE), L2 Loss (Mean Square Error, MSE)."
 ---
 
 Regression Loss Functions

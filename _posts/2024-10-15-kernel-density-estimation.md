@@ -6,6 +6,8 @@ tags:
   - data science
   - statistics 
   - machine learning
+categories: [stats]
+excerpt: "A practical overview of Kernel Density Estimation, covering Kernel Density Estimation, Nonparametric Estimation, The univariate case (1 variable)."
 ---
 
 It has been a while since I last took some learning notes - I have been buried in work and trying to figure out a balance, and wasting my time ... 
