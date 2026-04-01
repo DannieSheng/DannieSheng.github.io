@@ -1,23 +1,16 @@
 ---
-title: "A Practical Guide to Qdrant for RAG Applications"
+title: 'A Practical Guide to Qdrant for RAG Applications'
 date: 2026-03-31
-
-summary: "A practical introduction to Qdrant and how it fits into real-world RAG systems, including data modeling and retrieval with metadata filtering."
-
 tags:
   - rag
   - vector-database
   - qdrant
   - genai
-
-categories: [rag]
+categories: 
+  - rag
   - ai-engineering
-
-draft: false
-excerpt: "A practical overview of A Practical Guide to Qdrant for RAG Applications, covering A Practical Guide to Qdrant for RAG Applications, Why a vector database is needed in RAG, What..."
+excerpt: "A practical overview of A Practical Guide to Qdrant for RAG Applications, covering A Practical Guide to Qdrant for RAG Applications, Why a vector database is needed in RAG..."
 ---
-
-# A Practical Guide to Qdrant for RAG Applications
 
 Large language models are powerful, but they do not inherently know the private or domain-specific knowledge required in many real-world applications. This is where Retrieval-Augmented Generation (RAG) becomes useful: instead of relying solely on the model’s parametric memory, we retrieve relevant documents from an external knowledge base and pass them to the model as *context*.
 
