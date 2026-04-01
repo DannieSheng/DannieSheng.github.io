@@ -11,6 +11,7 @@ categories:
   - ai-engineering
 excerpt: "A practical overview of A Practical Guide to Qdrant for RAG Applications, covering A Practical Guide to Qdrant for RAG Applications, Why a vector database is needed in RAG..."
 ---
+## Introduction
 
 Large language models are powerful, but they do not inherently know the private or domain-specific knowledge required in many real-world applications. This is where Retrieval-Augmented Generation (RAG) becomes useful: instead of relying solely on the model’s parametric memory, we retrieve relevant documents from an external knowledge base and pass them to the model as *context*.
 
