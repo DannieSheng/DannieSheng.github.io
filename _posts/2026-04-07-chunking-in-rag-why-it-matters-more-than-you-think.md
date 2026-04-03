@@ -12,10 +12,8 @@ tags:
 categories:
   - rag-systems
 
-draft: true
 excerpt: ""
 ---
-
 ## Introduction
 
 In many Retrieval-Augmented Generation (RAG) systems, performance issues are often attributed to the choice of model or embedding. However, in practice, one of the most critical — and frequently overlooked — factors is **how documents are chunked before indexing**.
@@ -37,58 +35,68 @@ A typical RAG pipeline consists of:
 5. Retrieval  
 6. LLM generation  
 
-Chunking sits at the boundary between raw data and semantic representation.
-
-If chunking fails:
-
+Chunking sits at the boundary between raw data and semantic representation. If chunking fails:
 - Relevant information may be split across chunks → **recall loss**
 - Irrelevant content may be grouped together → **precision loss**
 
 ---
-
 ## Common chunking strategies
 
-### 1. Fixed-length chunking
+### Core strategies (most commonly used)
+
+#### 1. Fixed-length chunking
 
 The simplest approach is to split text into chunks of fixed size (e.g., 500 tokens).
-
 **Advantages:**
-
 - Easy to implement  
 - Consistent chunk size  
-- Works reasonably well for uniform text  
+- Works reasonably well for *uniform text* (text with consistent structure and relatively uniform semantic density)
 
 **Limitations:**
-
 - Ignores semantic boundaries  
 - May cut sentences or concepts in half  
 - Can degrade retrieval quality  
 
 ---
+#### 2. Recursive / rule-based chunking
 
-### 2. Semantic chunking
-
-Semantic chunking attempts to split documents along meaningful boundaries:
-
+Recursive chunking splits text using a hierarchy of rules, such as:
 - Paragraphs  
-- Sections  
-- Headings  
-- Sentence similarity  
+- Sentences  
+- Tokens  
+
+If a chunk exceeds the target size, it is recursively split using finer-grained boundaries.
 
 **Advantages:**
+- Preserves structure better than fixed-length splitting  
+- More robust across different document types  
 
+**Limitations:**
+- Still heuristic-based  
+- May not fully capture semantic coherence  
+
+---
+
+#### 3. Semantic chunking
+
+Semantic chunking attempts to split documents based on semantic coherence, typically using techniques such as:
+
+- sentence embeddings  
+- similarity between adjacent text segments  
+- topic shift detection  
+
+**Advantages:**
 - Preserves context  
 - Better alignment with human understanding  
 
 **Limitations:**
-
 - More complex  
 - Requires heuristics or models  
 - Can produce uneven chunk sizes  
 
 ---
 
-### 3. Sliding window / overlapping chunks
+#### 4. Sliding window / overlapping chunks
 
 To mitigate boundary issues, overlapping chunks are often used.
 
@@ -109,6 +117,48 @@ Example:
 
 ---
 
+### Extended landscape (less commonly used but important)
+
+Beyond the basic strategies, more advanced approaches have been explored:
+
+- **Document-based chunking**: splits text according to document structure such as sections, headers, or layout elements.  
+- **Hierarchical chunking**: represents documents at multiple granularities (e.g., coarse and fine chunks) to support multi-level retrieval.  
+- **Late chunking**: defers chunking until after retrieval, allowing the system to first retrieve larger contexts and split only when needed.  
+- **LLM-based chunking**: uses language models to determine semantically meaningful boundaries instead of relying on fixed rules.  
+- **Adaptive / dynamic chunking**: adjusts chunk size or boundaries based on content characteristics or downstream task requirements.  
+
+These approaches often emerge in more complex systems or research settings, where chunking is treated as an optimization problem rather than a preprocessing step.
+
+## Document structure-based chunking
+
+While the previous strategies focus on how to split text, structure-based chunking emphasizes what constitutes a meaningful unit in structured documents.
+
+In many real-world applications, documents are not plain text but structured formats such as PDFs, HTML pages, or Markdown files. In these cases, chunking should not rely solely on token length or sentence boundaries, but instead leverage the inherent document structure.
+
+For example:
+
+- PDFs often contain sections, tables, and multi-column layouts  
+- HTML documents include headings, lists, and semantic tags  
+- Markdown files explicitly encode hierarchy through headings and formatting  
+
+Instead of treating these documents as flat text, structure-aware chunking uses elements such as:
+
+- section headers  
+- paragraph boundaries  
+- HTML tags (e.g., `<h1>`, `<p>`, `<li>`)  
+- document hierarchy  
+
+to define chunk boundaries.
+
+This approach offers several advantages:
+
+- Preserves logical grouping of information  
+- Improves retrieval coherence  
+- Reduces the risk of mixing unrelated content  
+
+In practice, structure-based chunking is often combined with recursive or semantic strategies, forming a hybrid approach that balances structure and meaning.
+
+This is particularly important in domains where documents are complex and heterogeneous, such as web pages or medical documents, where naive chunking can significantly degrade retrieval quality.
 ## The core trade-off: recall vs precision
 
 Chunking fundamentally controls a key trade-off in RAG systems:
@@ -222,3 +272,4 @@ Before tuning models or switching vector databases, it is often worth revisiting
 - Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", 2020  
 - LangChain documentation on text splitters  
 - Qdrant documentation on vector storage and payload filtering  
+- [Pinecone Blog – Chunking Strategies for RAG Systems](https://www.pinecone.io/learn/chunking-strategies/)
