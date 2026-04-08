@@ -11,9 +11,10 @@ tags:
   - genai
 categories:
   - rag-systems
-draft: true
 excerpt: ""
 ---
+* TOC
+{:toc}
 
 ## Introduction
 
