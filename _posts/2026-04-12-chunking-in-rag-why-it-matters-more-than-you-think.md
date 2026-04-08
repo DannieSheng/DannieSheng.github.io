@@ -1,6 +1,6 @@
 ---
 title: "Chunking in RAG: Why It Matters More Than You Think"
-date: 2026-04-07
+date: 2026-04-12
 
 summary: ""
 
@@ -11,7 +11,7 @@ tags:
   - genai
 categories:
   - rag-systems
-
+draft: true
 excerpt: ""
 ---
 ## Introduction
@@ -267,7 +267,7 @@ Before tuning models or switching vector databases, it is often worth revisiting
 
 ---
 
-## References (optional)
+## References
 
 - Lewis et al., "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks", 2020  
 - LangChain documentation on text splitters  
