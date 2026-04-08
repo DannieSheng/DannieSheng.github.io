@@ -11,6 +11,9 @@ categories:
   - ai-engineering
 excerpt: "A practical overview of A Practical Guide to Qdrant for RAG Applications, covering A Practical Guide to Qdrant for RAG Applications, Why a vector database is needed in RAG..."
 ---
+* TOC
+{:toc}
+
 ## Introduction
 
 Large language models are powerful, but they do not inherently know the private or domain-specific knowledge required in many real-world applications. This is where Retrieval-Augmented Generation (RAG) becomes useful: instead of relying solely on the model’s parametric memory, we retrieve relevant documents from an external knowledge base and pass them to the model as *context*.
@@ -20,6 +23,7 @@ A core component of many RAG systems is the vector database. In my work, I have 
 In this article, I will give a practical introduction to Qdrant: what it is, why it is useful, how it fits into a RAG system, and what design considerations matter when using it in practice.
 
 ---
+
 ## Why a vector database is needed in RAG
 
 In a typical RAG pipeline, documents are first transformed into embeddings, which are dense numerical vectors produced by an embedding model. User queries are also embedded into vectors. We then search for the most similar document vectors and return the corresponding text chunks as candidate context for the LLM.
@@ -32,6 +36,7 @@ This workflow raises a problem: once we have thousands or millions of vectors, w
 - scalable retrieval performance
 This is the role of a vector database.
 ---
+
 ## What is Qdrant
 
 **Qdrant** is an open-source vector database designed for similarity search and retrieval tasks. It stores dense vectors together with metadata (called **payloads** in Qdrant), and it supports approximate nearest neighbor search for efficient retrieval.
@@ -45,10 +50,11 @@ At a high level, Qdrant provides the following building blocks:
 - **Payload**: structured metadata associated with the vector
 - **Index**: the search structure that enables efficient nearest neighbor retrieval
 --- 
+
 ## How Qdrant fits into a RAG architecture
 
 A simple RAG architecture with Qdrant can be built using the following workflow:
-![Figure 1: RAG pipeline](/images/article1_fig1.png)
+![Figure 1: RAG pipeline](/images/article1_fig1.png)  
 **Figure 1. A basic RAG pipeline with Qdrant as the retrieval layer.**  
 
 Raw documents are first split into chunks and converted into embeddings. These embeddings are stored in Qdrant together with metadata. At query time, the user question is also embedded and used to retrieve relevant chunks, which are then passed to the LLM as context for answer generation.
@@ -63,11 +69,14 @@ Raw documents are first split into chunks and converted into embeddings. These e
 8. The LLM generates the final answer.
 In this flow, Qdrant is the retrieval layer between embeddings and answer generation.
 ---
+
 ## Why I would choose Qdrant in practice
 
 There are many vector storage solutions today, including FAISS, OpenSearch, Pinecone, Weaviate, and others. Qdrant is not the only choice, but it is a very practical one in several common scenarios.
+
 ### 1. It is easy to understand and use
 Qdrant has a relatively straightforward mental model. If you understand vectors, metadata, and nearest-neighbor search, you can get productive quickly. For small to medium-sized systems, this simplicity matters a lot.
+
 ### 2. Metadata filtering is first-class
 As is known to us, in real applications, semantic similarity alone is often not enough. We usually want constraints such as:
 - only retrieve documents for a specific product
@@ -75,22 +84,28 @@ As is known to us, in real applications, semantic similarity alone is often not 
 - only search within a document subset
 - only retrieve records from a certain language or market
 Qdrant’s payload filtering makes this much easier to implement cleanly.
+
 ### 3. It works well for RAG-oriented workflows
 Many retrieval tasks in GenAI applications are not generic vector search tasks; they are retrieval pipelines that depend on chunk-level metadata, iterative updates, and structured retrieval logic. Qdrant fits this pattern well.
+
 ### 4. It is deployment-friendly
 Qdrant can be run locally, in Docker, or through managed/cloud options. For prototyping and early-stage systems, this is especially convenient. 
 
 ---
+
 ## Basic concepts you need before using Qdrant
 Before implementing Qdrant, it helps to clarify three concepts to understand how data is organized in Qdrant.
 
-![Figure 2: Qdrant data model](/images/article1_fig2.png)
+![Figure 2: Qdrant data model](/images/article1_fig2.png)  
 **Figure 2. Qdrant data model: collections, points, vectors, and payloads.**  
 In Qdrant, data is stored as points within a collection. Each point contains an embedding vector and an associated payload (metadata). This vector-plus-payload design allows the system to support both semantic similarity search and structured filtering.
+
 ### Embeddings
 An embedding is *a vector representation of text*. Chunks with similar meaning should be close to one another in vector space. The quality of retrieval depends strongly on the embedding model you choose.
+
 ### Approximate nearest neighbor search (ANN)
 In theory, we could compare a query vector against every stored vector. In practice, this becomes expensive as the dataset grows. Approximate nearest neighbor (ANN) search trades a small amount of exactness for much better speed, which is essential for scalable retrieval.
+
 ### Metadata schema design
 In many systems, the vector itself is not enough. You need metadata such as:
 - source
@@ -102,7 +117,9 @@ In many systems, the vector itself is not enough. You need metadata such as:
 - document ID
 - update timestamp
 Designing metadata well is just as important as generating embeddings.
+
 ---
+
 ## A minimal example of creating a Qdrant collection
 
 Below is a minimal example using the Python client.
@@ -126,6 +143,7 @@ This creates a collection named "documents" with 1536-dimensional vectors and co
 The vector dimension must match the output dimension of your embedding model. For example, if you switch embedding models, you may need to recreate the collection or create a new one.
 
 ---
+
 ## Inserting vectors with metadata to an existing Qdrant collection
 
 In a real RAG pipeline, each chunk is stored together with metadata. A simplified example looks like this:
@@ -189,7 +207,7 @@ The retrieval score helps rank candidates, but downstream logic may still be nee
 
 In practical RAG systems, retrieval is rarely based on similarity alone. Instead, it often needs to satisfy both semantic relevance and structured constraints, such as restricting results to a specific source, language, or document type.
 
-![Figure 3: Retrieval with filtering](/images/article1_fig3.png)
+![Figure 3: Retrieval with filtering](/images/article1_fig3.png)  
 **Figure 3. Semantic retrieval with payload-based filtering in Qdrant.**  
 
 At query time, the user question is converted into an embedding and used to search the vector store. Qdrant combines similarity search with payload-based filtering, allowing results to remain both semantically relevant and constrained by structured metadata such as source or language.
@@ -235,9 +253,11 @@ This is important for at least three reasons:
 In many applied GenAI systems, metadata-aware retrieval is what separates a toy demo from a useful system.
 
 ---
+
 ## Practical design considerations
 
 Using Qdrant successfully is not just about calling the API. A few design choices matter a lot.
+
 ### 1. Chunking strategy affects retrieval quality
 
 Poor chunking can make even a strong vector database look bad. If chunks are too large, retrieval becomes noisy. If they are too small, context becomes fragmented. Chunk size, overlap, and segmentation strategy should be chosen based on the document type and downstream task.
@@ -252,9 +272,11 @@ Do not treat payload as an afterthought; treat Qdrant payloads like regular data
 - by language
 - by document type
 A poor metadata schema can make it challenging for later filtering and maintenance.
+
 ### 3. Embedding model selection is foundational
 
 If retrieval is poor, the issue may not be Qdrant itself. It may come from weak embeddings, inappropriate chunking, or low-quality source text. Retrieval quality is a system-level outcome.
+
 ### 4. Vector store updates need a strategy
 
 In production systems, documents are rarely static. You need to think about:
@@ -282,6 +304,7 @@ From my point of view, Qdrant is especially suitable for the following scenarios
 It is particularly useful when your application needs both semantic similarity and structured filtering at the same time.
 
 ---
+
 ## When Qdrant may not be the only answer
 
 Qdrant is strong, but every architecture has tradeoffs.
@@ -293,6 +316,7 @@ For this reason, I see Qdrant as an excellent retrieval engine for many RAG syst
 I plan to write a separate post comparing **Qdrant, OpenSearch, and FAISS** in more detail, because that deserves a focused discussion rather than a short subsection here.
 
 ---
+
 ## Lessons learned
 
 The main lesson I would highlight is this: a vector database is only one layer in a retrieval system. Good results come from the combination of:
@@ -308,6 +332,7 @@ Qdrant makes the storage and retrieval layer much easier to implement, especiall
 That is also why I think learning vector databases in isolation is not enough. They should be understood as part of an end-to-end GenAI system.
 
 ---
+
 ## Conclusion
 
 Qdrant is a practical and effective vector database for RAG applications. Its clean model, support for approximate nearest neighbor search, and strong metadata filtering make it especially useful in applied GenAI systems where retrieval needs to be both semantic and structured.
