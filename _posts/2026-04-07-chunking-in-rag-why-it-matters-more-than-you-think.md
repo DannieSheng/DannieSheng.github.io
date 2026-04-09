@@ -1,6 +1,6 @@
 ---
 title: "Chunking in RAG: Why It Matters More Than You Think"
-date: 2026-04-12
+date: 2026-04-07
 
 summary: ""
 
@@ -11,9 +11,11 @@ tags:
   - genai
 categories:
   - rag-systems
-draft: true
 excerpt: ""
 ---
+* TOC
+{:toc}
+
 ## Introduction
 
 In many Retrieval-Augmented Generation (RAG) systems, performance issues are often attributed to the choice of model or embedding. However, in practice, one of the most critical — and frequently overlooked — factors is **how documents are chunked before indexing**.
@@ -40,6 +42,7 @@ Chunking sits at the boundary between raw data and semantic representation. If c
 - Irrelevant content may be grouped together → **precision loss**
 
 ---
+
 ## Common chunking strategies
 
 ### Core strategies (most commonly used)
@@ -47,6 +50,7 @@ Chunking sits at the boundary between raw data and semantic representation. If c
 #### 1. Fixed-length chunking
 
 The simplest approach is to split text into chunks of fixed size (e.g., 500 tokens).
+
 
 **Advantages:**
 - Easy to implement  
@@ -57,8 +61,6 @@ The simplest approach is to split text into chunks of fixed size (e.g., 500 toke
 - Ignores semantic boundaries  
 - May cut sentences or concepts in half  
 - Can degrade retrieval quality  
-
----
 
 #### 2. Recursive / rule-based chunking
 
@@ -77,8 +79,6 @@ If a chunk exceeds the target size, it is recursively split using finer-grained 
 - Still heuristic-based  
 - May not fully capture semantic coherence  
 
----
-
 #### 3. Semantic chunking
 
 Semantic chunking attempts to split documents based on semantic coherence, typically using techniques such as:
@@ -95,8 +95,6 @@ Semantic chunking attempts to split documents based on semantic coherence, typic
 - More complex  
 - Requires heuristics or models  
 - Can produce uneven chunk sizes  
-
----
 
 #### 4. Sliding window / overlapping chunks
 
@@ -117,8 +115,6 @@ Example:
 - Increased storage  
 - Higher retrieval redundancy  
 
----
-
 ### Extended landscape (less commonly used but important)
 
 Beyond the basic strategies, more advanced approaches have been explored:
@@ -130,6 +126,8 @@ Beyond the basic strategies, more advanced approaches have been explored:
 - **Adaptive / dynamic chunking**: adjusts chunk size or boundaries based on content characteristics or downstream task requirements.  
 
 These approaches often emerge in more complex systems or research settings, where chunking is treated as an optimization problem rather than a preprocessing step.
+
+---
 
 ## Document structure-based chunking
 
@@ -161,6 +159,9 @@ This approach offers several advantages:
 In practice, structure-based chunking is often combined with recursive or semantic strategies, forming a hybrid approach that balances structure and meaning.
 
 This is particularly important in domains where documents are complex and heterogeneous, such as web pages or medical documents, where naive chunking can significantly degrade retrieval quality.
+
+---
+
 ## The core trade-off: recall vs precision
 
 Chunking fundamentally controls a key trade-off in RAG systems:
@@ -194,8 +195,6 @@ When retrieval quality is poor, the issue is frequently:
 
 but **improper chunking strategy**
 
----
-
 ### 2. Metadata becomes more important as chunks get smaller
 
 Smaller chunks lose global context. To compensate, metadata is critical:
@@ -205,8 +204,6 @@ Smaller chunks lose global context. To compensate, metadata is critical:
 - document type  
 
 This enables filtering during retrieval (e.g., in Qdrant).
-
----
 
 ### 3. Chunking and embedding must be co-designed
 
