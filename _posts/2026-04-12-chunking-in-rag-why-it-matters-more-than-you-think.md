@@ -47,6 +47,7 @@ Chunking sits at the boundary between raw data and semantic representation. If c
 #### 1. Fixed-length chunking
 
 The simplest approach is to split text into chunks of fixed size (e.g., 500 tokens).
+
 **Advantages:**
 - Easy to implement  
 - Consistent chunk size  
@@ -58,6 +59,7 @@ The simplest approach is to split text into chunks of fixed size (e.g., 500 toke
 - Can degrade retrieval quality  
 
 ---
+
 #### 2. Recursive / rule-based chunking
 
 Recursive chunking splits text using a hierarchy of rules, such as:
