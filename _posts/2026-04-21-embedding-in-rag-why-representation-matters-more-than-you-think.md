@@ -1,6 +1,6 @@
 ---
 title: "Embedding in RAG: Why Representation Matters More Than You Think"
-date: 2026-04-14
+date: 2026-04-21
 
 tags:
   - rag
