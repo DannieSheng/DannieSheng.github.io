@@ -20,7 +20,7 @@ excerpt: "A practical introduction to retrieval in RAG systems, covering dense v
 * TOC
 {:toc}
 
-
+Summary: "A practical introduction to retrieval in RAG systems, covering dense vector search, sparse lexical retrieval, hybrid retrieval, and the trade-offs behind real-world retrieval design."
 ## Introduction
 
 In a Retrieval-Augmented Generation (RAG) system, retrieval determines what information is actually passed to the language model:
@@ -322,89 +322,54 @@ In practice, modern RAG systems often adopt a multi-stage approach:
 
 ## Practical Design Guidelines
 
-Designing retrieval for RAG systems is not about choosing a single method, but about making a sequence of practical decisions.
+### Start simple
 
-### 1. Start simple
+- use dense retrieval  
+- retrieve top-k  
+- inspect results  
 
-Begin with a dense vector search baseline:
+### Add sparse when needed
 
-- use a strong embedding model  
-- retrieve top-k candidates (e.g., k = 10–20)  
-- manually inspect results  
+- exact matches are missed  
+- domain terminology matters  
 
-This provides a quick signal of whether your data and queries are aligned.
+### Tune top-k
 
-### 2. Add sparse retrieval when precision matters
+- small k → precise but incomplete  
+- large k → complete but noisy  
 
-Introduce BM25 or keyword search if you observe:
+### Ensure consistency
 
-- missed exact matches (e.g., names, IDs, dosages)  
-- domain-specific terminology  
-- unstable or noisy results  
-
-Hybrid retrieval is often a low-cost way to improve robustness.
-
-### 3. Tune top-k based on task needs
-
-Top-k controls the recall–precision balance:
-
-- smaller k → higher precision, lower recall  
-- larger k → higher recall, more noise  
-
-In practice:
-
-- choose k large enough to avoid missing key context  
-- rely on reranking or the LLM to filter noise  
-
-### 4. Keep retrieval and scoring consistent
-
-Ensure alignment between:
+Align:
 
 - embedding model  
-- similarity metric (cosine vs dot product)  
-- normalization strategy  
+- similarity metric  
+- normalization  
 
-Inconsistencies here can silently degrade ranking quality.
+### Use real queries
 
-### 5. Evaluate with real queries
+Test with realistic, domain-specific inputs.
 
-Use realistic queries to test retrieval:
+### Inspect results
 
-- domain-specific questions  
-- edge cases (numbers, entities)  
-- ambiguous phrasing  
+Metrics help, but manual inspection reveals failure patterns.
 
-Avoid relying only on synthetic examples.
+### Plan for multi-stage retrieval
 
-### 6. Inspect results regularly
+- retrieval → recall  
+- reranking → precision  
 
-Quantitative metrics are useful, but manual inspection is essential:
+### Key takeaway
 
-- check top-k results  
-- identify recurring failure patterns  
-- verify that retrieved context is actually usable  
-
-### 7. Plan for multi-stage retrieval
-
-In most production systems:
-
-- retrieval → maximize recall  
-- reranking → improve precision  
-
-Design retrieval with this pipeline in mind, rather than expecting a single method to solve everything.
-
-
-**Key takeaway:**
-
-> Good retrieval systems are not built by choosing a method, but by iteratively refining decisions based on observed behavior.
+> Retrieval quality improves through iteration, not one-time design.
 
 ---
 
 ## Common Failure Modes
 
-Retrieval failures are rarely random. They are usually systematic and reproducible. Understanding these patterns is critical for debugging and improving RAG systems.
+Retrieval failures are rarely random. They are usually systematic and reproducible.
 
-### 1. Missing obvious matches
+### Missing obvious matches
 
 Relevant documents exist but are not retrieved. Common causes:
 
@@ -412,21 +377,21 @@ Relevant documents exist but are not retrieved. Common causes:
 - insufficient top-k  
 - missing keyword signals  
 
-### 2. Semantically related but irrelevant results
+### Semantically related but irrelevant results
 
 Retrieved documents are “close” in meaning but not useful. Typical in dense retrieval when:
 
 - queries are broad or ambiguous  
 - embedding space is too smooth  
 
-### 3. Over-reliance on keywords
+### Over-reliance on keywords
 
 Sparse retrieval dominates results, leading to:
 
 - exact matches without context  
 - poor handling of paraphrase  
 
-### 4. Domain mismatch
+### Domain mismatch
 
 Retrieval fails on:
 
@@ -434,7 +399,7 @@ Retrieval fails on:
 - domain-specific terminology  
 - new or unseen concepts  
 
-### 5. Noisy candidate sets
+### Noisy candidate sets
 
 Too many partially relevant results:
 
@@ -442,7 +407,7 @@ Too many partially relevant results:
 - hybrid retrieval without proper fusion  
 - lack of reranking  
 
-### 6. Inconsistent behavior across queries
+### Inconsistent behavior across queries
 
 Same system performs well on some queries but poorly on others. Often caused by:
 
