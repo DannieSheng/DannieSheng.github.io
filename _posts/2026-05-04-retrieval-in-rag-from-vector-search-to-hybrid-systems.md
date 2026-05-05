@@ -1,6 +1,6 @@
 ---
 title: "Retrieval in RAG: From Vector Search to Hybrid Systems"
-date: 2026-04-28
+date: 2026-05-04
 tags:
   - rag
   - retrieval
