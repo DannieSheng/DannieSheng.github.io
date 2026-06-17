@@ -10,7 +10,6 @@ tags:
 categories:
   - rag-systems
   - information-retrieval
-draft: true
 excerpt: '"Reranking is a critical but often overlooked component in RAG systems. While retrieval maximizes recall, reranking improves precision by re-evaluating candidates with more expressive models. This post explains why reranking is necessary and how it fits into modern RAG pipelines."'
 ---
 * TOC
