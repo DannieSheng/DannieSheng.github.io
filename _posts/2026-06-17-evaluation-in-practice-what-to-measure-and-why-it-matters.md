@@ -4,10 +4,13 @@ date: 2026-06-17
 tags:
   - rag
   - genai
+  - evaluation
+  - retrieval
+  - llm
 categories:
   - rag-systems
-  - information-retrieval
-excerpt:
+  - evaluation
+excerpt: "A good answer does not necessarily mean a good system. Learn how to evaluate retrieval, generation, and end-to-end performance in RAG applications, and why evaluation is often a diagnosis problem rather than a scoring problem."
 ---
 * TOC
 {:toc}
