@@ -30,7 +30,7 @@ OpenAI APIs. Kedro, Streamlit
 ## Professional Experience
 
 ### Johnson & Johnson
-**Data Scientist, Contractor** | Center of Excellence
+**Data Scientist (Contractor)** | Center of Excellence
 Beijing, China | April 2024 – Present
 
 #### Commercial ML System for Drug Launch & HCP Targeting 
@@ -39,6 +39,11 @@ Beijing, China | April 2024 – Present
 - Implemented modular Kedro-based data pipelines with validation and reproducibility controls.
 - Collaborated with commercial stakeholders to translate predictive outputs into targeting strategies.
 
+#### GenAI / RAG Systems for Medical Content Governance
+
+- Developed an LLM-assisted workflow to identify inconsistencies between localized Japanese medical FAQs and approved regulatory labels.
+- Built retrieval and comparison pipelines combining document chunking, semantic search, and GPT-based reasoning to support scalable compliance review.
+- Generated evidence-backed outputs to support human validation and reduce manual review burden.
 
 #### Doctor Lookup & Q&A System (Japanese Medical RAG)
 - Designed and deployed a Japanese medical RAG system integrating FAISS, E5 embeddings, history-aware retrieval chains, cross-encoder reranking, and uncertainty gating.
@@ -46,19 +51,19 @@ Beijing, China | April 2024 – Present
 - Developed an interactive UI for retrieval tuning and evidence tracing.
 - Modularized retriever and LLM components with Dockerized deployment.
 
-#### Doctor Search & Medical RAG Assistant
+<!-- #### Doctor Search & Medical RAG Assistant
 
 - Designed and deployed a multilingual medical retrieval system supporting physician search and evidence-grounded question answering across Japanese healthcare data.
 - Built a retrieval pipeline integrating dense embeddings, FAISS vector search, history-aware retrieval, cross-encoder reranking, and confidence-based response gating.
 - Developed multilingual entity normalization workflows for Japanese, Chinese, and English physician names to improve retrieval robustness across heterogeneous data sources.
-- Created interactive interfaces for retrieval parameter tuning, evidence tracing, and multi-turn dialogue evaluation.
+- Created interactive interfaces for retrieval parameter tuning, evidence tracing, and multi-turn dialogue evaluation. -->
 
-#### Regulatory FAQ Compliance Review System
+#### Document Understanding & PDF Table Extraction Pipeline
 
-- Developed an LLM-assisted workflow to identify inconsistencies between localized Japanese medical FAQs and approved regulatory labels.
-- Built retrieval and comparison pipelines combining document chunking, semantic search, and GPT-based reasoning to support scalable compliance review.
-- Generated evidence-backed outputs to support human validation and reduce manual review burden.
-
+- Designed resilient pipeline for extracting hospital schedule tables from heterogeneous PDFs (digital, scanned, malformed).
+- Integrated Camelot, OCR-based detection, and LLM-based image reasoning with quality gating and fallback logic.
+- Implemented failure-aware handling for encoding errors, broken PDFs, OCR degradation, and oversized images to prevent pipeline interruption.
+- Developed reviewer-facing UI for batch validation and annotation.
 
 #### Feature Store Migration and Optimization
 
@@ -71,15 +76,19 @@ Beijing, China | April 2024 – Present
 Beijing, China  
 Jun 2023 – Jan 2024
 
-#### Prescription Recognition API
-- Built FastAPI services for extracting structured prescription information from images.
-- Adapted parsing logic for Japanese prescription formats.
+#### Prescription (Rx) Recognition System
+- Built FastAPI-based inference service to extract structured optical parameters (sphere, cylinder, axis) from user-uploaded images.
+- Integrated OCR outputs with rule-based and heuristic post-processing.
+- Adapted parsing logic for Japanese prescription formats to support multilingual layout variation.
+- Integrated CloudSQL and BigQuery for monitoring and multi-region usage analytics.
 
-#### Blur Detection and Quality Monitoring
-- Analyzed API usage logs and image quality metrics.
+<!-- #### Blur Detection and Quality Monitoring
+- Analyzed API usage logs and image quality metrics. -->
 
-### Interactive Evaluation Interface
-- Built Streamlit-based tools for OCR result visualization and validation.
+#### Human-in-the-Loop Evaluation & Quality Diagnostics
+- Built internal Streamlit tool to visualize OCR and extraction outputs for rapid debugging.
+- Analyzed API logs and user behavior to diagnose extraction failures related to image quality and capture issues.
+
 
 ### University of Texas Southwestern Medical Center
 **Data Scientist, Quantitative Biomedical Research Center**  
@@ -87,29 +96,33 @@ Dallas, TX, USA
 Sep 2021 – May 2023
 
 #### CyTOF Image Analysis Toolkit
-- Designed and developed a Flask-based image analysis package integrating spatial and single-cell expression data.
-- Achieved 10× processing speed improvements through parallelization and Docker deployment.
 
-#### Cell Segmentation in H&E Pathology Slides
-- Implemented Mask R-CNN for nuclei segmentation and classification.
-- Customized loss functions to recover partially labeled training samples.
+- Designed end-to-end pipeline integrating multiplexed imaging with single-cell expression data.
+- Built Flask-based service with Dockerized deployment and parallelized computation.
+- Achieved approximately 10× runtime speed-up for large-scale experiments.
 
-#### EHR De-identification and NLP Pipeline
-- Built workflows for anonymizing and preprocessing EHR data.
+#### Digital Pathology: Nuclei Segmentation & Classification
+
+- Developed Mask R-CNN–based pipeline for nuclei segmentation and 6-class classification on H&E slides.
+- Customized loss functions for partially labeled data, recovering approximately 20% of training samples.
+- Achieved 82.5% detection and 82.0% classification performance under weak supervision.
+
+
+<!-- #### EHR De-identification and NLP Pipeline
+- Built workflows for anonymizing and preprocessing EHR data. -->
 
 ### Donald Danforth Plant Science Center
 **Data Science Researcher, Data Science Facility**  
 St. Louis, MO, USA  
 Feb 2020 – Sep 2021
 
-#### Multimodal Plant Image Analysis Pipeline
-- Built automated pipelines for RGB, thermal, and hyperspectral data processing.
+#### Multimodal Imaging & Analysis Systems for Plant Phenotyping (open-source software)
 
-#### Instance Segmentation and Growth Tracking
-- Developed instance-level segmentation and tracking systems.
+- Built automated pipelines for large-scale multimodal plant imaging (RGB, thermal, hyperspectral).
+- Developed instance-level segmentation and temporal tracking workflows for growth analysis.
+- Contributed to the open-source PlantCV project (modules, tests, documentation, community support).
+- Supported interdisciplinary teams with reproducible analysis and visualization.
 
-#### Open-source Development (PlantCV)
-- Contributed image analysis modules, tests, documentation, and training materials.
 
 ### University of Florida Academic Health Center
 **Data Science Intern**  
@@ -123,9 +136,15 @@ May 2019 – Aug 2019
 
 ### AI News Agent
 
-* Built a lightweight AI news assistant for daily AI news aggregation, summarization, semantic search, and question answering.
-* Implemented a retrieval-augmented generation pipeline combining scraped news, local embedding models, and OpenAI LLMs.
-* Developed scheduled scraping, auto-tagging, category filtering, and interactive QA through a Streamlit interface.
+LLM-based News Summarization and QA Assistant
+
+Open-source project for daily AI news aggregation, summarization, and question answering.
+
+- Designed and implemented an end-to-end LLM-powered news agent for daily AI news aggregation, summarization, and question answering.
+- Built a lightweight RAG pipeline integrating web scraping, local embedding models, hybrid retrieval, and OpenAI APIs.
+- Implemented scheduled crawling, automatic topic tagging, and corpus-based QA over historical news data.
+- Developed interactive Streamlit front-end and deployed on Hugging Face Spaces.
+- Explored Docker-based deployment and embedding model switching.
 
 ## Education
 
