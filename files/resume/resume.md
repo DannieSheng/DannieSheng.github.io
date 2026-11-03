@@ -11,23 +11,51 @@ Applied AI Engineer and Data Scientist with experience designing and deploying p
 
 <!-- building machine learning, computer vision, and LLM-powered systems across healthcare, life sciences, and enterprise applications. Skilled in retrieval-augmented generation, information retrieval, multilingual NLP pipelines, data engineering, and end-to-end AI application development from data ingestion to deployment. -->
 
-## Technical Skills
-- **Machine Learning & GenAI:**   
-classical ML (classification, ranking, feature engineering), Retrieval-Augmented Generation
-(RAG), prompt engineering, LLM evaluation, embedding-based retrieval, cross-encoder reranking, uncertainty handling
+## Core Skills
+- **Applied AI & LLM Systems**   
+- Retrieval-Augmented Generation (RAG)
+- Information Retrieval
+- Embedding-based Search
+- Cross-Encoder Reranking
+- Prompt Engineering
+- LLM Evaluation
+- Document Understanding
+- Human-in-the-loop AI Systems
 
-- **Data & System Engineering:**   
-end-to-end ML / GenAI pipeline design with quality gating and fallback strategies, noisy
-document understanding (PDF parsing, OCR, table extraction), human-in-the-loop systems for review, validation, and
-error correction
+- **Machine Learning:**   
+- Classification
+- Ranking
+- Feature Engineering
+- Computer Vision
+- Weakly Supervised Learning
 
-- **Platform & Cloud:**   
-Databricks-based ML workflows and feature pipelines, containerized deployment with Docker,
-Azure-based ML / LLM platforms in regulated environments, cloud-native data workflows
+- **Data & Software Engineering:**   
+- End-to-end AI Pipeline Design
+- API Development
+- Workflow Orchestration
+- Data Validation
+- Docker
+- FastAPI
+- Flask
+- Git
 
-- **Tools & Stack:**   
-Python, Pandas, NumPy, scikit-learn, FAISS, Hugging Face (E5 embeddings, rerankers), OpenAI / Azure
-OpenAI APIs. Kedro, Streamlit
+- **Data Platforms & Cloud:**   
+- Databricks
+- Kedro
+- Azure OpenAI
+- OpenAI APIs
+- SQL
+- BigQuery
+- Cloud-native ML Workflows
+
+- ** Programming:**
+- Python
+- Pandas
+- NumPy
+- scikit-learn
+- FAISS
+- Hugging Face
+- Streamlit
 
 ## Professional Experience
 
