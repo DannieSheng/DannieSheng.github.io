@@ -5,9 +5,11 @@ Phone: (+86) 13683132915
 Website: https://danniesheng.github.io/  
 Location: Beijing, China
 
-<!-- ## Summary
+## Summary
 
-Data Scientist and Applied AI Engineer with experience building machine learning, computer vision, and LLM-powered systems across healthcare, life sciences, and enterprise applications. Skilled in retrieval-augmented generation, information retrieval, multilingual NLP pipelines, data engineering, and end-to-end AI application development from data ingestion to deployment. -->
+Applied AI Engineer and Data Scientist with experience designing and deploying product-oriented AI systems across healthcare, life sciences, and enterprise applications. Specialized in retrieval-augmented generation (RAG), document understanding, information retrieval, and machine learning pipelines, with a strong focus on building reliable, explainable, and maintainable AI solutions. Experienced in translating business and research problems into end-to-end AI products by integrating LLMs, classical machine learning, software engineering, and cloud-native data platforms. 
+
+<!-- building machine learning, computer vision, and LLM-powered systems across healthcare, life sciences, and enterprise applications. Skilled in retrieval-augmented generation, information retrieval, multilingual NLP pipelines, data engineering, and end-to-end AI application development from data ingestion to deployment. -->
 
 ## Technical Skills
 - **Machine Learning & GenAI:**   
