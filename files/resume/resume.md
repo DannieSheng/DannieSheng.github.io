@@ -63,23 +63,18 @@ Applied AI Engineer and Data Scientist with experience designing and deploying p
 **Data Scientist (Contractor)** | Center of Excellence
 Beijing, China | April 2024 – Present
 
-#### Commercial ML System for Drug Launch & HCP Targeting 
-- Developed machine learning models to identify high-potential healthcare professionals likely to adopt newly launched products.
-- Designed feature engineering and scoring pipelines to support large-scale prioritization under business constraints.
-- Implemented modular Kedro-based data pipelines with validation and reproducibility controls.
-- Collaborated with commercial stakeholders to translate predictive outputs into targeting strategies.
+#### HCP–HCO Affiliation Verification | Document AI & Review System
 
-#### GenAI / RAG Systems for Medical Content Governance
+- Developed a document understanding pipeline to extract physician information from hospital schedules in PDF and image formats, supporting HCP–HCO affiliation verification.
+- Designed a cost-aware, multi-stage extraction pipeline using Camelot, OCR, and vision-based LLMs, with quality-based fallback to handle heterogeneous document formats.
+- Implemented fault-tolerant batch processing to handle malformed PDFs, encoding errors, OCR failures, and oversized images without interrupting the pipeline.
+- Built a Streamlit-based interface for reviewing and annotating consolidated extraction results.
 
-- Developed an LLM-assisted workflow to identify inconsistencies between localized Japanese medical FAQs and approved regulatory labels.
-- Built retrieval and comparison pipelines combining document chunking, semantic search, and GPT-based reasoning to support scalable compliance review.
-- Generated evidence-backed outputs to support human validation and reduce manual review burden.
+#### HCP Knowledge Retrieval & Q&A | RAG Prototype
 
-#### Doctor Lookup & Q&A System (Japanese Medical RAG)
-- Designed and deployed a Japanese medical RAG system integrating FAISS, E5 embeddings, history-aware retrieval chains, cross-encoder reranking, and uncertainty gating.
-- Built multilingual name normalization and fuzzy-matching pipelines.
-- Developed an interactive UI for retrieval tuning and evidence tracing.
-- Modularized retriever and LLM components with Dockerized deployment.
+- Developed a RAG-based prototype for querying unstructured HCP-related information using E5 embeddings, FAISS vector search, and cross-encoder reranking.
+- Implemented multilingual name normalization and fuzzy matching to support physician lookup across Japanese and Chinese naming conventions.
+- Built a Streamlit interface for retrieval evaluation and evidence tracing, with modularized retrieval and LLM components.
 
 <!-- #### Doctor Search & Medical RAG Assistant
 
@@ -88,17 +83,33 @@ Beijing, China | April 2024 – Present
 - Developed multilingual entity normalization workflows for Japanese, Chinese, and English physician names to improve retrieval robustness across heterogeneous data sources.
 - Created interactive interfaces for retrieval parameter tuning, evidence tracing, and multi-turn dialogue evaluation. -->
 
-#### Document Understanding & PDF Table Extraction Pipeline
+#### Medical Content Governance | GenAI / RAG Proof of Concept
 
-- Designed resilient pipeline for extracting hospital schedule tables from heterogeneous PDFs (digital, scanned, malformed).
-- Integrated Camelot, OCR-based detection, and LLM-based image reasoning with quality gating and fallback logic.
-- Implemented failure-aware handling for encoding errors, broken PDFs, OCR degradation, and oversized images to prevent pipeline interruption.
-- Developed reviewer-facing UI for batch validation and annotation.
+- Developed an LLM-assisted workflow to identify inconsistencies between localized Japanese medical FAQs and approved regulatory labels.
+- Built retrieval and comparison pipelines combining document chunking, semantic search, structured prompting, and GPT-based reasoning to support scalable compliance review.
+- Delivered a proof-of-concept solution with evidence-backed outputs to support human review of potentially non-compliant content.
 
-#### Feature Store Migration and Optimization
+#### Databricks Migration & Feature Store Integration
 
-- Participated in migration from legacy ML pipelines to Databricks-based feature management workflows.
-- Supported feature standardization and reusable feature architecture to improve maintainability and model development efficiency.
+<!-- - Participated in migration from legacy ML pipelines to Databricks-based feature management workflows.
+- Supported feature standardization and reusable feature architecture to improve maintainability and model development efficiency. -->
+- Contributed to a cross-team initiative to migrate existing Kedro-based ML pipelines to Databricks.
+- Developed a reusable utility for writing feature tables to Databricks Feature Store, supporting configurable primary keys and optional timestamp columns.
+
+#### Commercial ML System for Drug Launch & HCP Targeting 
+
+- Developed machine learning models to predict potential early adopters of newly launched pharmaceutical products using HCP profiles, HCO attributes, and historical sales of analogous drugs.
+- Engineered features incorporating internal HCP ratings and historical commercial data to support physician prioritization for drug launch planning.
+- Implemented modular Kedro-based data pipelines with validation and reproducibility controls.
+- Collaborated with commercial stakeholders to translate predictive outputs into actionable HCP targeting insights.
+
+#### HCP Drug Preference Segmentation | Unsupervised Learning
+- Applied unsupervised learning to segment HCPs into preferrer, non-preferrer, and undetermined groups using historical data.
+- Delivered segmentation insights that received positive feedback from business stakeholders and were presented to senior leadership.
+
+
+
+
 
 ### Zenni Optical
 
